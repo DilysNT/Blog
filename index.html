@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SmileNote — Blog Nha Khoa</title>
+  <meta name="description" content="Blog nha khoa: kiến thức về bọc răng sứ, porcelain crown, chăm sóc răng, chi phí và hậu phẫu.">
+  <meta property="og:title" content="SmileNote — Blog Nha Khoa">
+  <meta property="og:description" content="Tin tức & kiến thức nha khoa, bọc răng sứ, phục hình, chăm sóc sau phục hình.">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root{
+      --accent: #1A9FFD;
+      --accent-dark: #0A2A43;
+      --muted: #6b7280;
+      --card-border: #e8edf3;
+      --bg: #ffffff;
+      --radius: 14px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--accent-dark);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+    }
+
+    /* Container */
+    .wrap{max-width:1100px;margin:28px auto;padding:0 20px;}
+
+    /* Header */
+    header.site-header{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--card-border)}
+    .logo{font-weight:700;color:var(--accent);font-size:20px;text-decoration:none}
+    .nav{display:flex;gap:16px}
+    .nav a{color:var(--accent-dark);text-decoration:none;font-size:15px}
+    .nav a:hover{color:var(--accent)}
+
+    /* Hero */
+    .hero{padding:36px 0;text-align:center}
+    .hero h1{font-size:30px;margin:6px 0}
+    .hero p{color:var(--muted);margin:0;font-size:15px}
+
+    /* Grid */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:26px}
+    .card{background:#fff;border:1px solid var(--card-border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .18s ease,box-shadow .18s ease}
+    .card:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(8,20,40,0.06)}
+    .card img{width:100%;height:170px;object-fit:cover;display:block}
+    .card-body{padding:14px 16px;flex:1;display:flex;flex-direction:column}
+    .card h3{margin:0 0 8px;font-size:18px}
+    .excerpt{color:var(--muted);font-size:14px;margin-bottom:auto}
+    .meta{margin-top:12px;display:flex;justify-content:space-between;align-items:center}
+    .readmore{color:var(--accent);text-decoration:none;font-weight:600;font-size:14px}
+
+    /* Footer */
+    footer{padding:20px 0;color:var(--muted);text-align:center;border-top:1px solid var(--card-border);margin-top:36px;font-size:13px}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:640px){
+      header.site-header{flex-direction:column;align-items:flex-start;gap:12px}
+      .grid{grid-template-columns:1fr}
+      .hero h1{font-size:24px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header" role="banner">
+      <a class="logo" href="#">SmileNote</a>
+      <nav class="nav" role="navigation" aria-label="Main">
+        <a href="#">Blog</a>
+        <a href="#">Dịch vụ</a>
+        <a href="#">Liên hệ</a>
+      </nav>
+    </header>
+
+    <section class="hero" aria-labelledby="blog-title">
+      <h1 id="blog-title">Kiến thức nha khoa — Porcelain Crown</h1>
+      <p>Thông tin thực tế, dễ hiểu về bọc răng sứ, phục hình cố định và chăm sóc sau điều trị.</p>
+    </section>
+
+    <main>
+      <section class="grid" aria-label="Danh sách bài viết">
+        <!-- Post 1 -->
+        <article class="card" itemscope itemtype="http://schema.org/Article">
+          <img src="https://via.placeholder.com/900x600?text=Porcelain+Crown" alt="Porcelain crown là gì">
+          <div class="card-body">
+            <h3 itemprop="headline">Porcelain Crown là gì? Lợi ích & ưu điểm</h3>
+            <p class="excerpt" itemprop="description">Bọc răng sứ (porcelain crown) giúp phục hồi thẩm mỹ và chức năng nhai trong trường hợp răng bị vỡ, sâu nặng hoặc đổi màu không thể tẩy trắng.</p>
+            <div class="meta">
+              <time datetime="2025-12-01">Dec 1, 2025</time>
+              <a class="readmore" href="#">Read more →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 2 -->
+        <article class="card">
+          <img src="https://via.placeholder.com/900x600?text=Chi+phi" alt="Chi phí bọc răng sứ">
+          <div class="card-body">
+            <h3>Chi phí bọc răng sứ tại Việt Nam 2025</h3>
+            <p class="excerpt">Giá bọc răng sứ thay đổi theo vật liệu, nha khoa và trình độ bác sĩ. Hướng dẫn chọn lựa hợp lý và tránh chi phí ẩn.</p>
+            <div class="meta">
+              <time datetime="2025-11-20">Nov 20, 2025</time>
+              <a class="readmore" href="#">Read more →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 3 -->
+        <article class="card">
+          <img src="https://via.placeholder.com/900x600?text=Hau+phau" alt="Hậu phẫu bọc răng sứ">
+          <div class="card-body">
+            <h3>Bọc răng sứ có đau không? Thực tế bao lâu hết đau?</h3>
+            <p class="excerpt">Đa số bệnh nhân chỉ ê nhẹ 24–48 giờ đầu; các bước giảm đau và chăm sóc sau sẽ giúp bạn nhanh phục hồi.</p>
+            <div class="meta">
+              <time datetime="2025-10-10">Oct 10, 2025</time>
+              <a class="readmore" href="#">Read more →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- You can duplicate cards or generate server-side -->
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> SmileNote — Kiến thức nha khoa. Thiết kế tối giản.
+    </footer>
+  </div>
+
+  <script>
+    // small enhancement: year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
