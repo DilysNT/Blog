@@ -3,141 +3,412 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>SmileNote — Blog Nha Khoa</title>
-  <meta name="description" content="Blog nha khoa: kiến thức về bọc răng sứ, porcelain crown, chăm sóc răng, chi phí và hậu phẫu.">
-  <meta property="og:title" content="SmileNote — Blog Nha Khoa">
-  <meta property="og:description" content="Tin tức & kiến thức nha khoa, bọc răng sứ, phục hình, chăm sóc sau phục hình.">
-  <meta property="og:type" content="website">
+  <title>SmileNote — Blog Nha Khoa Hiện Đại</title>
+  <meta name="description" content="Blog nha khoa SmileNote: Kiến thức chăm sóc răng miệng, bọc răng sứ và thẩm mỹ nha khoa chuẩn y khoa.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --accent: #1A9FFD;
-      --accent-dark: #0A2A43;
-      --muted: #6b7280;
-      --card-border: #e8edf3;
-      --bg: #ffffff;
-      --radius: 14px;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    /* --- 1. VARIABLES & RESET (Dental Blog 2.0 Theme) --- */
+    :root {
+      /* Palette */
+      --primary: #2F80ED;       /* Dental Blue */
+      --secondary: #56CCF2;     /* Soft Teal */
+      --accent: #6FCF97;        /* Mint Green */
+      --bg-body: #F9FBFD;       /* Off-white */
+      --bg-card: #FFFFFF;
+      --text-main: #333333;     /* Dark Gray */
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+      
+      /* Style */
+      --radius: 16px;
+      --shadow: 0 10px 30px -5px rgba(47, 128, 237, 0.08);
+      --font-head: 'Poppins', sans-serif;
+      --font-body: 'Inter', sans-serif;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--accent-dark);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.6;
+
+    * { box-sizing: border-box; }
+    
+    body {
+      margin: 0;
+      background-color: var(--bg-body);
+      font-family: var(--font-body);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Container */
-    .wrap{max-width:1100px;margin:28px auto;padding:0 20px;}
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-head);
+      margin-top: 0;
+      color: #1e293b;
+    }
 
-    /* Header */
-    header.site-header{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--card-border)}
-    .logo{font-weight:700;color:var(--accent);font-size:20px;text-decoration:none}
-    .nav{display:flex;gap:16px}
-    .nav a{color:var(--accent-dark);text-decoration:none;font-size:15px}
-    .nav a:hover{color:var(--accent)}
+    a { text-decoration: none; transition: 0.2s; }
+    ul { list-style: none; padding: 0; margin: 0; }
 
-    /* Hero */
-    .hero{padding:36px 0;text-align:center}
-    .hero h1{font-size:30px;margin:6px 0}
-    .hero p{color:var(--muted);margin:0;font-size:15px}
+    /* --- 2. LAYOUT UTILS --- */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-    /* Grid */
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:26px}
-    .card{background:#fff;border:1px solid var(--card-border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .18s ease,box-shadow .18s ease}
-    .card:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(8,20,40,0.06)}
-    .card img{width:100%;height:170px;object-fit:cover;display:block}
-    .card-body{padding:14px 16px;flex:1;display:flex;flex-direction:column}
-    .card h3{margin:0 0 8px;font-size:18px}
-    .excerpt{color:var(--muted);font-size:14px;margin-bottom:auto}
-    .meta{margin-top:12px;display:flex;justify-content:space-between;align-items:center}
-    .readmore{color:var(--accent);text-decoration:none;font-weight:600;font-size:14px}
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .badge-blue { background: rgba(47, 128, 237, 0.1); color: var(--primary); }
+    .badge-mint { background: rgba(111, 207, 151, 0.1); color: #27AE60; }
+    .badge-teal { background: rgba(86, 204, 242, 0.1); color: #0097e6; }
+
+    /* --- 3. HEADER & NAV --- */
+    header.site-header {
+      background: var(--bg-card);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 16px 0;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    /* Giả lập icon răng */
+    .logo::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 24px;
+      background: var(--accent);
+      border-radius: 6px 6px 12px 12px;
+    }
+
+    .nav-links { display: flex; gap: 32px; font-weight: 500; }
+    .nav-links a { color: var(--text-main); font-size: 15px; }
+    .nav-links a:hover { color: var(--primary); }
+
+    .search-box {
+      background: var(--bg-body);
+      padding: 8px 16px;
+      border-radius: 50px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      width: 250px;
+    }
+    .search-box input {
+      border: none;
+      background: transparent;
+      outline: none;
+      width: 100%;
+      font-family: var(--font-body);
+      font-size: 14px;
+    }
+
+    /* --- 4. HERO SECTION (Minimal) --- */
+    .hero {
+      text-align: center;
+      padding: 80px 0 60px;
+      background: radial-gradient(circle at top right, rgba(86, 204, 242, 0.15), transparent 40%);
+    }
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      color: var(--text-muted);
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* --- 5. MAIN CONTENT (Grid + Sidebar) --- */
+    .content-area {
+      display: grid;
+      grid-template-columns: 2.5fr 1fr; /* 70% Content - 30% Sidebar */
+      gap: 40px;
+      padding-bottom: 80px;
+    }
+
+    /* Article Cards */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid rgba(226, 232, 240, 0.6);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+      border-color: var(--secondary);
+    }
+    .card-thumb {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .card-meta-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .date { font-size: 13px; color: var(--text-muted); }
+    
+    .card h3 {
+      font-size: 20px;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .card h3 a { color: var(--text-main); }
+    .card h3 a:hover { color: var(--primary); }
+
+    .excerpt {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    
+    .card-footer {
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid #f1f5f9;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .author-avatar {
+      width: 32px; height: 32px; border-radius: 50%; background: #eee;
+    }
+    .author-name { font-size: 13px; font-weight: 600; color: #1e293b; }
+
+    /* Sidebar Styles */
+    .sidebar-widget {
+      background: var(--bg-card);
+      padding: 24px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      margin-bottom: 30px;
+    }
+    .widget-title {
+      font-size: 18px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #f1f5f9;
+      position: relative;
+    }
+    .widget-title::after {
+      content: ''; position: absolute; bottom: -2px; left: 0; width: 40px; height: 2px; background: var(--primary);
+    }
+    
+    .cat-list li { margin-bottom: 12px; }
+    .cat-list a {
+      display: flex; justify-content: space-between;
+      color: var(--text-main); font-weight: 500; font-size: 15px;
+    }
+    .cat-list a span { background: #f1f5f9; padding: 2px 8px; border-radius: 12px; font-size: 12px; color: var(--text-muted); }
+    .cat-list a:hover { color: var(--primary); }
+    .cat-list a:hover span { background: var(--primary); color: white; }
 
     /* Footer */
-    footer{padding:20px 0;color:var(--muted);text-align:center;border-top:1px solid var(--card-border);margin-top:36px;font-size:13px}
-
-    /* Responsive */
-    @media (max-width:980px){
-      .grid{grid-template-columns:repeat(2,1fr)}
+    footer {
+      background: white;
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-muted);
     }
-    @media (max-width:640px){
-      header.site-header{flex-direction:column;align-items:flex-start;gap:12px}
-      .grid{grid-template-columns:1fr}
-      .hero h1{font-size:24px}
+    .disclaimer {
+      max-width: 800px;
+      margin: 10px auto 0;
+      font-size: 12px;
+      opacity: 0.7;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 900px) {
+      .content-area { grid-template-columns: 1fr; }
+      .search-box { display: none; } /* Ẩn tìm kiếm trên mobile cho gọn */
+    }
+    @media (max-width: 600px) {
+      .cards-grid { grid-template-columns: 1fr; }
+      .header-inner { flex-direction: column; gap: 16px; }
+      .nav-links { gap: 20px; }
+      .hero h1 { font-size: 32px; }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header class="site-header" role="banner">
-      <a class="logo" href="#">SmileNote</a>
-      <nav class="nav" role="navigation" aria-label="Main">
-        <a href="#">Blog</a>
-        <a href="#">Dịch vụ</a>
-        <a href="#">Liên hệ</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo">SmileNote</a>
+      
+      <nav class="nav-links">
+        <a href="#">Trang chủ</a>
+        <a href="#">Thẩm mỹ</a>
+        <a href="#">Bệnh lý</a>
+        <a href="#">Review</a>
       </nav>
-    </header>
 
-    <section class="hero" aria-labelledby="blog-title">
-      <h1 id="blog-title">Kiến thức nha khoa — Porcelain Crown</h1>
-      <p>Thông tin thực tế, dễ hiểu về bọc răng sứ, phục hình cố định và chăm sóc sau điều trị.</p>
-    </section>
+      <div class="search-box">
+        <input type="text" placeholder="Tìm kiếm bệnh lý...">
+        <svg width="18" height="18" fill="none" stroke="#999" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+      </div>
+    </div>
+  </header>
 
+  <section class="hero">
+    <div class="container">
+      <h1>Your Smile. Your Health. Your Story.</h1>
+      <p>Kiến thức nha khoa chuẩn y khoa, cập nhật công nghệ mới nhất về bọc răng sứ và phục hình thẩm mỹ.</p>
+    </div>
+  </section>
+
+  <div class="container content-area">
+    
     <main>
-      <section class="grid" aria-label="Danh sách bài viết">
-        <!-- Post 1 -->
-        <article class="card" itemscope itemtype="http://schema.org/Article">
-          <img src="https://via.placeholder.com/900x600?text=Porcelain+Crown" alt="Porcelain crown là gì">
-          <div class="card-body">
-            <h3 itemprop="headline">Porcelain Crown là gì? Lợi ích & ưu điểm</h3>
-            <p class="excerpt" itemprop="description">Bọc răng sứ (porcelain crown) giúp phục hồi thẩm mỹ và chức năng nhai trong trường hợp răng bị vỡ, sâu nặng hoặc đổi màu không thể tẩy trắng.</p>
-            <div class="meta">
-              <time datetime="2025-12-01">Dec 1, 2025</time>
-              <a class="readmore" href="#">Read more →</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Post 2 -->
+      <div class="cards-grid">
+        
         <article class="card">
-          <img src="https://via.placeholder.com/900x600?text=Chi+phi" alt="Chi phí bọc răng sứ">
+          <img src="https://via.placeholder.com/600x400?text=Porcelain+Crown" class="card-thumb" alt="Răng sứ">
           <div class="card-body">
-            <h3>Chi phí bọc răng sứ tại Việt Nam 2025</h3>
-            <p class="excerpt">Giá bọc răng sứ thay đổi theo vật liệu, nha khoa và trình độ bác sĩ. Hướng dẫn chọn lựa hợp lý và tránh chi phí ẩn.</p>
-            <div class="meta">
-              <time datetime="2025-11-20">Nov 20, 2025</time>
-              <a class="readmore" href="#">Read more →</a>
+            <div class="card-meta-top">
+              <span class="badge badge-blue">Phục hình</span>
+              <span class="date">01 Dec, 2025</span>
+            </div>
+            <h3><a href="#">Porcelain Crown là gì? Lợi ích & Ưu điểm vượt trội</a></h3>
+            <p class="excerpt">Bọc răng sứ giúp phục hồi thẩm mỹ và chức năng nhai trong trường hợp răng bị vỡ lớn hoặc đổi màu...</p>
+            <div class="card-footer">
+              <div class="author-avatar" style="background: #2F80ED"></div>
+              <span class="author-name">Dr. Minh Tuan</span>
             </div>
           </div>
         </article>
 
-        <!-- Post 3 -->
         <article class="card">
-          <img src="https://via.placeholder.com/900x600?text=Hau+phau" alt="Hậu phẫu bọc răng sứ">
+          <img src="https://via.placeholder.com/600x400?text=Chi+Phi" class="card-thumb" alt="Chi phí">
           <div class="card-body">
-            <h3>Bọc răng sứ có đau không? Thực tế bao lâu hết đau?</h3>
-            <p class="excerpt">Đa số bệnh nhân chỉ ê nhẹ 24–48 giờ đầu; các bước giảm đau và chăm sóc sau sẽ giúp bạn nhanh phục hồi.</p>
-            <div class="meta">
-              <time datetime="2025-10-10">Oct 10, 2025</time>
-              <a class="readmore" href="#">Read more →</a>
+            <div class="card-meta-top">
+              <span class="badge badge-mint">Bảng giá</span>
+              <span class="date">20 Nov, 2025</span>
+            </div>
+            <h3><a href="#">Chi phí bọc răng sứ tại Việt Nam 2025: Cần biết gì?</a></h3>
+            <p class="excerpt">Giá bọc răng sứ thay đổi theo vật liệu, nha khoa và trình độ bác sĩ. Hướng dẫn chọn lựa hợp lý...</p>
+            <div class="card-footer">
+              <div class="author-avatar" style="background: #6FCF97"></div>
+              <span class="author-name">Dr. Lan Anh</span>
             </div>
           </div>
         </article>
 
-        <!-- You can duplicate cards or generate server-side -->
-      </section>
+        <article class="card">
+          <img src="https://via.placeholder.com/600x400?text=Hau+Phau" class="card-thumb" alt="Hậu phẫu">
+          <div class="card-body">
+            <div class="card-meta-top">
+              <span class="badge badge-teal">Chăm sóc</span>
+              <span class="date">10 Oct, 2025</span>
+            </div>
+            <h3><a href="#">Bọc răng sứ có đau không? Thực tế 48h đầu tiên</a></h3>
+            <p class="excerpt">Đa số bệnh nhân chỉ ê nhẹ 24–48 giờ đầu. Các bước giảm đau và chăm sóc sau sẽ giúp bạn nhanh phục hồi.</p>
+            <div class="card-footer">
+              <div class="author-avatar" style="background: #56CCF2"></div>
+              <span class="author-name">SmileNote Team</span>
+            </div>
+          </div>
+        </article>
+
+         <article class="card">
+          <img src="https://via.placeholder.com/600x400?text=Implant" class="card-thumb" alt="Implant">
+          <div class="card-body">
+            <div class="card-meta-top">
+              <span class="badge badge-blue">Cấy ghép</span>
+              <span class="date">05 Oct, 2025</span>
+            </div>
+            <h3><a href="#">Trồng răng Implant: Giải pháp cho người mất răng lâu năm</a></h3>
+            <p class="excerpt">Công nghệ Implant tức thì giúp rút ngắn thời gian điều trị và hạn chế tiêu xương hàm hiệu quả.</p>
+            <div class="card-footer">
+              <div class="author-avatar" style="background: #2F80ED"></div>
+              <span class="author-name">Dr. Steven Nguyen</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
     </main>
 
-    <footer>
-      © <span id="year"></span> SmileNote — Kiến thức nha khoa. Thiết kế tối giản.
-    </footer>
+    <aside>
+      <div class="sidebar-widget">
+        <h4 class="widget-title">Chuyên mục</h4>
+        <ul class="cat-list">
+          <li><a href="#">Oral Health <span>12</span></a></li>
+          <li><a href="#">Cosmetic Dentistry <span>08</span></a></li>
+          <li><a href="#">Dental Procedures <span>05</span></a></li>
+          <li><a href="#">Dental Tourism <span>03</span></a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-widget" style="background: linear-gradient(135deg, #2F80ED 0%, #56CCF2 100%); color: white;">
+        <h4 class="widget-title" style="border-color: rgba(255,255,255,0.3); color: white;">Về SmileNote</h4>
+        <p style="font-size: 14px; opacity: 0.9;">
+          Blog chuyên sâu về nha khoa thẩm mỹ, được cố vấn bởi các bác sĩ chuyên khoa. Chúng tôi mang đến thông tin trung thực, khách quan nhất.
+        </p>
+      </div>
+    </aside>
+
   </div>
 
-  <script>
-    // small enhancement: year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <footer>
+    <div class="container">
+      <div style="font-weight: 700; color: var(--primary); font-size: 20px; margin-bottom: 8px;">SmileNote</div>
+      <p>© 2025 SmileNote — Designed for Dental Health.</p>
+      <div class="disclaimer">
+        *Thông tin trên blog chỉ mang tính chất tham khảo, không thay thế cho việc chẩn đoán hoặc điều trị y khoa. Vui lòng tham khảo ý kiến bác sĩ nha khoa.
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
