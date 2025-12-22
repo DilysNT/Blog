@@ -4,9 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Home — SmileNote Dental Blog</title>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  
   <style>
     /* --- 1. VARIABLES & RESET --- */
     :root { 
@@ -30,7 +32,7 @@
     ul { list-style: none; padding: 0; margin: 0; }
     .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
     
-    /* --- 2. HEADER & NAV (UPDATED DROPDOWN) --- */
+    /* --- 2. HEADER & NAV (DROPDOWN) --- */
     header.site-header { background: var(--bg-card); box-shadow: 0 2px 15px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 1000; padding: 16px 0; }
     .header-inner { display: flex; justify-content: space-between; align-items: center; }
     .logo { font-family: var(--font-head); font-weight: 700; font-size: 24px; color: var(--primary); display: flex; align-items: center; gap: 8px; }
@@ -39,13 +41,11 @@
     .nav-links a { color: var(--text-main); font-size: 15px; }
     .nav-links a:hover, .nav-links a.active { color: var(--primary); }
 
-    /* CSS Cho Dropdown Menu */
+    /* --- DROPDOWN CSS --- */
     .dropdown { position: relative; display: inline-block; }
-    
-    /* Nút kích hoạt dropdown */
     .dropbtn { cursor: pointer; display: flex; align-items: center; gap: 4px; }
     
-    /* Nội dung menu xổ xuống */
+    /* Menu con */
     .dropdown-content {
       display: none;
       position: absolute;
@@ -55,51 +55,24 @@
       border-radius: 12px;
       padding: 8px 0;
       z-index: 1001;
-      top: 100%;
-      left: 0;
+      top: 100%; left: 0;
       border: 1px solid var(--border);
-      margin-top: 10px; /* Tạo khoảng cách nhỏ */
+      margin-top: 10px;
     }
-
-    /* Tam giác nhỏ chỉ lên trên menu (Style thêm cho đẹp) */
+    /* Mũi tên tam giác trên menu */
     .dropdown-content::before {
-      content: "";
-      position: absolute;
-      top: -6px;
-      left: 20px;
-      width: 12px; height: 12px;
-      background: white;
-      transform: rotate(45deg);
-      border-top: 1px solid var(--border);
-      border-left: 1px solid var(--border);
+      content: ""; position: absolute; top: -6px; left: 20px; width: 12px; height: 12px;
+      background: white; transform: rotate(45deg);
+      border-top: 1px solid var(--border); border-left: 1px solid var(--border);
     }
-
-    /* Link bên trong dropdown */
-    .dropdown-content a {
-      color: var(--text-main);
-      padding: 12px 20px;
-      text-decoration: none;
-      display: block;
-      font-size: 14px;
-      transition: all 0.2s;
-    }
-
-    /* Hover vào link con */
-    .dropdown-content a:hover {
-      background-color: #F1F5F9;
-      color: var(--primary);
-      padding-left: 24px; /* Hiệu ứng đẩy chữ sang phải nhẹ */
-    }
-
-    /* Hiển thị menu khi hover vào cha */
+    /* Link trong menu con */
+    .dropdown-content a { color: var(--text-main); padding: 12px 20px; display: block; font-size: 14px; text-decoration: none; }
+    .dropdown-content a:hover { background-color: #F1F5F9; color: var(--primary); padding-left: 24px; }
+    /* Hiệu ứng hiện menu */
     .dropdown:hover .dropdown-content { display: block; animation: fadeIn 0.3s ease; }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     
-    /* --- 3. OTHER STYLES (KEEP ORIGINAL) --- */
+    /* --- 3. LAYOUT & CARDS --- */
     .hero { text-align: center; padding: 80px 0 60px; background: radial-gradient(circle at top right, rgba(86, 204, 242, 0.15), transparent 40%); }
     .hero h1 { font-size: 42px; margin-bottom: 16px; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .hero p { color: var(--text-muted); font-size: 18px; max-width: 600px; margin: 0 auto; }
@@ -148,7 +121,6 @@
         </div>
 
         <a href="about.html">About</a>
-        
         <a href="contact.html">Contact</a>
       </nav>
     </div>
@@ -164,6 +136,7 @@
   <div class="container content-area">
     <main>
       <div class="cards-grid">
+        
         <article class="card">
           <img src="https://via.placeholder.com/600x400?text=Porcelain+Crown" class="card-thumb" alt="Crown">
           <div class="card-body">
@@ -172,6 +145,7 @@
             <p class="excerpt">Porcelain crowns help restore aesthetics and chewing function for broken or discolored teeth...</p>
           </div>
         </article>
+
         <article class="card">
           <img src="https://via.placeholder.com/600x400?text=Dental+Cost" class="card-thumb" alt="Cost">
           <div class="card-body">
@@ -180,6 +154,7 @@
             <p class="excerpt">Prices vary by material and dentist skill. How to choose wisely and avoid hidden costs.</p>
           </div>
         </article>
+
         <article class="card">
           <img src="https://via.placeholder.com/600x400?text=Pain+Free" class="card-thumb" alt="Pain">
           <div class="card-body">
@@ -188,6 +163,7 @@
             <p class="excerpt">Most patients only feel mild sensitivity. Follow these steps for a quick recovery.</p>
           </div>
         </article>
+
         <article class="card">
           <img src="https://via.placeholder.com/600x400?text=Implants" class="card-thumb" alt="Implant">
           <div class="card-body">
@@ -198,6 +174,7 @@
         </article>
       </div>
     </main>
+    
     <aside>
       <div class="sidebar-widget">
         <h4 class="widget-title">Categories</h4>
