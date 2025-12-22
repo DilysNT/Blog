@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>What is a Porcelain Crown? — SmileNote</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* --- 1. VARIABLES & RESET --- */
+    :root { 
+      --primary: #2F80ED; --secondary: #56CCF2; --accent: #6FCF97; 
+      --bg-body: #F9FBFD; --bg-card: #FFFFFF; 
+      --text-main: #333333; --text-muted: #64748B; 
+      --border: #E2E8F0; --radius: 16px; 
+      --shadow: 0 10px 30px -5px rgba(47, 128, 237, 0.08); 
+      --font-head: 'Poppins', sans-serif; --font-body: 'Inter', sans-serif; 
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background-color: var(--bg-body); font-family: var(--font-body); color: var(--text-main); line-height: 1.6; }
+    h1, h2, h3, h4 { font-family: var(--font-head); color: #1e293b; margin-top: 0; }
+    a { text-decoration: none; transition: 0.2s; }
+    ul { list-style: none; padding: 0; margin: 0; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+    /* --- 2. HEADER & NAV --- */
+    header.site-header { background: var(--bg-card); box-shadow: 0 2px 15px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 1000; padding: 16px 0; }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: var(--font-head); font-weight: 700; font-size: 24px; color: var(--primary); display: flex; align-items: center; gap: 8px; }
+    .nav-links { display: flex; gap: 32px; font-weight: 500; align-items: center; }
+    .nav-links a { color: var(--text-main); font-size: 15px; }
+    .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+
+    /* Dropdown CSS */
+    .dropdown { position: relative; display: inline-block; }
+    .dropbtn { cursor: pointer; display: flex; align-items: center; gap: 4px; }
+    .dropdown-content {
+      display: none; position: absolute; background-color: var(--bg-card);
+      min-width: 220px; box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      border-radius: 12px; padding: 8px 0; z-index: 1001; top: 100%; left: 0;
+      border: 1px solid var(--border); margin-top: 10px;
+    }
+    .dropdown-content::before {
+      content: ""; position: absolute; top: -6px; left: 20px; width: 12px; height: 12px;
+      background: white; transform: rotate(45deg);
+      border-top: 1px solid var(--border); border-left: 1px solid var(--border);
+    }
+    .dropdown-content a { color: var(--text-main); padding: 12px 20px; display: block; font-size: 14px; }
+    .dropdown-content a:hover { background-color: #F1F5F9; color: var(--primary); padding-left: 24px; }
+    .dropdown:hover .dropdown-content { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* --- 3. BREADCRUMB (THANH ĐIỀU HƯỚNG) --- */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); transition: 0.2s; }
+    .breadcrumb a:hover { color: var(--primary); text-decoration: underline; }
+    .breadcrumb span { color: var(--text-main); font-weight: 500; }
+    .breadcrumb .separator { font-size: 12px; opacity: 0.5; }
+
+    /* --- 4. BLOG CONTENT STYLES --- */
+    .content-area { display: grid; grid-template-columns: 2.5fr 1fr; gap: 40px; padding: 40px 0 80px; }
+    
+    .article-header { margin-bottom: 30px; }
+    .article-meta { display: flex; gap: 20px; font-size: 14px; color: var(--text-muted); margin-bottom: 16px; align-items: center; }
+    .author-badge { display: flex; align-items: center; gap: 8px; font-weight: 600; color: var(--text-main); }
+    .author-img { width: 30px; height: 30px; border-radius: 50%; background: #eee; }
+    
+    .featured-image { width: 100%; height: 450px; object-fit: cover; border-radius: var(--radius); margin-bottom: 40px; box-shadow: var(--shadow); }
+
+    .article-content { font-size: 18px; line-height: 1.8; color: #374151; }
+    .article-content h2 { font-size: 26px; margin-top: 40px; margin-bottom: 20px; color: #111827; }
+    .article-content p { margin-bottom: 24px; }
+    .article-content ul { list-style: disc; padding-left: 20px; margin-bottom: 24px; }
+    
+    .info-box { background: rgba(47, 128, 237, 0.08); padding: 24px; border-radius: 12px; border-left: 4px solid var(--primary); margin: 30px 0; }
+    .warning-box { background: #FEF2F2; padding: 24px; border-radius: 12px; border-left: 4px solid #EF4444; margin: 30px 0; color: #991B1B; }
+
+    .toc { background: #F8FAFC; padding: 24px; border-radius: var(--radius); border: 1px solid var(--border); margin-bottom: 40px; display: inline-block; min-width: 60%; }
+    .toc-title { font-weight: 700; margin-bottom: 12px; font-family: var(--font-head); }
+    .toc ul { list-style: none; padding: 0; margin: 0; }
+    .toc li { margin-bottom: 8px; font-size: 15px; }
+    .toc a { color: var(--primary); text-decoration: underline; text-underline-offset: 3px; }
+
+    .sidebar-widget { background: var(--bg-card); padding: 24px; border-radius: var(--radius); border: 1px solid var(--border); margin-bottom: 30px; }
+    .widget-title { font-size: 18px; margin-bottom: 20px; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px; }
+    .related-post { display: flex; gap: 12px; margin-bottom: 16px; align-items: center; }
+    .related-post img { width: 60px; height: 60px; border-radius: 8px; object-fit: cover; }
+    .related-post h4 { font-size: 14px; margin: 0; line-height: 1.4; }
+    .related-post h4 a { color: var(--text-main); }
+    .related-post h4 a:hover { color: var(--primary); }
+
+    footer { background: white; border-top: 1px solid var(--border); padding: 40px 0; text-align: center; color: var(--text-muted); font-size: 14px; }
+
+    @media (max-width: 900px) { .content-area { grid-template-columns: 1fr; } .featured-image { height: 250px; } }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">SmileNote</a>
+      
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+          <a href="#" class="dropbtn">Details ▾</a>
+          <div class="dropdown-content">
+            <a href="#">Our dentists</a>
+            <a href="#">Implant</a>
+            <a href="#">Braces</a>
+            <a href="#">Porcelain teeth</a>
+            <a href="#">General dentistry</a>
+          </div>
+        </div>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container content-area">
+    
+    <article>
+      <nav class="breadcrumb">
+        <a href="#">Details</a>
+        <span class="separator">›</span>
+        <a href="categories.html">Cosmetic Dentistry</a> <span class="separator">›</span>
+        <span>What is a Porcelain Crown?</span> </nav>
+
+      <header class="article-header">
+        <h1 style="font-size: 38px; line-height: 1.2; margin-bottom: 12px;">What is a Porcelain Crown? Benefits & Advantages Vượt Trội</h1>
+        
+        <div class="article-meta">
+          <div class="author-badge">
+            <div class="author-img" style="background-color: var(--primary)"></div>
+            <span>Dr. Minh Tuan</span>
+          </div>
+          <span>•</span>
+          <time>Dec 01, 2025</time>
+          <span>•</span>
+          <span>4 min read</span>
+        </div>
+      </header>
+
+      <img src="https://via.placeholder.com/900x500?text=Porcelain+Crown+Cover" class="featured-image" alt="Porcelain Crown">
+
+      <div class="toc">
+        <div class="toc-title">Table of Contents</div>
+        <ul>
+          <li><a href="#section1">1. What is a Porcelain Crown?</a></li>
+          <li><a href="#section2">2. When do you need a Dental Crown?</a></li>
+          <li><a href="#section3">3. How long do they last?</a></li>
+          <li><a href="#section4">4. Cost in Vietnam</a></li>
+        </ul>
+      </div>
+
+      <div class="article-content">
+        <p><strong>Porcelain crowns</strong> (also known as dental caps) are custom-made covers placed on top of damaged teeth...</p>
+
+        <h2 id="section1">1. When do you need a Dental Crown?</h2>
+        <p>A dental crown may be needed in the following situations:</p>
+        <ul>
+          <li>To protect a weak tooth from breaking or to hold together parts of a cracked tooth.</li>
+          <li>To restore an already broken tooth or a tooth that has been severely worn down.</li>
+        </ul>
+
+        <div class="info-box">
+          <strong>👨‍⚕️ Doctor's Note:</strong>
+          Porcelain crowns are distinct from veneers. While veneers only cover the front surface of the tooth, crowns cover the entire visible part.
+        </div>
+
+        <h2 id="section2">2. Advantages of Porcelain Crowns</h2>
+        <p>Porcelain or ceramic crowns provide the best natural color match than any other crown type and may be more suitable for people with metal allergies.</p>
+
+        <div class="warning-box">
+          <strong>⚠️ Caution:</strong>
+          Although crowns are strong, you should avoid chewing on ice or hard candy.
+        </div>
+
+        <h2 id="section3">3. Cost in Vietnam</h2>
+        <p>If you are considering this treatment in Vietnam, the cost is significantly lower than in Western countries.</p>
+      </div>
+    </article>
+
+    <aside>
+      <div class="sidebar-widget">
+        <h4 class="widget-title">Popular Articles</h4>
+        <div class="related-post">
+          <img src="https://via.placeholder.com/100?text=Implant" alt="Implant">
+          <h4><a href="#">Dental Implants: The complete guide 2025</a></h4>
+        </div>
+        <div class="related-post">
+          <img src="https://via.placeholder.com/100?text=Veneer" alt="Veneer">
+          <h4><a href="#">Veneers vs Crowns: Which one is for you?</a></h4>
+        </div>
+      </div>
+
+      <div class="sidebar-widget">
+        <h4 class="widget-title">Categories</h4>
+        <ul class="cat-list" style="list-style: none; padding: 0;">
+          <li style="margin-bottom:10px;"><a href="#" style="color:#333; display:flex; justify-content:space-between;">Oral Health <span style="color:#888; background:#eee; padding:2px 8px; border-radius:10px; font-size:12px;">12</span></a></li>
+          <li style="margin-bottom:10px;"><a href="#" style="color:#333; display:flex; justify-content:space-between;">Cosmetic Dentistry <span style="color:#888; background:#eee; padding:2px 8px; border-radius:10px; font-size:12px;">08</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 SmileNote — Designed for Dental Health.</p>
+    </div>
+  </footer>
+</body>
+</html>
