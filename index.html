@@ -4,27 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Home — SmileNote Dental Blog</title>
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-  
   <style>
     /* --- 1. VARIABLES & RESET --- */
-    :root { 
-      --primary: #2F80ED; 
-      --secondary: #56CCF2; 
-      --accent: #6FCF97; 
-      --bg-body: #F9FBFD; 
-      --bg-card: #FFFFFF; 
-      --text-main: #333333; 
-      --text-muted: #64748B; 
-      --border: #E2E8F0; 
-      --radius: 16px; 
-      --shadow: 0 10px 30px -5px rgba(47, 128, 237, 0.08); 
-      --font-head: 'Poppins', sans-serif; 
-      --font-body: 'Inter', sans-serif; 
-    }
+    :root { --primary: #2F80ED; --secondary: #56CCF2; --accent: #6FCF97; --bg-body: #F9FBFD; --bg-card: #FFFFFF; --text-main: #333333; --text-muted: #64748B; --border: #E2E8F0; --radius: 16px; --shadow: 0 10px 30px -5px rgba(47, 128, 237, 0.08); --font-head: 'Poppins', sans-serif; --font-body: 'Inter', sans-serif; }
     * { box-sizing: border-box; }
     body { margin: 0; background-color: var(--bg-body); font-family: var(--font-body); color: var(--text-main); line-height: 1.6; }
     h1, h2, h3, h4 { font-family: var(--font-head); color: #1e293b; margin-top: 0; }
@@ -32,20 +17,18 @@
     ul { list-style: none; padding: 0; margin: 0; }
     .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
     
-    /* --- 2. HEADER & NAV (DROPDOWN) --- */
+    /* --- 2. HEADER & NAV --- */
     header.site-header { background: var(--bg-card); box-shadow: 0 2px 15px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 1000; padding: 16px 0; }
     .header-inner { display: flex; justify-content: space-between; align-items: center; }
     .logo { font-family: var(--font-head); font-weight: 700; font-size: 24px; color: var(--primary); display: flex; align-items: center; gap: 8px; }
-    
     .nav-links { display: flex; gap: 32px; font-weight: 500; align-items: center; }
     .nav-links a { color: var(--text-main); font-size: 15px; }
     .nav-links a:hover, .nav-links a.active { color: var(--primary); }
 
-    /* --- DROPDOWN CSS --- */
-    .dropdown { position: relative; display: inline-block; }
+    /* DROPDOWN MENU FIX (Sửa lỗi không click được) */
+    .dropdown { position: relative; display: inline-block; padding-bottom: 10px; margin-bottom: -10px; /* Tăng vùng nhận diện chuột */ }
     .dropbtn { cursor: pointer; display: flex; align-items: center; gap: 4px; }
     
-    /* Menu con */
     .dropdown-content {
       display: none;
       position: absolute;
@@ -55,24 +38,28 @@
       border-radius: 12px;
       padding: 8px 0;
       z-index: 1001;
-      top: 100%; left: 0;
+      top: 100%; 
+      left: 0;
       border: 1px solid var(--border);
-      margin-top: 10px;
+      margin-top: 0; /* Xóa khoảng cách margin gây lỗi */
     }
-    /* Mũi tên tam giác trên menu */
+    /* Tạo cầu nối vô hình để chuột không bị trượt ra ngoài */
     .dropdown-content::before {
-      content: ""; position: absolute; top: -6px; left: 20px; width: 12px; height: 12px;
-      background: white; transform: rotate(45deg);
-      border-top: 1px solid var(--border); border-left: 1px solid var(--border);
+      content: "";
+      position: absolute;
+      top: -15px;
+      left: 0;
+      width: 100%;
+      height: 15px;
+      background: transparent;
     }
-    /* Link trong menu con */
+    
     .dropdown-content a { color: var(--text-main); padding: 12px 20px; display: block; font-size: 14px; text-decoration: none; }
     .dropdown-content a:hover { background-color: #F1F5F9; color: var(--primary); padding-left: 24px; }
-    /* Hiệu ứng hiện menu */
     .dropdown:hover .dropdown-content { display: block; animation: fadeIn 0.3s ease; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     
-    /* --- 3. LAYOUT & CARDS --- */
+    /* --- 3. LAYOUT --- */
     .hero { text-align: center; padding: 80px 0 60px; background: radial-gradient(circle at top right, rgba(86, 204, 242, 0.15), transparent 40%); }
     .hero h1 { font-size: 42px; margin-bottom: 16px; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .hero p { color: var(--text-muted); font-size: 18px; max-width: 600px; margin: 0 auto; }
@@ -89,15 +76,12 @@
     .badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; }
     .badge-blue { background: rgba(47, 128, 237, 0.1); color: var(--primary); }
     .card-meta-top { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 13px; color: var(--text-muted); }
-    
     .sidebar-widget { background: var(--bg-card); padding: 24px; border-radius: var(--radius); border: 1px solid var(--border); margin-bottom: 30px; }
     .widget-title { font-size: 18px; margin-bottom: 20px; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px; }
     .cat-list li { margin-bottom: 12px; }
     .cat-list a { display: flex; justify-content: space-between; color: var(--text-main); }
     footer { background: white; border-top: 1px solid var(--border); padding: 40px 0; text-align: center; color: var(--text-muted); font-size: 14px; }
-
     @media (max-width: 900px) { .content-area { grid-template-columns: 1fr; } }
-    @media (max-width: 600px) { .cards-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -105,21 +89,18 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">SmileNote</a>
-      
       <nav class="nav-links">
         <a href="index.html" class="active">Home</a>
-        
         <div class="dropdown">
           <a href="#" class="dropbtn">Details ▾</a>
           <div class="dropdown-content">
-            <a href="#">Our dentists</a>
-            <a href="#">Implant</a>
-            <a href="#">Braces</a>
-            <a href="#">Porcelain teeth</a>
-            <a href="#">General dentistry</a>
+            <a href="list.html?type=dentist">Our dentists</a>
+            <a href="list.html?type=implant">Implant</a>
+            <a href="list.html?type=braces">Braces</a>
+            <a href="list.html?type=porcelain">Porcelain teeth</a>
+            <a href="list.html?type=general">General dentistry</a>
           </div>
         </div>
-
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -136,7 +117,6 @@
   <div class="container content-area">
     <main>
       <div class="cards-grid">
-        
         <article class="card">
           <img src="https://via.placeholder.com/600x400?text=Porcelain+Crown" class="card-thumb" alt="Crown">
           <div class="card-body">
@@ -145,7 +125,7 @@
             <p class="excerpt">Porcelain crowns help restore aesthetics and chewing function for broken or discolored teeth...</p>
           </div>
         </article>
-
+        
         <article class="card">
           <img src="https://via.placeholder.com/600x400?text=Dental+Cost" class="card-thumb" alt="Cost">
           <div class="card-body">
@@ -179,10 +159,10 @@
       <div class="sidebar-widget">
         <h4 class="widget-title">Categories</h4>
         <ul class="cat-list">
-          <li><a href="categories.html">Oral Health <span>12</span></a></li>
-          <li><a href="categories.html">Cosmetic Dentistry <span>08</span></a></li>
-          <li><a href="categories.html">Procedures <span>05</span></a></li>
-          <li><a href="categories.html">Dental Tourism <span>03</span></a></li>
+          <li><a href="#">Oral Health <span>12</span></a></li>
+          <li><a href="#">Cosmetic Dentistry <span>08</span></a></li>
+          <li><a href="#">Procedures <span>05</span></a></li>
+          <li><a href="#">Dental Tourism <span>03</span></a></li>
         </ul>
       </div>
     </aside>
