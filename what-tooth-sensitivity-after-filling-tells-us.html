@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Diagnosing Your Symptoms: What Tooth Sensitivity After Filling Tells Us</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* --- CSS GIỮ NGUYÊN TỪ CÁC TRANG TRƯỚC --- */
+    :root { --primary: #2F80ED; --secondary: #56CCF2; --accent: #6FCF97; --bg-body: #F9FBFD; --bg-card: #FFFFFF; --text-main: #333333; --text-muted: #64748B; --border: #E2E8F0; --radius: 16px; --shadow: 0 10px 30px -5px rgba(47, 128, 237, 0.08); --font-head: 'Poppins', sans-serif; --font-body: 'Inter', sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background-color: var(--bg-body); font-family: var(--font-body); color: var(--text-main); line-height: 1.6; }
+    h1, h2, h3, h4 { font-family: var(--font-head); color: #1e293b; margin-top: 0; }
+    a { text-decoration: none; transition: 0.2s; }
+    ul { list-style: none; padding: 0; margin: 0; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header & Nav */
+    header.site-header { background: var(--bg-card); box-shadow: 0 2px 15px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 1000; padding: 16px 0; }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: var(--font-head); font-weight: 700; font-size: 24px; color: var(--primary); display: flex; align-items: center; gap: 8px; }
+    .nav-links { display: flex; gap: 32px; font-weight: 500; align-items: center; }
+    .nav-links a { color: var(--text-main); font-size: 15px; }
+    .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+
+    /* Dropdown CSS */
+    .dropdown { position: relative; display: inline-block; padding-bottom: 10px; margin-bottom: -10px; }
+    .dropbtn { cursor: pointer; display: flex; align-items: center; gap: 4px; }
+    .dropdown-content { display: none; position: absolute; background-color: var(--bg-card); min-width: 220px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); border-radius: 12px; padding: 8px 0; z-index: 1001; top: 100%; left: 0; border: 1px solid var(--border); margin-top: 0; }
+    .dropdown-content::before { content: ""; position: absolute; top: -15px; left: 0; width: 100%; height: 15px; background: transparent; }
+    .dropdown-content a { color: var(--text-main); padding: 12px 20px; display: block; font-size: 14px; }
+    .dropdown-content a:hover { background-color: #F1F5F9; color: var(--primary); padding-left: 24px; }
+    .dropdown:hover .dropdown-content { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Blog Styles */
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-muted); margin-bottom: 24px; flex-wrap: wrap; }
+    .breadcrumb a { color: var(--text-muted); transition: 0.2s; }
+    .breadcrumb a:hover { color: var(--primary); text-decoration: underline; }
+    .breadcrumb span { color: var(--text-main); font-weight: 500; }
+    .breadcrumb .separator { font-size: 12px; opacity: 0.5; }
+
+    .content-area { display: grid; grid-template-columns: 2.5fr 1fr; gap: 40px; padding: 40px 0 80px; }
+    .article-header { margin-bottom: 30px; }
+    .article-meta { display: flex; gap: 20px; font-size: 14px; color: var(--text-muted); margin-bottom: 16px; align-items: center; }
+    .author-badge { display: flex; align-items: center; gap: 8px; font-weight: 600; color: var(--text-main); }
+    .author-img { width: 30px; height: 30px; border-radius: 50%; background: #eee; }
+    .featured-image { width: 100%; height: 450px; object-fit: cover; border-radius: var(--radius); margin-bottom: 40px; box-shadow: var(--shadow); }
+
+    .article-content { font-size: 18px; line-height: 1.8; color: #374151; }
+    .article-content h2 { font-size: 26px; margin-top: 40px; margin-bottom: 20px; color: #111827; }
+    .article-content p { margin-bottom: 24px; }
+    
+    /* Custom Box for Clinical Translation */
+    .clinical-box { background: rgba(86, 204, 242, 0.1); padding: 24px; border-radius: 12px; border-left: 4px solid var(--secondary); margin: 20px 0 40px 0; }
+    .clinical-title { display: flex; align-items: center; gap: 8px; font-weight: 700; color: #0284c7; margin-bottom: 10px; font-family: var(--font-head); }
+    .warning-box { background: #FEF2F2; padding: 24px; border-radius: 12px; border-left: 4px solid #EF4444; margin: 30px 0; color: #991B1B; }
+
+    .sidebar-widget { background: var(--bg-card); padding: 24px; border-radius: var(--radius); border: 1px solid var(--border); margin-bottom: 30px; }
+    .widget-title { font-size: 18px; margin-bottom: 20px; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px; }
+    .related-post { display: flex; gap: 12px; margin-bottom: 16px; align-items: center; }
+    .related-post img { width: 60px; height: 60px; border-radius: 8px; object-fit: cover; }
+    .related-post h4 { font-size: 14px; margin: 0; line-height: 1.4; }
+    .related-post h4 a { color: var(--text-main); }
+
+    footer { background: white; border-top: 1px solid var(--border); padding: 40px 0; text-align: center; color: var(--text-muted); font-size: 14px; }
+    @media (max-width: 900px) { .content-area { grid-template-columns: 1fr; } .featured-image { height: 250px; } }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">SmileNote</a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+          <a href="#" class="dropbtn">Details ▾</a>
+          <div class="dropdown-content">
+            <a href="list.html?type=dentist">Our dentists</a>
+            <a href="list.html?type=implant">Implant</a>
+            <a href="list.html?type=braces">Braces</a>
+            <a href="list.html?type=porcelain">Porcelain teeth</a>
+            <a href="list.html?type=general">General dentistry</a>
+          </div>
+        </div>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container content-area">
+    <article>
+      <nav class="breadcrumb">
+        <a href="#">Details</a> <span class="separator">›</span>
+        <a href="list.html?type=general">General Dentistry</a> <span class="separator">›</span>
+        <span>Tooth Sensitivity After Filling</span>
+      </nav>
+
+      <header class="article-header">
+        <h1 style="font-size: 38px; line-height: 1.2; margin-bottom: 12px;">Diagnosing Your Symptoms: What Tooth Sensitivity After Filling Tells Us</h1>
+        <div class="article-meta">
+          <div class="author-badge">
+            <div class="author-img" style="background-color: var(--secondary)"></div>
+            <span>Dr. Steven Nguyen</span>
+          </div>
+          <span>•</span>
+          <time>Dec 23, 2025</time>
+          <span>•</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <img src="https://via.placeholder.com/900x500?text=Tooth+Pain+After+Filling" class="featured-image" alt="Tooth Pain">
+
+      <div class="article-content">
+        <p>When you sit in my chair complaining of pain a few days after a procedure, my first job isn't to guess; it is to diagnose based on the specific type of pain you are describing. Pain is a language. The way your tooth hurts—when it hurts, how long it lasts, and what triggers it—tells me exactly what is happening underneath the restoration.</p>
+        <p>We don't just treat "pain"; we treat the specific mechanical or biological cause. In clinical practice, tooth sensitivity after filling presents in very distinct patterns. Let's break down the common symptom profiles I see in daily practice and what they usually indicate regarding the success of the restoration.</p>
+
+        <h2>Scenario 1: The Sharp Zing on Biting (Occlusal Trauma)</h2>
+        <p>This is perhaps the most common phone call I get two days after a procedure. You feel perfectly fine when you're drinking coffee or sitting still. But the moment you chew a piece of chicken or lettuce, you get a sharp, electric shock sensation.</p>
+        
+        <div class="clinical-box">
+          <div class="clinical-title">🩺 The Clinical Translation</div>
+          <p>This pattern almost always means the filling is "high." When you were numb, you couldn't feel your bite accurately. If the new filling is even a fraction of a millimeter taller than your other teeth, it hits first. This bruises the ligament holding the tooth in the jawbone. We solve this by marking the high spot and polishing it down. The relief is usually instant.</p>
+        </div>
+
+        <h2>Scenario 2: The Pain When You Let Go (Bond Failure)</h2>
+        <p>This symptom is subtle but distinct. You bite down, and it feels okay. But the moment you open your mouth or release the pressure from the bite, you feel a sharp pain.</p>
+
+        <div class="clinical-box">
+          <div class="clinical-title">🔬 The Clinical Translation</div>
+          <p>This suggests a failure in the adhesive layer, often called the "hydrodynamic vacuum." If the filling didn't bond perfectly, a microscopic gap exists. When you bite, you compress the gap. When you release, suction pulls fluid through the tooth structure, triggering the nerve. Unfortunately, the filling usually needs to be replaced to re-establish a sealed bond.</p>
+        </div>
+
+        <h2>Scenario 3: Cold Sensitivity That Vanishes Quickly</h2>
+        <p>You take a sip of ice water, and it hurts. But the moment you swallow the water, the pain disappears within five to ten seconds.</p>
+
+        <div class="clinical-box">
+          <div class="clinical-title">❄️ The Clinical Translation</div>
+          <p>This is "Reversible Pulpitis." It means the nerve is annoyed but alive (a bruised nerve). The drilling and acid etching have irritated the pulp. This is very common. Unless it gets worse, my advice is to wait and give the "bruise" time to fade before intervening.</p>
+        </div>
+
+        <h2>Scenario 4: The Throbbing Ache (Irreversible Symptoms)</h2>
+        <p>This is the scenario that concerns us. You aren't eating or drinking anything, and the tooth starts to throb. Or, the pain wakes you up at night. Or, cold water makes it hurt for a full minute after the cold is gone.</p>
+
+        <div class="warning-box">
+          <strong>⚠️ The Clinical Translation (Irreversible Pulpitis)</strong><br><br>
+          This tells me the nerve has sustained too much damage—likely from deep decay—and cannot heal. The inflammation is self-perpetuating. In this case, a filling adjustment won't help. We likely need to discuss root canal therapy to stop the pain.
+        </div>
+
+        <p><strong>Conclusion:</strong> Not all pain is the same. By paying close attention to the specific triggers—pressure, release, temperature, or spontaneity—we can pinpoint the source of the problem. If it hurts only when you bite, come back for an adjustment. If it hurts spontaneously, call us immediately.</p>
+      </div>
+    </article>
+
+    <aside>
+      <div class="sidebar-widget">
+        <h4 class="widget-title">Popular Articles</h4>
+        <div class="related-post">
+          <img src="https://via.placeholder.com/100?text=Crown" alt="Crown">
+          <h4><a href="blog.html">What is a Porcelain Crown?</a></h4>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <div class="container"><p>© 2025 SmileNote — Designed for Dental Health.</p></div>
+  </footer>
+</body>
+</html>
