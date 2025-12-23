@@ -8,18 +8,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Paste CSS giống trang index.html vào đây */
+    /* CSS đồng bộ với Index.html */
     :root { --primary: #2F80ED; --secondary: #56CCF2; --accent: #6FCF97; --bg-body: #F9FBFD; --bg-card: #FFFFFF; --text-main: #333333; --text-muted: #64748B; --border: #E2E8F0; --radius: 16px; --shadow: 0 10px 30px -5px rgba(47, 128, 237, 0.08); --font-head: 'Poppins', sans-serif; --font-body: 'Inter', sans-serif; }
     * { box-sizing: border-box; }
     body { margin: 0; background-color: var(--bg-body); font-family: var(--font-body); color: var(--text-main); line-height: 1.6; }
     h1, h2, h3, h4 { font-family: var(--font-head); color: #1e293b; margin-top: 0; }
     a { text-decoration: none; transition: 0.2s; }
     .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+    
     header.site-header { background: var(--bg-card); box-shadow: 0 2px 15px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 1000; padding: 16px 0; }
     .header-inner { display: flex; justify-content: space-between; align-items: center; }
     .logo { font-family: var(--font-head); font-weight: 700; font-size: 24px; color: var(--primary); display: flex; align-items: center; gap: 8px; }
     .nav-links { display: flex; gap: 32px; font-weight: 500; align-items: center; }
     .nav-links a { color: var(--text-main); font-size: 15px; }
+    
     .dropdown { position: relative; display: inline-block; padding-bottom: 10px; margin-bottom: -10px; }
     .dropdown-content { display: none; position: absolute; background-color: var(--bg-card); min-width: 220px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); border-radius: 12px; padding: 8px 0; z-index: 1001; top: 100%; left: 0; border: 1px solid var(--border); margin-top: 0; }
     .dropdown-content::before { content: ""; position: absolute; top: -15px; left: 0; width: 100%; height: 15px; background: transparent; }
@@ -27,7 +29,7 @@
     .dropdown:hover .dropdown-content { display: block; }
     
     .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
-    .card { background: var(--bg-card); border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(226, 232, 240, 0.6); display: none; flex-direction: column; } /* Mặc định ẩn hết */
+    .card { background: var(--bg-card); border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(226, 232, 240, 0.6); display: none; flex-direction: column; } /* Mặc định ẩn */
     .card-thumb { width: 100%; height: 200px; object-fit: cover; }
     .card-body { padding: 24px; flex: 1; }
     .card h3 { font-size: 18px; margin-bottom: 12px; }
@@ -62,6 +64,14 @@
     <h1 id="page-title" style="margin-top: 60px; text-align: center;">All Articles</h1>
     <div class="cards-grid" id="posts-container">
       
+      <article class="card type-general">
+        <img src="https://via.placeholder.com/600x400?text=Tooth+Pain" class="card-thumb" alt="Pain">
+        <div class="card-body">
+          <h3><a href="what-tooth-sensitivity-after-filling-tells-us.html">Diagnosing Symptoms: What Tooth Sensitivity After Filling Tells Us</a></h3>
+          <p>Pain is a language. The way your tooth hurts—when it hurts and what triggers it—tells us exactly what is happening...</p>
+        </div>
+      </article>
+
       <article class="card type-implant">
         <img src="https://via.placeholder.com/600x400?text=Implant+1" class="card-thumb" alt="Implant">
         <div class="card-body">
