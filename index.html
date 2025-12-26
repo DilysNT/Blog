@@ -41,58 +41,78 @@
     .nav-links a { color: var(--text-main); font-size: 15px; }
     .nav-links a:hover, .nav-links a.active { color: var(--primary); }
 
-    /* DROPDOWN MENU */
+    /* MENU CSS FIX */
     .dropdown { position: relative; display: inline-block; padding-bottom: 10px; margin-bottom: -10px; }
     .dropbtn { cursor: pointer; display: flex; align-items: center; gap: 4px; }
+    .dropdown-content { display: none; position: absolute; background-color: var(--bg-card); min-width: 220px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); border-radius: 12px; padding: 8px 0; z-index: 1001; top: 100%; left: 0; border: 1px solid var(--border); margin-top: 0; }
+    .dropdown-content::before { content: ""; position: absolute; top: -15px; left: 0; width: 100%; height: 15px; background: transparent; }
     
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: var(--bg-card);
-      min-width: 220px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-      border-radius: 12px;
-      padding: 8px 0;
-      z-index: 1001;
-      top: 100%; 
-      left: 0;
-      border: 1px solid var(--border);
-      margin-top: 0;
+    /* Button Style trong Menu */
+    .dropdown-content a { 
+        color: var(--text-main); padding: 10px 16px; display: block; font-size: 14px; text-decoration: none;
+        background-color: #F8FAFC; margin: 6px 10px; border-radius: 8px; transition: 0.2s; font-weight: 500; border: 1px solid transparent;
     }
-    .dropdown-content::before {
-      content: ""; position: absolute; top: -15px; left: 0; width: 100%; height: 15px; background: transparent;
-    }
-    
-    .dropdown-content a { color: var(--text-main); padding: 12px 20px; display: block; font-size: 14px; text-decoration: none; }
-    .dropdown-content a:hover { background-color: #F1F5F9; color: var(--primary); padding-left: 24px; }
+    .dropdown-content a:hover { background-color: #E0F2FE; color: var(--primary); border-color: var(--secondary); padding-left: 16px; }
     .dropdown:hover .dropdown-content { display: block; animation: fadeIn 0.3s ease; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     
-    /* --- 3. LAYOUT --- */
+    /* --- 3. LAYOUT GRID 3 CỘT --- */
     .hero { text-align: center; padding: 80px 0 60px; background: radial-gradient(circle at top right, rgba(86, 204, 242, 0.15), transparent 40%); }
     .hero h1 { font-size: 42px; margin-bottom: 16px; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .hero p { color: var(--text-muted); font-size: 18px; max-width: 600px; margin: 0 auto; }
 
-    .content-area { display: grid; grid-template-columns: 2.5fr 1fr; gap: 40px; padding-bottom: 80px; }
-    .cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
-    .card { background: var(--bg-card); border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(226, 232, 240, 0.6); display: flex; flex-direction: column; transition: 0.3s; }
+    .content-area { display: block; padding-bottom: 80px; } /* Bỏ grid 2 cột cũ của layout chính */
+    
+    /* GRID BÀI VIẾT: 3 CỘT */
+    .cards-grid { 
+        display: grid; 
+        grid-template-columns: repeat(3, 1fr); /* Quan trọng: Chia 3 cột đều nhau */
+        gap: 30px; 
+    }
+
+    .card { background: var(--bg-card); border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(226, 232, 240, 0.6); display: flex; flex-direction: column; transition: 0.3s; height: 100%; }
     .card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--secondary); }
     .card-thumb { width: 100%; height: 220px; object-fit: cover; }
     .card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
-    .card h3 { font-size: 20px; margin-bottom: 12px; }
+    .card h3 { font-size: 18px; margin-bottom: 12px; line-height: 1.4; font-weight: 700; }
     .card h3 a { color: var(--text-main); }
-    .excerpt { font-size: 15px; color: var(--text-muted); margin-bottom: 20px; }
-    .badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; }
-    .badge-blue { background: rgba(47, 128, 237, 0.1); color: var(--primary); }
-    .card-meta-top { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 13px; color: var(--text-muted); }
+    .excerpt { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; flex-grow: 1; }
     
-    .sidebar-widget { background: var(--bg-card); padding: 24px; border-radius: var(--radius); border: 1px solid var(--border); margin-bottom: 30px; }
+    /* TAG STYLE (Thẻ phân loại) */
+    .card-meta-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 12px; color: var(--text-muted); }
+    .badge { 
+        display: inline-block; 
+        padding: 6px 12px; 
+        border-radius: 20px; 
+        font-size: 11px; 
+        font-weight: 700; 
+        text-transform: uppercase; 
+        letter-spacing: 0.5px;
+    }
+    .badge-blue { background: #E0F2FE; color: #0284C7; } /* Tag màu xanh */
+    .badge-purple { background: #F3E8FF; color: #9333EA; } /* Tag màu tím */
+    .badge-green { background: #DCFCE7; color: #16A34A; } /* Tag màu xanh lá */
+
+    /* LOAD MORE BUTTON */
+    .load-more-container { text-align: center; margin-top: 50px; }
+    .btn-load-more {
+        background-color: var(--primary); color: white; padding: 12px 30px; border-radius: 30px; 
+        font-weight: 600; border: none; cursor: pointer; transition: 0.2s; font-size: 15px;
+        box-shadow: 0 4px 15px rgba(47, 128, 237, 0.3);
+    }
+    .btn-load-more:hover { background-color: #1a6fd6; transform: translateY(-2px); }
+    .hidden-card { display: none; } /* Class dùng để ẩn bài viết */
+
+    .sidebar-widget { background: var(--bg-card); padding: 24px; border-radius: var(--radius); border: 1px solid var(--border); margin-bottom: 30px; margin-top: 40px;}
     .widget-title { font-size: 18px; margin-bottom: 20px; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px; }
     .cat-list li { margin-bottom: 12px; }
     .cat-list a { display: flex; justify-content: space-between; color: var(--text-main); }
+    
     footer { background: white; border-top: 1px solid var(--border); padding: 40px 0; text-align: center; color: var(--text-muted); font-size: 14px; }
-    @media (max-width: 900px) { .content-area { grid-template-columns: 1fr; } }
-    @media (max-width: 600px) { .cards-grid { grid-template-columns: 1fr; } }
+    
+    /* RESPONSIVE */
+    @media (max-width: 1024px) { .cards-grid { grid-template-columns: repeat(2, 1fr); } } /* Tablet: 2 cột */
+    @media (max-width: 600px) { .cards-grid { grid-template-columns: 1fr; } } /* Mobile: 1 cột */
   </style>
 </head>
 <body>
@@ -127,7 +147,7 @@
 
   <div class="container content-area">
     <main>
-      <div class="cards-grid">
+      <div class="cards-grid" id="blog-grid">
         
         <article class="card">
           <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Temporary Crown">
@@ -141,7 +161,7 @@
         <article class="card">
           <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Ceramic Braces">
           <div class="card-body">
-            <div class="card-meta-top"><span class="badge badge-blue">Braces</span> <span>Jan 05, 2026</span></div>
+            <div class="card-meta-top"><span class="badge badge-purple">Braces</span> <span>Jan 05, 2026</span></div>
             <h3><a href="thinking-about-ceramic-braces.html">Thinking About Ceramic Braces? What I Tell My Patients</a></h3>
             <p class="excerpt">"I want straight teeth, but I don't want to look like a teenager." The honest pros and cons of clear braces...</p>
           </div>
@@ -150,23 +170,109 @@
         <article class="card">
           <img src="https://www.spiredentallangley.com/images/blog/temporary-filling/temporary-tooth-filling.webp" class="card-thumb" alt="Tooth Pain">
           <div class="card-body">
-            <div class="card-meta-top"><span class="badge badge-blue">General</span> <span>Dec 23, 2025</span></div>
-            <h3><a href="what-tooth-sensitivity-after-filling-tells-us.html">Diagnosing Symptoms: What Tooth Sensitivity After Filling Tells Us</a></h3>
+            <div class="card-meta-top"><span class="badge badge-green">General</span> <span>Dec 23, 2025</span></div>
+            <h3><a href="what-tooth-sensitivity-after-filling-tells-us.html">Diagnosing Symptoms: What Tooth Sensitivity Tells Us</a></h3>
             <p class="excerpt">Pain is a language. The way your tooth hurts—when it hurts and what triggers it—tells us exactly what is happening...</p>
           </div>
         </article>
 
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1588776814546-1ffcfef2332e?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Implant">
+          <div class="card-body">
+            <div class="card-meta-top"><span class="badge badge-blue">Implant</span> <span>Dec 15, 2025</span></div>
+            <h3><a href="#">Dental Implants: The Permanent Solution for Missing Teeth</a></h3>
+            <p class="excerpt">Why implants are considered the gold standard in modern dentistry compared to bridges.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Whitening">
+          <div class="card-body">
+            <div class="card-meta-top"><span class="badge badge-purple">Cosmetic</span> <span>Dec 10, 2025</span></div>
+            <h3><a href="#">Professional Teeth Whitening vs. At-Home Kits</a></h3>
+            <p class="excerpt">Is it worth the money to get it done at the dentist? We break down the cost and effectiveness.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Kids">
+          <div class="card-body">
+            <div class="card-meta-top"><span class="badge badge-green">Kids</span> <span>Dec 05, 2025</span></div>
+            <h3><a href="#">Your Child's First Dental Visit: What to Expect</a></h3>
+            <p class="excerpt">How to prepare your little one for a stress-free and positive first experience at the dentist.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1445527697963-1c8c4138f36f?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Floss">
+          <div class="card-body">
+            <div class="card-meta-top"><span class="badge badge-blue">Hygiene</span> <span>Nov 28, 2025</span></div>
+            <h3><a href="#">Water Flosser vs. String Floss: Which is Better?</a></h3>
+            <p class="excerpt">We compare the two most popular methods of cleaning between your teeth.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1609840114035-1c29046a8028?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Veneers">
+          <div class="card-body">
+            <div class="card-meta-top"><span class="badge badge-purple">Cosmetic</span> <span>Nov 20, 2025</span></div>
+            <h3><a href="#">Porcelain Veneers: Are They Right for You?</a></h3>
+            <p class="excerpt">Transform your smile with custom-made shells that cover the front surface of your teeth.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1588776814546-1ffcfef2332e?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Checkup">
+          <div class="card-body">
+            <div class="card-meta-top"><span class="badge badge-green">Checkup</span> <span>Nov 15, 2025</span></div>
+            <h3><a href="#">Why You Need a Dental Checkup Every 6 Months</a></h3>
+            <p class="excerpt">Prevention is better than cure. Detecting issues early can save you money and pain.</p>
+          </div>
+        </article>
+
+        <article class="card hidden-card">
+          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Root Canal">
+          <div class="card-body">
+            <div class="card-meta-top"><span class="badge badge-blue">Surgery</span> <span>Nov 10, 2025</span></div>
+            <h3><a href="#">Root Canal Therapy: Not as Scary as You Think</a></h3>
+            <p class="excerpt">Modern technology has made this procedure virtually painless and highly successful.</p>
+          </div>
+        </article>
+
+        <article class="card hidden-card">
+          <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f72?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Breath">
+          <div class="card-body">
+            <div class="card-meta-top"><span class="badge badge-green">Hygiene</span> <span>Nov 05, 2025</span></div>
+            <h3><a href="#">Causes and Cures for Bad Breath (Halitosis)</a></h3>
+            <p class="excerpt">It's not just about brushing. Learn the underlying causes and how to fix them permanently.</p>
+          </div>
+        </article>
+
+        <article class="card hidden-card">
+          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Wisdom">
+          <div class="card-body">
+            <div class="card-meta-top"><span class="badge badge-blue">Surgery</span> <span>Oct 30, 2025</span></div>
+            <h3><a href="#">Do You Really Need to Remove Your Wisdom Teeth?</a></h3>
+            <p class="excerpt">Understanding when extraction is necessary and when it's safe to keep them.</p>
+          </div>
+        </article>
+
       </div>
+
+      <div class="load-more-container">
+        <button id="load-more-btn" class="btn-load-more">Read More Articles</button>
+      </div>
+
     </main>
     
     <aside>
       <div class="sidebar-widget">
         <h4 class="widget-title">Categories</h4>
         <ul class="cat-list">
-          <li><a href="list.html?type=general">General Dentistry</a></li>
-          <li><a href="list.html?type=porcelain">Porcelain Teeth</a></li>
-          <li><a href="list.html?type=braces">Braces</a></li>
-          <li><a href="list.html?type=implant">Implants</a></li>
+          <li><a href="list.html?type=general">General Dentistry <span>12</span></a></li>
+          <li><a href="list.html?type=porcelain">Porcelain Teeth <span>08</span></a></li>
+          <li><a href="list.html?type=braces">Braces <span>05</span></a></li>
+          <li><a href="list.html?type=implant">Implants <span>03</span></a></li>
         </ul>
       </div>
     </aside>
@@ -177,5 +283,31 @@
       <p>© 2025 SmileNote — Designed for Dental Health.</p>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const loadMoreBtn = document.getElementById('load-more-btn');
+      const hiddenCards = document.querySelectorAll('.hidden-card');
+      
+      loadMoreBtn.addEventListener('click', function() {
+        // Hiện 3 bài tiếp theo
+        let count = 0;
+        hiddenCards.forEach(card => {
+          if (card.style.display !== 'flex' && count < 3) {
+            card.style.display = 'flex'; // Hiện bài viết (flex để giữ layout card)
+            card.classList.remove('hidden-card'); // Xóa class ẩn
+            count++;
+          }
+        });
+
+        // Nếu không còn bài nào ẩn thì giấu nút Load More
+        const remainingHidden = document.querySelectorAll('.hidden-card');
+        if (remainingHidden.length === 0) {
+          loadMoreBtn.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
