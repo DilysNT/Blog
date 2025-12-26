@@ -10,25 +10,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   
   <style>
-    /* --- 1. MODERN VARIABLES --- */
+    /* --- 1. VARIABLES & RESET --- */
     :root { 
-      /* Palette màu Y tế hiện đại (Clean Blue & Slate) */
-      --primary: #0284C7;       /* Xanh dương đậm chủ đạo */
-      --primary-hover: #0369A1; /* Màu hover */
-      --secondary: #38BDF8;     /* Xanh sáng điểm nhấn */
-      --bg-body: #F8FAFC;       /* Xám rất nhạt (Slate 50) - Sang hơn trắng tinh */
+      --primary: #0284C7; 
+      --primary-hover: #0369A1; 
+      --secondary: #38BDF8; 
+      --bg-body: #F8FAFC; 
       --bg-card: #FFFFFF; 
-      --text-head: #0F172A;     /* Đen than (Slate 900) - Dùng cho tiêu đề */
-      --text-body: #475569;     /* Xám chì (Slate 600) - Dùng cho nội dung */
+      --text-head: #0F172A; 
+      --text-body: #475569; 
       --border: #E2E8F0; 
       
-      /* Shadow (Đổ bóng) tạo chiều sâu */
       --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
       --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
       --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
       
       --radius: 20px; 
-      --font-head: 'Plus Jakarta Sans', sans-serif; /* Font tiêu đề hiện đại */
+      --font-head: 'Plus Jakarta Sans', sans-serif; 
       --font-body: 'Inter', sans-serif;
     }
 
@@ -39,7 +37,7 @@
     ul { list-style: none; padding: 0; margin: 0; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
     
-    /* --- 2. HEADER (Glassmorphism Effect) --- */
+    /* --- 2. HEADER --- */
     header.site-header { 
         background: rgba(255, 255, 255, 0.9); 
         backdrop-filter: blur(12px); 
@@ -54,54 +52,57 @@
     .nav-links a { color: var(--text-head); font-size: 15px; position: relative; }
     .nav-links a:hover, .nav-links a.active { color: var(--primary); }
     
-    /* Dropdown Styling */
+    /* Dropdown */
     .dropdown { position: relative; display: inline-block; }
     .dropbtn { cursor: pointer; display: flex; align-items: center; gap: 6px; }
     .dropdown-content { display: none; position: absolute; background-color: white; min-width: 240px; box-shadow: var(--shadow-lg); border-radius: 16px; padding: 8px; z-index: 1001; top: 140%; left: -20px; border: 1px solid var(--border); opacity: 0; transform: translateY(10px); transition: all 0.2s ease; }
     .dropdown-content::before { content: ""; position: absolute; top: -20px; left: 0; width: 100%; height: 20px; background: transparent; }
-    
     .dropdown-content a { color: var(--text-body); padding: 12px 16px; display: block; font-size: 14px; border-radius: 10px; font-weight: 500; margin-bottom: 2px; }
     .dropdown-content a:hover { background-color: #F0F9FF; color: var(--primary); transform: translateX(4px); }
     .dropdown:hover .dropdown-content { display: block; opacity: 1; transform: translateY(0); }
     
-    /* --- 3. HERO SECTION (Gradient Background) --- */
+    /* --- 3. HERO & SEARCH BAR --- */
     .hero { 
-        text-align: center; padding: 100px 0 80px; 
+        text-align: center; padding: 80px 0 60px; 
         background: linear-gradient(180deg, #EFF6FF 0%, var(--bg-body) 100%);
     }
     .hero h1 { font-size: 48px; margin-bottom: 20px; line-height: 1.1; color: #1E293B; }
-    .hero p { color: #64748B; font-size: 20px; max-width: 600px; margin: 0 auto; font-weight: 400; }
+    .hero p { color: #64748B; font-size: 20px; max-width: 600px; margin: 0 auto 40px; font-weight: 400; }
+
+    /* Search Bar Styles */
+    .search-wrapper { max-width: 500px; margin: 0 auto; position: relative; }
+    .search-input { 
+        width: 100%; 
+        padding: 16px 24px 16px 50px; 
+        border-radius: 50px; 
+        border: 1px solid #CBD5E1; 
+        font-size: 16px; 
+        outline: none; 
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05); 
+        transition: all 0.3s;
+        font-family: var(--font-body);
+    }
+    .search-input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15); }
+    .search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #94A3B8; font-size: 18px; }
 
     .content-area { display: block; padding-bottom: 100px; }
     
-    /* --- 4. CARDS GRID (3 Cột - UI Premium) --- */
+    /* --- 4. CARDS GRID --- */
     .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
 
     .card { 
-        background: var(--bg-card); 
-        border-radius: var(--radius); 
-        overflow: hidden; 
-        /* Loại bỏ border, dùng shadow */
-        border: 1px solid rgba(0,0,0,0.03);
-        box-shadow: var(--shadow-sm); 
-        display: flex; flex-direction: column; 
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Hiệu ứng nảy nhẹ */
-        height: 100%; 
+        background: var(--bg-card); border-radius: var(--radius); overflow: hidden; 
+        border: 1px solid rgba(0,0,0,0.03); box-shadow: var(--shadow-sm); 
+        display: flex; flex-direction: column; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); height: 100%; 
     }
-    .card:hover { 
-        transform: translateY(-8px); 
-        box-shadow: var(--shadow-lg); 
-    }
+    .card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
     .card-thumb { width: 100%; height: 240px; object-fit: cover; transition: transform 0.5s ease; }
-    .card:hover .card-thumb { transform: scale(1.05); } /* Ảnh zoom nhẹ khi hover */
+    .card:hover .card-thumb { transform: scale(1.05); }
     
     .card-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
-    
-    /* Tags styling */
     .card-meta-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; font-size: 13px; font-weight: 500; color: #94A3B8; }
     .badge { display: inline-block; padding: 6px 14px; border-radius: 100px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; }
     
-    /* Màu sắc Badge tinh tế hơn */
     .badge-blue { background: #E0F2FE; color: #0369A1; }
     .badge-purple { background: #F3E8FF; color: #7E22CE; }
     .badge-green { background: #DCFCE7; color: #15803D; }
@@ -109,16 +110,10 @@
     .card h3 { font-size: 20px; margin-bottom: 12px; line-height: 1.45; }
     .card h3 a { color: var(--text-head); background: linear-gradient(to right, var(--primary), var(--primary)) 0% 100% / 0% 2px no-repeat; transition: background-size 0.3s; }
     .card:hover h3 a { color: var(--primary); background-size: 100% 2px; }
-    
     .excerpt { font-size: 15px; color: var(--text-body); margin-bottom: 24px; flex-grow: 1; line-height: 1.7; }
 
-    /* LOAD MORE BUTTON */
     .load-more-container { text-align: center; margin-top: 60px; }
-    .btn-load-more {
-        background-color: var(--primary); color: white; padding: 14px 36px; border-radius: 100px; 
-        font-weight: 700; border: none; cursor: pointer; transition: all 0.3s; font-size: 15px;
-        box-shadow: 0 10px 20px -5px rgba(2, 132, 199, 0.4);
-    }
+    .btn-load-more { background-color: var(--primary); color: white; padding: 14px 36px; border-radius: 100px; font-weight: 700; border: none; cursor: pointer; transition: all 0.3s; font-size: 15px; box-shadow: 0 10px 20px -5px rgba(2, 132, 199, 0.4); }
     .btn-load-more:hover { background-color: var(--primary-hover); transform: translateY(-3px); box-shadow: 0 15px 25px -5px rgba(2, 132, 199, 0.5); }
     .hidden-card { display: none; }
 
@@ -130,12 +125,27 @@
     .cat-list a:hover { color: var(--primary); transform: translateX(5px); }
     .cat-list span { background: #F1F5F9; padding: 2px 10px; border-radius: 20px; font-size: 12px; color: #64748B; font-weight: 700; }
     
-    /* FOOTER (Dark Theme) */
-    footer { background: #0F172A; padding: 60px 0; text-align: center; color: #94A3B8; font-size: 15px; margin-top: 0; }
-    footer p { margin: 0; }
+    /* --- 5. PREMIUM FOOTER --- */
+    footer { background: #0F172A; padding-top: 80px; padding-bottom: 30px; color: #94A3B8; font-size: 15px; margin-top: 0; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 60px; text-align: left; }
+    .footer-col h4 { color: white; margin-bottom: 24px; font-size: 18px; }
+    .footer-col p { margin-bottom: 16px; line-height: 1.8; }
+    .footer-col ul li { margin-bottom: 12px; }
+    .footer-col a { color: #94A3B8; transition: 0.2s; }
+    .footer-col a:hover { color: white; padding-left: 5px; }
     
-    @media (max-width: 1024px) { .cards-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 600px) { .cards-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 32px; } }
+    .footer-logo { font-family: var(--font-head); font-weight: 800; font-size: 28px; color: white; display: block; margin-bottom: 16px; }
+    .footer-bottom { border-top: 1px solid #1E293B; padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 14px; }
+
+    @media (max-width: 1024px) { 
+        .cards-grid { grid-template-columns: repeat(2, 1fr); } 
+        .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 600px) { 
+        .cards-grid { grid-template-columns: 1fr; } 
+        .hero h1 { font-size: 32px; } 
+        .footer-bottom { flex-direction: column; gap: 10px; }
+    }
   </style>
 </head>
 <body>
@@ -165,6 +175,12 @@
     <div class="container">
       <h1>Your Smile. Your Health. Your Story.</h1>
       <p>Professional dental knowledge, updated technologies on porcelain crowns and cosmetic dentistry.</p>
+      
+      <div class="search-wrapper">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search for articles (e.g., Braces, Pain)...">
+      </div>
+
     </div>
   </section>
 
@@ -294,12 +310,40 @@
 
   <footer>
     <div class="container">
-      <p>© 2025 SmileNote — Premium Dental Knowledge.</p>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="#" class="footer-logo">SmileNote.</a>
+          <p>Providing professional, trusted dental knowledge to help you maintain a healthy, confident smile. Our articles are reviewed by certified dentists.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="list.html?type=general">Dental Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <p>📍 123 Dental Street, NY 10001</p>
+          <p>📞 (212) 555-0199</p>
+          <p>✉️ hello@smilenote.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 SmileNote Dental Blog. All rights reserved.</p>
+        <div>
+          <a href="#" style="margin-left: 20px;">Privacy Policy</a>
+          <a href="#" style="margin-left: 20px;">Terms of Service</a>
+        </div>
+      </div>
     </div>
   </footer>
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
+      // 1. Logic cho Nút Load More
       const loadMoreBtn = document.getElementById('load-more-btn');
       const hiddenCards = document.querySelectorAll('.hidden-card');
       
@@ -316,6 +360,36 @@
         if (remainingHidden.length === 0) {
           loadMoreBtn.style.display = 'none';
         }
+      });
+
+      // 2. Logic cho Thanh Tìm Kiếm (Search)
+      const searchInput = document.getElementById('searchInput');
+      const allCards = document.querySelectorAll('.card');
+
+      searchInput.addEventListener('keyup', function(e) {
+        const term = e.target.value.toLowerCase();
+        
+        allCards.forEach(card => {
+          const title = card.querySelector('h3').innerText.toLowerCase();
+          // Nếu ô tìm kiếm trống, reset lại trạng thái ban đầu (ẩn bớt bài)
+          if (term === "") {
+             if (card.classList.contains('hidden-card')) {
+                 card.style.display = 'none';
+             } else {
+                 card.style.display = 'flex';
+             }
+             loadMoreBtn.style.display = 'inline-block';
+          } 
+          // Nếu có chữ tìm kiếm, thì lọc
+          else {
+             if (title.includes(term)) {
+                 card.style.display = 'flex';
+             } else {
+                 card.style.display = 'none';
+             }
+             loadMoreBtn.style.display = 'none'; // Ẩn nút load more khi đang tìm kiếm
+          }
+        });
       });
     });
   </script>
