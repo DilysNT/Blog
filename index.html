@@ -7,129 +7,152 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   
   <style>
-    /* --- 1. VARIABLES & RESET --- */
+    /* --- 1. MODERN VARIABLES --- */
     :root { 
-      --primary: #2F80ED; 
-      --secondary: #56CCF2; 
-      --accent: #6FCF97; 
-      --bg-body: #F9FBFD; 
+      /* Palette màu Y tế hiện đại (Clean Blue & Slate) */
+      --primary: #0284C7;       /* Xanh dương đậm chủ đạo */
+      --primary-hover: #0369A1; /* Màu hover */
+      --secondary: #38BDF8;     /* Xanh sáng điểm nhấn */
+      --bg-body: #F8FAFC;       /* Xám rất nhạt (Slate 50) - Sang hơn trắng tinh */
       --bg-card: #FFFFFF; 
-      --text-main: #333333; 
-      --text-muted: #64748B; 
+      --text-head: #0F172A;     /* Đen than (Slate 900) - Dùng cho tiêu đề */
+      --text-body: #475569;     /* Xám chì (Slate 600) - Dùng cho nội dung */
       --border: #E2E8F0; 
-      --radius: 16px; 
-      --shadow: 0 10px 30px -5px rgba(47, 128, 237, 0.08); 
-      --font-head: 'Poppins', sans-serif; 
-      --font-body: 'Inter', sans-serif; 
+      
+      /* Shadow (Đổ bóng) tạo chiều sâu */
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      
+      --radius: 20px; 
+      --font-head: 'Plus Jakarta Sans', sans-serif; /* Font tiêu đề hiện đại */
+      --font-body: 'Inter', sans-serif;
     }
+
     * { box-sizing: border-box; }
-    body { margin: 0; background-color: var(--bg-body); font-family: var(--font-body); color: var(--text-main); line-height: 1.6; }
-    h1, h2, h3, h4 { font-family: var(--font-head); color: #1e293b; margin-top: 0; }
-    a { text-decoration: none; transition: 0.2s; }
+    body { margin: 0; background-color: var(--bg-body); font-family: var(--font-body); color: var(--text-body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4 { font-family: var(--font-head); color: var(--text-head); margin-top: 0; font-weight: 700; letter-spacing: -0.02em; }
+    a { text-decoration: none; transition: 0.3s ease; }
     ul { list-style: none; padding: 0; margin: 0; }
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
     
-    /* --- 2. HEADER & NAV --- */
-    header.site-header { background: var(--bg-card); box-shadow: 0 2px 15px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 1000; padding: 16px 0; }
+    /* --- 2. HEADER (Glassmorphism Effect) --- */
+    header.site-header { 
+        background: rgba(255, 255, 255, 0.9); 
+        backdrop-filter: blur(12px); 
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border); 
+        position: sticky; top: 0; z-index: 1000; padding: 18px 0; 
+    }
     .header-inner { display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-family: var(--font-head); font-weight: 700; font-size: 24px; color: var(--primary); display: flex; align-items: center; gap: 8px; }
+    .logo { font-family: var(--font-head); font-weight: 800; font-size: 26px; color: var(--primary); letter-spacing: -0.5px; }
     
-    .nav-links { display: flex; gap: 32px; font-weight: 500; align-items: center; }
-    .nav-links a { color: var(--text-main); font-size: 15px; }
+    .nav-links { display: flex; gap: 36px; font-weight: 600; align-items: center; }
+    .nav-links a { color: var(--text-head); font-size: 15px; position: relative; }
     .nav-links a:hover, .nav-links a.active { color: var(--primary); }
-
-    /* MENU CSS FIX */
-    .dropdown { position: relative; display: inline-block; padding-bottom: 10px; margin-bottom: -10px; }
-    .dropbtn { cursor: pointer; display: flex; align-items: center; gap: 4px; }
-    .dropdown-content { display: none; position: absolute; background-color: var(--bg-card); min-width: 220px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); border-radius: 12px; padding: 8px 0; z-index: 1001; top: 100%; left: 0; border: 1px solid var(--border); margin-top: 0; }
-    .dropdown-content::before { content: ""; position: absolute; top: -15px; left: 0; width: 100%; height: 15px; background: transparent; }
     
-    /* Button Style trong Menu */
-    .dropdown-content a { 
-        color: var(--text-main); padding: 10px 16px; display: block; font-size: 14px; text-decoration: none;
-        background-color: #F8FAFC; margin: 6px 10px; border-radius: 8px; transition: 0.2s; font-weight: 500; border: 1px solid transparent;
+    /* Dropdown Styling */
+    .dropdown { position: relative; display: inline-block; }
+    .dropbtn { cursor: pointer; display: flex; align-items: center; gap: 6px; }
+    .dropdown-content { display: none; position: absolute; background-color: white; min-width: 240px; box-shadow: var(--shadow-lg); border-radius: 16px; padding: 8px; z-index: 1001; top: 140%; left: -20px; border: 1px solid var(--border); opacity: 0; transform: translateY(10px); transition: all 0.2s ease; }
+    .dropdown-content::before { content: ""; position: absolute; top: -20px; left: 0; width: 100%; height: 20px; background: transparent; }
+    
+    .dropdown-content a { color: var(--text-body); padding: 12px 16px; display: block; font-size: 14px; border-radius: 10px; font-weight: 500; margin-bottom: 2px; }
+    .dropdown-content a:hover { background-color: #F0F9FF; color: var(--primary); transform: translateX(4px); }
+    .dropdown:hover .dropdown-content { display: block; opacity: 1; transform: translateY(0); }
+    
+    /* --- 3. HERO SECTION (Gradient Background) --- */
+    .hero { 
+        text-align: center; padding: 100px 0 80px; 
+        background: linear-gradient(180deg, #EFF6FF 0%, var(--bg-body) 100%);
     }
-    .dropdown-content a:hover { background-color: #E0F2FE; color: var(--primary); border-color: var(--secondary); padding-left: 16px; }
-    .dropdown:hover .dropdown-content { display: block; animation: fadeIn 0.3s ease; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    
-    /* --- 3. LAYOUT GRID 3 CỘT --- */
-    .hero { text-align: center; padding: 80px 0 60px; background: radial-gradient(circle at top right, rgba(86, 204, 242, 0.15), transparent 40%); }
-    .hero h1 { font-size: 42px; margin-bottom: 16px; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .hero p { color: var(--text-muted); font-size: 18px; max-width: 600px; margin: 0 auto; }
+    .hero h1 { font-size: 48px; margin-bottom: 20px; line-height: 1.1; color: #1E293B; }
+    .hero p { color: #64748B; font-size: 20px; max-width: 600px; margin: 0 auto; font-weight: 400; }
 
-    .content-area { display: block; padding-bottom: 80px; } /* Bỏ grid 2 cột cũ của layout chính */
+    .content-area { display: block; padding-bottom: 100px; }
     
-    /* GRID BÀI VIẾT: 3 CỘT */
-    .cards-grid { 
-        display: grid; 
-        grid-template-columns: repeat(3, 1fr); /* Quan trọng: Chia 3 cột đều nhau */
-        gap: 30px; 
-    }
+    /* --- 4. CARDS GRID (3 Cột - UI Premium) --- */
+    .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
 
-    .card { background: var(--bg-card); border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(226, 232, 240, 0.6); display: flex; flex-direction: column; transition: 0.3s; height: 100%; }
-    .card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--secondary); }
-    .card-thumb { width: 100%; height: 220px; object-fit: cover; }
-    .card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
-    .card h3 { font-size: 18px; margin-bottom: 12px; line-height: 1.4; font-weight: 700; }
-    .card h3 a { color: var(--text-main); }
-    .excerpt { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; flex-grow: 1; }
-    
-    /* TAG STYLE (Thẻ phân loại) */
-    .card-meta-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 12px; color: var(--text-muted); }
-    .badge { 
-        display: inline-block; 
-        padding: 6px 12px; 
-        border-radius: 20px; 
-        font-size: 11px; 
-        font-weight: 700; 
-        text-transform: uppercase; 
-        letter-spacing: 0.5px;
+    .card { 
+        background: var(--bg-card); 
+        border-radius: var(--radius); 
+        overflow: hidden; 
+        /* Loại bỏ border, dùng shadow */
+        border: 1px solid rgba(0,0,0,0.03);
+        box-shadow: var(--shadow-sm); 
+        display: flex; flex-direction: column; 
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Hiệu ứng nảy nhẹ */
+        height: 100%; 
     }
-    .badge-blue { background: #E0F2FE; color: #0284C7; } /* Tag màu xanh */
-    .badge-purple { background: #F3E8FF; color: #9333EA; } /* Tag màu tím */
-    .badge-green { background: #DCFCE7; color: #16A34A; } /* Tag màu xanh lá */
+    .card:hover { 
+        transform: translateY(-8px); 
+        box-shadow: var(--shadow-lg); 
+    }
+    .card-thumb { width: 100%; height: 240px; object-fit: cover; transition: transform 0.5s ease; }
+    .card:hover .card-thumb { transform: scale(1.05); } /* Ảnh zoom nhẹ khi hover */
+    
+    .card-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+    
+    /* Tags styling */
+    .card-meta-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; font-size: 13px; font-weight: 500; color: #94A3B8; }
+    .badge { display: inline-block; padding: 6px 14px; border-radius: 100px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; }
+    
+    /* Màu sắc Badge tinh tế hơn */
+    .badge-blue { background: #E0F2FE; color: #0369A1; }
+    .badge-purple { background: #F3E8FF; color: #7E22CE; }
+    .badge-green { background: #DCFCE7; color: #15803D; }
+
+    .card h3 { font-size: 20px; margin-bottom: 12px; line-height: 1.45; }
+    .card h3 a { color: var(--text-head); background: linear-gradient(to right, var(--primary), var(--primary)) 0% 100% / 0% 2px no-repeat; transition: background-size 0.3s; }
+    .card:hover h3 a { color: var(--primary); background-size: 100% 2px; }
+    
+    .excerpt { font-size: 15px; color: var(--text-body); margin-bottom: 24px; flex-grow: 1; line-height: 1.7; }
 
     /* LOAD MORE BUTTON */
-    .load-more-container { text-align: center; margin-top: 50px; }
+    .load-more-container { text-align: center; margin-top: 60px; }
     .btn-load-more {
-        background-color: var(--primary); color: white; padding: 12px 30px; border-radius: 30px; 
-        font-weight: 600; border: none; cursor: pointer; transition: 0.2s; font-size: 15px;
-        box-shadow: 0 4px 15px rgba(47, 128, 237, 0.3);
+        background-color: var(--primary); color: white; padding: 14px 36px; border-radius: 100px; 
+        font-weight: 700; border: none; cursor: pointer; transition: all 0.3s; font-size: 15px;
+        box-shadow: 0 10px 20px -5px rgba(2, 132, 199, 0.4);
     }
-    .btn-load-more:hover { background-color: #1a6fd6; transform: translateY(-2px); }
-    .hidden-card { display: none; } /* Class dùng để ẩn bài viết */
+    .btn-load-more:hover { background-color: var(--primary-hover); transform: translateY(-3px); box-shadow: 0 15px 25px -5px rgba(2, 132, 199, 0.5); }
+    .hidden-card { display: none; }
 
-    .sidebar-widget { background: var(--bg-card); padding: 24px; border-radius: var(--radius); border: 1px solid var(--border); margin-bottom: 30px; margin-top: 40px;}
-    .widget-title { font-size: 18px; margin-bottom: 20px; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px; }
-    .cat-list li { margin-bottom: 12px; }
-    .cat-list a { display: flex; justify-content: space-between; color: var(--text-main); }
+    /* SIDEBAR */
+    .sidebar-widget { background: white; padding: 32px; border-radius: var(--radius); border: 1px solid var(--border); margin-top: 60px; box-shadow: var(--shadow-sm); }
+    .widget-title { font-size: 18px; margin-bottom: 24px; border-bottom: 2px solid #F1F5F9; padding-bottom: 16px; font-weight: 700; }
+    .cat-list li { margin-bottom: 14px; }
+    .cat-list a { display: flex; justify-content: space-between; color: var(--text-body); font-weight: 500; font-size: 15px; }
+    .cat-list a:hover { color: var(--primary); transform: translateX(5px); }
+    .cat-list span { background: #F1F5F9; padding: 2px 10px; border-radius: 20px; font-size: 12px; color: #64748B; font-weight: 700; }
     
-    footer { background: white; border-top: 1px solid var(--border); padding: 40px 0; text-align: center; color: var(--text-muted); font-size: 14px; }
+    /* FOOTER (Dark Theme) */
+    footer { background: #0F172A; padding: 60px 0; text-align: center; color: #94A3B8; font-size: 15px; margin-top: 0; }
+    footer p { margin: 0; }
     
-    /* RESPONSIVE */
-    @media (max-width: 1024px) { .cards-grid { grid-template-columns: repeat(2, 1fr); } } /* Tablet: 2 cột */
-    @media (max-width: 600px) { .cards-grid { grid-template-columns: 1fr; } } /* Mobile: 1 cột */
+    @media (max-width: 1024px) { .cards-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .cards-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 32px; } }
   </style>
 </head>
 <body>
 
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="logo">SmileNote</a>
+      <a href="index.html" class="logo">SmileNote.</a>
       <nav class="nav-links">
         <a href="index.html" class="active">Home</a>
         <div class="dropdown">
-          <a href="#" class="dropbtn">Details ▾</a>
+          <a href="#" class="dropbtn">Details <span style="font-size:10px">▼</span></a>
           <div class="dropdown-content">
-            <a href="list.html?type=dentist">Our dentists</a>
+            <a href="list.html?type=dentist">Our Dentists</a>
             <a href="list.html?type=implant">Implant</a>
             <a href="list.html?type=braces">Braces</a>
-            <a href="list.html?type=porcelain">Porcelain teeth</a>
-            <a href="list.html?type=general">General dentistry</a>
+            <a href="list.html?type=porcelain">Porcelain Teeth</a>
+            <a href="list.html?type=general">General Dentistry</a>
           </div>
         </div>
         <a href="about.html">About</a>
@@ -150,7 +173,9 @@
       <div class="cards-grid" id="blog-grid">
         
         <article class="card">
-          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Temporary Crown">
+          <div style="overflow:hidden;">
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Temporary Crown">
+          </div>
           <div class="card-body">
             <div class="card-meta-top"><span class="badge badge-blue">Crowns</span> <span>Jan 10, 2026</span></div>
             <h3><a href="how-long-do-temporary-crowns-last.html">Real Talk: How Long Do Temporary Crowns Last in a Real Mouth?</a></h3>
@@ -159,7 +184,9 @@
         </article>
 
         <article class="card">
-          <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Ceramic Braces">
+          <div style="overflow:hidden;">
+            <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Ceramic Braces">
+          </div>
           <div class="card-body">
             <div class="card-meta-top"><span class="badge badge-purple">Braces</span> <span>Jan 05, 2026</span></div>
             <h3><a href="thinking-about-ceramic-braces.html">Thinking About Ceramic Braces? What I Tell My Patients</a></h3>
@@ -168,7 +195,9 @@
         </article>
         
         <article class="card">
-          <img src="https://www.spiredentallangley.com/images/blog/temporary-filling/temporary-tooth-filling.webp" class="card-thumb" alt="Tooth Pain">
+          <div style="overflow:hidden;">
+            <img src="https://www.spiredentallangley.com/images/blog/temporary-filling/temporary-tooth-filling.webp" class="card-thumb" alt="Tooth Pain">
+          </div>
           <div class="card-body">
             <div class="card-meta-top"><span class="badge badge-green">General</span> <span>Dec 23, 2025</span></div>
             <h3><a href="what-tooth-sensitivity-after-filling-tells-us.html">Diagnosing Symptoms: What Tooth Sensitivity Tells Us</a></h3>
@@ -177,7 +206,9 @@
         </article>
 
         <article class="card">
-          <img src="https://images.unsplash.com/photo-1588776814546-1ffcfef2332e?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Implant">
+          <div style="overflow:hidden;">
+            <img src="https://images.unsplash.com/photo-1588776814546-1ffcfef2332e?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Implant">
+          </div>
           <div class="card-body">
             <div class="card-meta-top"><span class="badge badge-blue">Implant</span> <span>Dec 15, 2025</span></div>
             <h3><a href="#">Dental Implants: The Permanent Solution for Missing Teeth</a></h3>
@@ -186,16 +217,20 @@
         </article>
 
         <article class="card">
-          <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Whitening">
+          <div style="overflow:hidden;">
+            <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Whitening">
+          </div>
           <div class="card-body">
             <div class="card-meta-top"><span class="badge badge-purple">Cosmetic</span> <span>Dec 10, 2025</span></div>
             <h3><a href="#">Professional Teeth Whitening vs. At-Home Kits</a></h3>
-            <p class="excerpt">Is it worth the money to get it done at the dentist? We break down the cost and effectiveness.</p>
+            <p class="excerpt">Is it worth the money to get it done at the dentist? We break down the cost.</p>
           </div>
         </article>
 
         <article class="card">
-          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Kids">
+          <div style="overflow:hidden;">
+            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Kids">
+          </div>
           <div class="card-body">
             <div class="card-meta-top"><span class="badge badge-green">Kids</span> <span>Dec 05, 2025</span></div>
             <h3><a href="#">Your Child's First Dental Visit: What to Expect</a></h3>
@@ -203,8 +238,10 @@
           </div>
         </article>
 
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1445527697963-1c8c4138f36f?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Floss">
+        <article class="card hidden-card">
+          <div style="overflow:hidden;">
+            <img src="https://images.unsplash.com/photo-1445527697963-1c8c4138f36f?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Floss">
+          </div>
           <div class="card-body">
             <div class="card-meta-top"><span class="badge badge-blue">Hygiene</span> <span>Nov 28, 2025</span></div>
             <h3><a href="#">Water Flosser vs. String Floss: Which is Better?</a></h3>
@@ -212,8 +249,10 @@
           </div>
         </article>
 
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1609840114035-1c29046a8028?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Veneers">
+        <article class="card hidden-card">
+          <div style="overflow:hidden;">
+            <img src="https://images.unsplash.com/photo-1609840114035-1c29046a8028?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Veneers">
+          </div>
           <div class="card-body">
             <div class="card-meta-top"><span class="badge badge-purple">Cosmetic</span> <span>Nov 20, 2025</span></div>
             <h3><a href="#">Porcelain Veneers: Are They Right for You?</a></h3>
@@ -221,8 +260,10 @@
           </div>
         </article>
 
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1588776814546-1ffcfef2332e?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Checkup">
+        <article class="card hidden-card">
+          <div style="overflow:hidden;">
+            <img src="https://images.unsplash.com/photo-1588776814546-1ffcfef2332e?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Checkup">
+          </div>
           <div class="card-body">
             <div class="card-meta-top"><span class="badge badge-green">Checkup</span> <span>Nov 15, 2025</span></div>
             <h3><a href="#">Why You Need a Dental Checkup Every 6 Months</a></h3>
@@ -230,44 +271,17 @@
           </div>
         </article>
 
-        <article class="card hidden-card">
-          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Root Canal">
-          <div class="card-body">
-            <div class="card-meta-top"><span class="badge badge-blue">Surgery</span> <span>Nov 10, 2025</span></div>
-            <h3><a href="#">Root Canal Therapy: Not as Scary as You Think</a></h3>
-            <p class="excerpt">Modern technology has made this procedure virtually painless and highly successful.</p>
-          </div>
-        </article>
-
-        <article class="card hidden-card">
-          <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f72?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Breath">
-          <div class="card-body">
-            <div class="card-meta-top"><span class="badge badge-green">Hygiene</span> <span>Nov 05, 2025</span></div>
-            <h3><a href="#">Causes and Cures for Bad Breath (Halitosis)</a></h3>
-            <p class="excerpt">It's not just about brushing. Learn the underlying causes and how to fix them permanently.</p>
-          </div>
-        </article>
-
-        <article class="card hidden-card">
-          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Wisdom">
-          <div class="card-body">
-            <div class="card-meta-top"><span class="badge badge-blue">Surgery</span> <span>Oct 30, 2025</span></div>
-            <h3><a href="#">Do You Really Need to Remove Your Wisdom Teeth?</a></h3>
-            <p class="excerpt">Understanding when extraction is necessary and when it's safe to keep them.</p>
-          </div>
-        </article>
-
       </div>
 
       <div class="load-more-container">
-        <button id="load-more-btn" class="btn-load-more">Read More Articles</button>
+        <button id="load-more-btn" class="btn-load-more">Load More Articles</button>
       </div>
 
     </main>
     
     <aside>
       <div class="sidebar-widget">
-        <h4 class="widget-title">Categories</h4>
+        <h4 class="widget-title">Popular Categories</h4>
         <ul class="cat-list">
           <li><a href="list.html?type=general">General Dentistry <span>12</span></a></li>
           <li><a href="list.html?type=porcelain">Porcelain Teeth <span>08</span></a></li>
@@ -280,7 +294,7 @@
 
   <footer>
     <div class="container">
-      <p>© 2025 SmileNote — Designed for Dental Health.</p>
+      <p>© 2025 SmileNote — Premium Dental Knowledge.</p>
     </div>
   </footer>
 
@@ -290,17 +304,14 @@
       const hiddenCards = document.querySelectorAll('.hidden-card');
       
       loadMoreBtn.addEventListener('click', function() {
-        // Hiện 3 bài tiếp theo
         let count = 0;
         hiddenCards.forEach(card => {
           if (card.style.display !== 'flex' && count < 3) {
-            card.style.display = 'flex'; // Hiện bài viết (flex để giữ layout card)
-            card.classList.remove('hidden-card'); // Xóa class ẩn
+            card.style.display = 'flex'; 
+            card.classList.remove('hidden-card'); 
             count++;
           }
         });
-
-        // Nếu không còn bài nào ẩn thì giấu nút Load More
         const remainingHidden = document.querySelectorAll('.hidden-card');
         if (remainingHidden.length === 0) {
           loadMoreBtn.style.display = 'none';
