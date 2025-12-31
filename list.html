@@ -6,49 +6,70 @@
   <title>Topics — SmileNote</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     /* CSS đồng bộ với Index.html */
-    :root { --primary: #2F80ED; --secondary: #56CCF2; --accent: #6FCF97; --bg-body: #F9FBFD; --bg-card: #FFFFFF; --text-main: #333333; --text-muted: #64748B; --border: #E2E8F0; --radius: 16px; --shadow: 0 10px 30px -5px rgba(47, 128, 237, 0.08); --font-head: 'Poppins', sans-serif; --font-body: 'Inter', sans-serif; }
+    :root { 
+      --primary: #0284C7; --primary-hover: #0369A1; --secondary: #38BDF8; 
+      --bg-body: #F8FAFC; --bg-card: #FFFFFF; --text-head: #0F172A; --text-body: #475569; 
+      --border: #E2E8F0; --radius: 20px; 
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --font-head: 'Plus Jakarta Sans', sans-serif; --font-body: 'Inter', sans-serif; 
+    }
     * { box-sizing: border-box; }
-    body { margin: 0; background-color: var(--bg-body); font-family: var(--font-body); color: var(--text-main); line-height: 1.6; }
-    h1, h2, h3, h4 { font-family: var(--font-head); color: #1e293b; margin-top: 0; }
-    a { text-decoration: none; transition: 0.2s; }
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+    body { margin: 0; background-color: var(--bg-body); font-family: var(--font-body); color: var(--text-body); line-height: 1.6; }
+    h1, h2, h3, h4 { font-family: var(--font-head); color: var(--text-head); margin-top: 0; font-weight: 700; letter-spacing: -0.02em; }
+    a { text-decoration: none; transition: 0.3s ease; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
     
-    header.site-header { background: var(--bg-card); box-shadow: 0 2px 15px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 1000; padding: 16px 0; }
+    header.site-header { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; padding: 18px 0; }
     .header-inner { display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-family: var(--font-head); font-weight: 700; font-size: 24px; color: var(--primary); display: flex; align-items: center; gap: 8px; }
-    .nav-links { display: flex; gap: 32px; font-weight: 500; align-items: center; }
-    .nav-links a { color: var(--text-main); font-size: 15px; }
+    .logo { font-family: var(--font-head); font-weight: 800; font-size: 26px; color: var(--primary); letter-spacing: -0.5px; }
+    .nav-links { display: flex; gap: 36px; font-weight: 600; align-items: center; }
+    .nav-links a { color: var(--text-head); font-size: 15px; position: relative; }
+    .nav-links a:hover, .nav-links a.active { color: var(--primary); }
     
-    .dropdown { position: relative; display: inline-block; padding-bottom: 10px; margin-bottom: -10px; }
-    .dropdown-content { display: none; position: absolute; background-color: var(--bg-card); min-width: 220px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); border-radius: 12px; padding: 8px 0; z-index: 1001; top: 100%; left: 0; border: 1px solid var(--border); margin-top: 0; }
-    .dropdown-content::before { content: ""; position: absolute; top: -15px; left: 0; width: 100%; height: 15px; background: transparent; }
-    .dropdown-content a { color: var(--text-main); padding: 12px 20px; display: block; font-size: 14px; text-decoration: none; }
+    .dropdown { position: relative; display: inline-block; }
+    .dropbtn { cursor: pointer; display: flex; align-items: center; gap: 6px; }
+    .dropdown-content { display: none; position: absolute; background-color: white; min-width: 240px; box-shadow: var(--shadow-lg); border-radius: 16px; padding: 8px; z-index: 1001; top: 140%; left: -20px; border: 1px solid var(--border); }
+    .dropdown-content::before { content: ""; position: absolute; top: -20px; left: 0; width: 100%; height: 20px; background: transparent; }
+    .dropdown-content a { color: var(--text-body); padding: 12px 16px; display: block; font-size: 14px; border-radius: 10px; font-weight: 500; margin-bottom: 2px; }
+    .dropdown-content a:hover { background-color: #F0F9FF; color: var(--primary); transform: translateX(4px); }
     .dropdown:hover .dropdown-content { display: block; }
     
-    .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
-    .card { background: var(--bg-card); border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(226, 232, 240, 0.6); display: none; flex-direction: column; } /* Mặc định ẩn */
-    .card-thumb { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 24px; flex: 1; }
-    .card h3 { font-size: 18px; margin-bottom: 12px; }
-    .card a { color: var(--text-main); }
-    .badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; background: rgba(47, 128, 237, 0.1); color: var(--primary); }
-    .excerpt { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; }
+    .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; margin-bottom: 80px; }
+    .card { background: var(--bg-card); border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(0,0,0,0.03); box-shadow: var(--shadow-sm); display: none; flex-direction: column; transition: 0.4s; height: 100%; }
+    .card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .card-thumb { width: 100%; height: 240px; object-fit: cover; }
+    .card-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+    .card h3 { font-size: 20px; margin-bottom: 12px; line-height: 1.45; }
+    .card h3 a { color: var(--text-head); }
+    .card:hover h3 a { color: var(--primary); }
+    .badge { display: inline-block; padding: 6px 14px; border-radius: 100px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; background: #E0F2FE; color: #0369A1; }
+    .excerpt { font-size: 15px; color: var(--text-body); margin-bottom: 24px; flex-grow: 1; line-height: 1.7; }
     
-    footer { margin-top: 80px; padding: 40px; text-align: center; border-top: 1px solid #eee; }
+    /* Footer Premium */
+    footer { background: #0F172A; padding-top: 80px; padding-bottom: 30px; color: #94A3B8; font-size: 15px; margin-top: 0; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 60px; text-align: left; }
+    .footer-col h4 { color: white; margin-bottom: 24px; font-size: 18px; }
+    .footer-col p { margin-bottom: 16px; line-height: 1.8; }
+    .footer-col ul li { margin-bottom: 12px; }
+    .footer-col a { color: #94A3B8; transition: 0.2s; }
+    .footer-col a:hover { color: white; padding-left: 5px; }
+    .footer-logo { font-family: var(--font-head); font-weight: 800; font-size: 28px; color: white; display: block; margin-bottom: 16px; }
+    .footer-bottom { border-top: 1px solid #1E293B; padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 14px; }
   </style>
 </head>
 <body>
 
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="logo">SmileNote</a>
+      <a href="index.html" class="logo">SmileNote.</a>
       <nav class="nav-links">
         <a href="index.html">Home</a>
         <div class="dropdown">
-          <a href="#" class="dropbtn" style="color: var(--primary);">Details ▾</a>
+          <a href="#" class="dropbtn">Details <span style="font-size:10px">▼</span></a>
           <div class="dropdown-content">
             <a href="list.html?type=dentist">Our dentists</a>
             <a href="list.html?type=implant">Implant</a>
@@ -64,13 +85,22 @@
   </header>
 
   <div class="container">
-    <h1 id="page-title" style="margin-top: 60px; text-align: center;">All Articles</h1>
+    <h1 id="page-title" style="margin-top: 80px; text-align: center; font-size: 40px; color: var(--text-head);">All Articles</h1>
     <div class="cards-grid" id="posts-container">
       
-      <article class="card type-porcelain">
-        <img src="https://images.unsplash.com/photo-1484665754804-74bca5e2b9f0?auto=format&fit=crop&q=80&w=800" class="card-thumb" alt="Temporary Crown">
+      <article class="card type-general">
+        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Teeth Cleaning">
         <div class="card-body">
-          <div style="margin-bottom:10px;"><span class="badge">Crowns</span></div>
+          <div style="margin-bottom:16px;"><span class="badge">Hygiene</span></div>
+          <h3><a href="how-long-does-a-teeth-cleaning-take.html">The Reality of the Chair: How Long Does a Teeth Cleaning Take?</a></h3>
+          <p class="excerpt">"It depends on your gums." Why some appointments take 40 minutes and others need two visits.</p>
+        </div>
+      </article>
+
+      <article class="card type-porcelain">
+        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Temporary Crown">
+        <div class="card-body">
+          <div style="margin-bottom:16px;"><span class="badge">Crowns</span></div>
           <h3><a href="how-long-do-temporary-crowns-last.html">Real Talk: How Long Do Temporary Crowns Last in a Real Mouth?</a></h3>
           <p class="excerpt">"Doc, how long will this last?" The balance between strong enough to stay and weak enough to pop off...</p>
         </div>
@@ -79,7 +109,7 @@
       <article class="card type-braces">
         <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=800&auto=format&fit=crop" class="card-thumb" alt="Braces">
         <div class="card-body">
-          <div style="margin-bottom:10px;"><span class="badge">Braces</span></div>
+          <div style="margin-bottom:16px;"><span class="badge">Braces</span></div>
           <h3><a href="thinking-about-ceramic-braces.html">Thinking About Ceramic Braces? What I Tell My Patients in the Chair</a></h3>
           <p class="excerpt">"I want straight teeth, but I don't want to look like a teenager." The honest pros and cons of clear braces...</p>
         </div>
@@ -88,7 +118,7 @@
       <article class="card type-general">
         <img src="https://www.spiredentallangley.com/images/blog/temporary-filling/temporary-tooth-filling.webp" class="card-thumb" alt="Pain">
         <div class="card-body">
-          <div style="margin-bottom:10px;"><span class="badge">General</span></div>
+          <div style="margin-bottom:16px;"><span class="badge">General</span></div>
           <h3><a href="what-tooth-sensitivity-after-filling-tells-us.html">Diagnosing Symptoms: What Tooth Sensitivity After Filling Tells Us</a></h3>
           <p class="excerpt">Pain is a language. The way your tooth hurts—when it hurts and what triggers it—tells us exactly what is happening...</p>
         </div>
@@ -98,7 +128,31 @@
   </div>
 
   <footer>
-    <div class="container"><p>© 2025 SmileNote</p></div>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="#" class="footer-logo">SmileNote.</a>
+          <p>Providing professional, trusted dental knowledge to help you maintain a healthy, confident smile.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="list.html?type=general">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>📍 123 Dental Street, NY</p>
+          <p>✉️ hello@smilenote.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 SmileNote. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
 
   <script>
