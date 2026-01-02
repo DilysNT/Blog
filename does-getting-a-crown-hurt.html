@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Managing Your Recovery: Does Getting a Crown Hurt When You Get Home?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* --- CSS SYSTEM --- */
+    :root { --primary: #0284C7; --secondary: #38BDF8; --accent: #6FCF97; --bg-body: #F8FAFC; --bg-card: #FFFFFF; --text-head: #0F172A; --text-body: #475569; --border: #E2E8F0; --radius: 20px; --font-head: 'Plus Jakarta Sans', sans-serif; --font-body: 'Inter', sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background-color: var(--bg-body); font-family: var(--font-body); color: var(--text-body); line-height: 1.6; }
+    h1, h2, h3, h4 { font-family: var(--font-head); color: #1e293b; margin-top: 0; }
+    a { text-decoration: none; transition: 0.2s; }
+    ul { list-style: none; padding: 0; margin: 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    header.site-header { background: var(--bg-card); box-shadow: 0 2px 15px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 1000; padding: 16px 0; }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: var(--font-head); font-weight: 700; font-size: 24px; color: var(--primary); display: flex; align-items: center; gap: 8px; }
+    .nav-links { display: flex; gap: 32px; font-weight: 500; align-items: center; }
+    .nav-links a { color: var(--text-head); font-size: 15px; }
+    .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+
+    /* Dropdown */
+    .dropdown { position: relative; display: inline-block; padding-bottom: 10px; margin-bottom: -10px; }
+    .dropbtn { cursor: pointer; display: flex; align-items: center; gap: 4px; }
+    .dropdown-content { display: none; position: absolute; background-color: var(--bg-card); min-width: 220px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); border-radius: 12px; padding: 8px 0; z-index: 1001; top: 100%; left: 0; border: 1px solid var(--border); margin-top: 0; }
+    .dropdown-content::before { content: ""; position: absolute; top: -15px; left: 0; width: 100%; height: 15px; background: transparent; }
+    .dropdown-content a { color: var(--text-body); padding: 12px 20px; display: block; font-size: 14px; }
+    .dropdown-content a:hover { background-color: #F1F5F9; color: var(--primary); padding-left: 24px; }
+    .dropdown:hover .dropdown-content { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Layout */
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-body); margin-bottom: 24px; flex-wrap: wrap; }
+    .breadcrumb a { color: var(--text-body); transition: 0.2s; }
+    .breadcrumb a:hover { color: var(--primary); text-decoration: underline; }
+    .breadcrumb span { color: var(--text-head); font-weight: 500; }
+    .breadcrumb .separator { font-size: 12px; opacity: 0.5; }
+
+    .content-area { display: grid; grid-template-columns: 2.5fr 1fr; gap: 60px; padding: 40px 0 80px; }
+    .article-header { margin-bottom: 30px; }
+    .article-meta { display: flex; gap: 20px; font-size: 14px; color: var(--text-body); margin-bottom: 16px; align-items: center; }
+    .author-badge { display: flex; align-items: center; gap: 8px; font-weight: 600; color: var(--text-head); }
+    .author-img { width: 30px; height: 30px; border-radius: 50%; background: #eee; }
+    
+    .featured-image { width: 100%; height: 450px; object-fit: cover; border-radius: var(--radius); margin-bottom: 40px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.1); }
+    .content-image { width: 100%; height: auto; border-radius: 12px; margin: 30px 0; object-fit: cover; }
+
+    .article-content { font-size: 18px; line-height: 1.8; color: #334155; }
+    .article-content h2 { font-size: 28px; margin-top: 40px; margin-bottom: 20px; color: #0F172A; }
+    .article-content p { margin-bottom: 24px; }
+    
+    /* Highlight Box */
+    .clinical-box { background: #E0F2FE; padding: 24px; border-radius: 12px; border-left: 4px solid var(--primary); margin: 30px 0; }
+    .clinical-title { display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--primary); margin-bottom: 10px; font-family: var(--font-head); }
+    .warning-box { background: #FEF2F2; padding: 24px; border-radius: 12px; border-left: 4px solid #EF4444; margin: 30px 0; color: #991B1B; }
+
+    .sidebar-widget { background: var(--bg-card); padding: 30px; border-radius: var(--radius); border: 1px solid var(--border); margin-bottom: 30px; }
+    .widget-title { font-size: 18px; margin-bottom: 20px; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px; }
+    .related-post { display: flex; gap: 16px; margin-bottom: 20px; align-items: center; }
+    .related-post img { width: 70px; height: 70px; border-radius: 10px; object-fit: cover; }
+    .related-post h4 { font-size: 15px; margin: 0; line-height: 1.4; font-weight: 600; }
+    .related-post h4 a { color: var(--text-head); }
+    .related-post h4 a:hover { color: var(--primary); }
+
+    footer { background: #0F172A; padding: 60px 0; text-align: center; color: #94A3B8; font-size: 15px; }
+    @media (max-width: 900px) { .content-area { grid-template-columns: 1fr; } .featured-image { height: 250px; } }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">SmileNote.</a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+          <a href="#" class="dropbtn">Details ▾</a>
+          <div class="dropdown-content">
+            <a href="list.html?type=dentist">Our dentists</a>
+            <a href="list.html?type=implant">Implant</a>
+            <a href="list.html?type=braces">Braces</a>
+            <a href="list.html?type=porcelain">Porcelain teeth</a>
+            <a href="list.html?type=general">General dentistry</a>
+          </div>
+        </div>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container content-area">
+    <article>
+      <nav class="breadcrumb">
+        <a href="#">Details</a> <span class="separator">›</span>
+        <a href="list.html?type=general">General Dentistry</a> <span class="separator">›</span>
+        <span>Recovery Guide</span>
+      </nav>
+
+      <header class="article-header">
+        <h1 style="font-size: 40px; line-height: 1.2; margin-bottom: 16px;">Managing Your Recovery: Does Getting a Crown Hurt When You Get Home?</h1>
+        <div class="article-meta">
+          <div class="author-badge">
+            <div class="author-img" style="background-color: var(--primary)"></div>
+            <span>Dr. Steven Nguyen</span>
+          </div>
+          <span>•</span>
+          <time>Jan 20, 2026</time>
+          <span>•</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+
+      <img src="https://images.unsplash.com/photo-1588776814546-1ffcfef2332e?auto=format&fit=crop&q=80&w=1200" class="featured-image" alt="Dental Care Recovery">
+
+      <div class="article-content">
+        <p>You have finished your dental appointment, your face is still half-numb, and you are heading home. The question on your mind is likely: "Does getting a crown hurt once the numbing wears off?" The next 24 to 48 hours are crucial for your comfort. While the dentist does the technical work, your behavior at home dictates how smoothly you heal. There are specific things you should do—and definitely avoid—to ensure your recovery is pain-free.</p>
+
+        <h2>Diet and Temperature Management</h2>
+        <p>The most common trigger for pain after a crown prep is thermal shock. The tooth has been shaved down, and the temporary crown is not as insulating as your natural enamel.</p>
+        
+        <div class="clinical-box">
+          <div class="clinical-title">🧊 Avoiding the "Zings"</div>
+          <p>If you want to ensure the answer to "does getting a crown hurt" remains negative, avoid extreme temperatures. Do not drink ice water or hot coffee immediately. Stick to lukewarm, room-temperature foods for the first day. The nerve inside the tooth is currently hyper-active. Hitting it with ice is like startling a sleeping bear.</p>
+        </div>
+
+        <p>Also, avoid sticky foods (caramel, gum) and hard foods (nuts, crunchy bread). Chewing hard foods can bruise the ligament underneath the tooth, causing an ache that has nothing to do with the crown itself.</p>
+
+        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&q=80&w=800" class="content-image" alt="Soft Food for Recovery">
+
+        <h2>Gum Soreness and Hygiene</h2>
+        <p>Often, it isn't the tooth that hurts; it's the gums. The dentist had to work right at the gum line to ensure the crown fits perfectly.</p>
+        <p><strong>Salt Water Rinses:</strong> If you find yourself asking "does getting a crown hurt more in the gums than the tooth?", you are likely experiencing gingival irritation. The best remedy is warm salt water rinses. Mix a teaspoon of salt in a cup of warm water and swish gently for 30 seconds, three times a day. This draws out inflammation and soothes the tissue.</p>
+
+        <h2>Pain Medication Strategy</h2>
+        <p>You don't need to wait for the pain to start before taking action.</p>
+        <p><strong>Staying Ahead of Inflammation:</strong> The best way to manage the question "does getting a crown hurt" is to prevent the inflammation from spiking. Unless you have a medical reason not to, taking an over-the-counter anti-inflammatory (like Ibuprofen/Advil) before the anesthesia fully wears off is a pro move. This stops the chemical pain signals before they reach the brain.</p>
+
+        <img src="https://images.unsplash.com/photo-1559676169-722ba5423c86?auto=format&fit=crop&q=80&w=800" class="content-image" alt="Dental Hygiene Care">
+
+        <h2>Checking Your Bite</h2>
+        <p>This is the most critical self-check you can do. Once the numbness is gone, bite down gently.</p>
+        
+        <div class="warning-box">
+          <strong>⚠️ The "High Bite" Test</strong><br>
+          Does the temporary crown hit first? Does it feel like you are biting on a pebble? If the answer is yes, this will cause significant pain within 24 hours. If you notice this, do not wait. Call the dentist immediately for a quick adjustment.
+        </div>
+
+        <p><strong>Conclusion:</strong> Managing your recovery answers the question "does getting a crown hurt" with a resounding "not if you take care of it." By eating soft foods, avoiding temperature extremes, keeping the gums clean with salt water, and taking NSAIDs preventatively, you can turn a potentially sore experience into a non-event.</p>
+      </div>
+    </article>
+
+    <aside>
+      <div class="sidebar-widget">
+        <h4 class="widget-title">Popular Articles</h4>
+        <div class="related-post">
+          <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=200" alt="Cleaning">
+          <h4><a href="how-long-does-a-teeth-cleaning-take.html">How Long Does a Teeth Cleaning Take?</a></h4>
+        </div>
+        <div class="related-post">
+          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=200" alt="Crowns">
+          <h4><a href="how-long-do-temporary-crowns-last.html">How Long Do Temporary Crowns Last?</a></h4>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <div class="container"><p>© 2025 SmileNote — Designed for Dental Health.</p></div>
+  </footer>
+</body>
+</html>
