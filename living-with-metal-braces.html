@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Living with Metal Braces: Your Daily Survival Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* --- CSS SYSTEM --- */
+    :root { --primary: #0284C7; --secondary: #38BDF8; --bg-body: #F8FAFC; --bg-card: #FFFFFF; --text-head: #0F172A; --text-body: #475569; --border: #E2E8F0; --radius: 20px; --font-head: 'Plus Jakarta Sans', sans-serif; --font-body: 'Inter', sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background-color: var(--bg-body); font-family: var(--font-body); color: var(--text-body); line-height: 1.6; }
+    h1, h2, h3, h4 { font-family: var(--font-head); color: #1e293b; margin-top: 0; }
+    a { text-decoration: none; transition: 0.2s; }
+    ul { list-style: none; padding: 0; margin: 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    header.site-header { background: var(--bg-card); box-shadow: 0 2px 15px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 1000; padding: 16px 0; }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: var(--font-head); font-weight: 700; font-size: 24px; color: var(--primary); display: flex; align-items: center; gap: 8px; }
+    .nav-links { display: flex; gap: 32px; font-weight: 500; align-items: center; }
+    .nav-links a { color: var(--text-head); font-size: 15px; }
+    .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+
+    /* Dropdown */
+    .dropdown { position: relative; display: inline-block; padding-bottom: 10px; margin-bottom: -10px; }
+    .dropbtn { cursor: pointer; display: flex; align-items: center; gap: 4px; }
+    .dropdown-content { display: none; position: absolute; background-color: var(--bg-card); min-width: 220px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); border-radius: 12px; padding: 8px 0; z-index: 1001; top: 100%; left: 0; border: 1px solid var(--border); margin-top: 0; }
+    .dropdown-content::before { content: ""; position: absolute; top: -15px; left: 0; width: 100%; height: 15px; background: transparent; }
+    .dropdown-content a { color: var(--text-body); padding: 12px 20px; display: block; font-size: 14px; }
+    .dropdown-content a:hover { background-color: #F1F5F9; color: var(--primary); padding-left: 24px; }
+    .dropdown:hover .dropdown-content { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Layout */
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-body); margin-bottom: 24px; flex-wrap: wrap; }
+    .breadcrumb a { color: var(--text-body); transition: 0.2s; }
+    .breadcrumb a:hover { color: var(--primary); text-decoration: underline; }
+    .breadcrumb span { color: var(--text-head); font-weight: 500; }
+    .breadcrumb .separator { font-size: 12px; opacity: 0.5; }
+
+    .content-area { display: grid; grid-template-columns: 2.5fr 1fr; gap: 60px; padding: 40px 0 80px; }
+    .article-header { margin-bottom: 30px; }
+    .article-meta { display: flex; gap: 20px; font-size: 14px; color: var(--text-body); margin-bottom: 16px; align-items: center; }
+    .author-badge { display: flex; align-items: center; gap: 8px; font-weight: 600; color: var(--text-head); }
+    .author-img { width: 30px; height: 30px; border-radius: 50%; background: #eee; }
+    
+    .featured-image { width: 100%; height: 450px; object-fit: cover; border-radius: var(--radius); margin-bottom: 40px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.1); }
+    .content-image { width: 100%; height: auto; border-radius: 12px; margin: 30px 0; object-fit: cover; }
+
+    .article-content { font-size: 18px; line-height: 1.8; color: #334155; }
+    .article-content h2 { font-size: 28px; margin-top: 40px; margin-bottom: 20px; color: #0F172A; }
+    .article-content p { margin-bottom: 24px; }
+    .article-content ul { list-style: disc; padding-left: 24px; margin-bottom: 24px; }
+    .article-content li { margin-bottom: 10px; }
+    
+    /* Highlight Box */
+    .clinical-box { background: #E0F2FE; padding: 24px; border-radius: 12px; border-left: 4px solid var(--primary); margin: 30px 0; }
+    .clinical-title { display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--primary); margin-bottom: 10px; font-family: var(--font-head); }
+    .warning-box { background: #FEF2F2; padding: 24px; border-radius: 12px; border-left: 4px solid #EF4444; margin: 30px 0; color: #991B1B; }
+
+    .sidebar-widget { background: var(--bg-card); padding: 30px; border-radius: var(--radius); border: 1px solid var(--border); margin-bottom: 30px; }
+    .widget-title { font-size: 18px; margin-bottom: 20px; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px; }
+    .related-post { display: flex; gap: 16px; margin-bottom: 20px; align-items: center; }
+    .related-post img { width: 70px; height: 70px; border-radius: 10px; object-fit: cover; }
+    .related-post h4 { font-size: 15px; margin: 0; line-height: 1.4; font-weight: 600; }
+    .related-post h4 a { color: var(--text-head); }
+    .related-post h4 a:hover { color: var(--primary); }
+
+    footer { background: #0F172A; padding: 60px 0; text-align: center; color: #94A3B8; font-size: 15px; }
+    @media (max-width: 900px) { .content-area { grid-template-columns: 1fr; } .featured-image { height: 250px; } }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">SmileNote.</a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+          <a href="#" class="dropbtn">Details ▾</a>
+          <div class="dropdown-content">
+            <a href="list.html?type=dentist">Our dentists</a>
+            <a href="list.html?type=implant">Implant</a>
+            <a href="list.html?type=braces">Braces</a>
+            <a href="list.html?type=porcelain">Porcelain teeth</a>
+            <a href="list.html?type=general">General dentistry</a>
+          </div>
+        </div>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container content-area">
+    <article>
+      <nav class="breadcrumb">
+        <a href="#">Details</a> <span class="separator">›</span>
+        <a href="list.html?type=braces">Braces</a> <span class="separator">›</span>
+        <span>Living with Braces</span>
+      </nav>
+
+      <header class="article-header">
+        <h1 style="font-size: 40px; line-height: 1.2; margin-bottom: 16px;">Living with Metal Braces: Your Daily Survival Guide</h1>
+        <div class="article-meta">
+          <div class="author-badge">
+            <div class="author-img" style="background-color: var(--primary)"></div>
+            <span>Dr. Steven Nguyen</span>
+          </div>
+          <span>•</span>
+          <time>Jan 25, 2026</time>
+          <span>•</span>
+          <span>7 min read</span>
+        </div>
+      </header>
+
+      <img src="https://images.unsplash.com/photo-1609840114035-1c29046a8028?auto=format&fit=crop&q=80&w=1200" class="featured-image" alt="Metal Braces Close up">
+
+      <div class="article-content">
+        <p>Congratulations on starting your orthodontic journey! You have joined the millions of people who have chosen metal braces to transform their smile. Now that the brackets are bonded and the wire is in, you might be wondering, "How do I actually live with these?"</p>
+        <p>The first week with metal braces is a learning curve. Your mouth feels full, your teeth feel tender, and eating requires a new strategy. Don't worry—this is temporary. This guide is designed to help you navigate the daily habits, hygiene tricks, and diet changes.</p>
+
+        <h2>The First Week: Managing Soreness</h2>
+        <p>The initial sensation of metal braces can be surprising. Your lips and cheeks aren't used to the hardware.</p>
+        
+        <div class="clinical-box">
+          <div class="clinical-title">🛡️ Wax is Your Best Friend</div>
+          <p>You likely received a small container of orthodontic wax. Use it! If a specific bracket or wire is poking your cheek, pinch off a small piece of wax, roll it into a ball, and squish it over the sharp part of the metal braces. This creates a smooth barrier and allows a sore spot to heal overnight. <strong>Pro tip:</strong> Dry the bracket with a tissue first so the wax sticks better.</p>
+        </div>
+
+        <h2>Eating with Hardware</h2>
+        <p>The biggest lifestyle change with metal braces is your diet. The wrong food can pop a bracket off, which delays your treatment.</p>
+        <p><strong>The "No-Crunch" Rule:</strong> You must avoid hard, sticky, and chewy foods. Popcorn is the enemy—the hulls get trapped under the gum line and can cause massive infections. Sticky caramel or taffy can rip the wires right out of the tubes.</p>
+
+        <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&q=80&w=800" class="content-image" alt="Soft Food for Braces">
+
+        <ul>
+            <li><strong>Safe Foods:</strong> Mashed potatoes, yogurt, pasta, scrambled eggs, and smoothies.</li>
+            <li><strong>Dangerous Foods:</strong> Whole apples (cut them up!), corn on the cob, nuts, and ice.</li>
+        </ul>
+        <p>With metal braces, you cannot bite into things with your front teeth. You have to cut food into bite-sized pieces and chew with your back molars.</p>
+
+        <h2>Hygiene: The Tool Kit</h2>
+        <p>Brushing with metal braces requires more than just a toothbrush. The wire creates a bridge that blocks standard floss.</p>
+        
+        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800" class="content-image" alt="Dental Hygiene Tools">
+
+        <p><strong>Interdental Brushes:</strong> You need to buy "interdental brushes" (often called proxabrushes). These look like tiny pipe cleaners. They are essential for cleaning under the wire and between the brackets. Food gets trapped on the sides of metal braces where a normal toothbrush can't reach.</p>
+        <p><strong>Threader Floss:</strong> You must still floss. Use a floss threader or "super floss" with a stiff end to poke under the main wire. It takes longer, but it prevents gum disease.</p>
+
+        <h2>Dealing with Broken Brackets</h2>
+        <div class="warning-box">
+          <strong>⚠️ Don't Panic</strong><br>
+          If a bracket is loose but still attached to the wire, secure it with wax. Do not try to pull it off or cut the wire yourself. Call your orthodontist to schedule a repair.
+        </div>
+
+        <p><strong>Conclusion:</strong> Living with metal braces is a temporary inconvenience for a permanent benefit. By using your wax, cutting up your food, and mastering the interdental brush, you will breeze through treatment. Treat your hardware with respect, and your new smile will be ready before you know it.</p>
+      </div>
+    </article>
+
+    <aside>
+      <div class="sidebar-widget">
+        <h4 class="widget-title">Popular Articles</h4>
+        <div class="related-post">
+          <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80&w=200" alt="Ceramic Braces">
+          <h4><a href="thinking-about-ceramic-braces.html">Thinking About Ceramic Braces?</a></h4>
+        </div>
+        <div class="related-post">
+          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=200" alt="Crowns">
+          <h4><a href="how-long-do-temporary-crowns-last.html">How Long Do Temporary Crowns Last?</a></h4>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <div class="container"><p>© 2025 SmileNote — Designed for Dental Health.</p></div>
+  </footer>
+</body>
+</html>
