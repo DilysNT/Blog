@@ -24,13 +24,13 @@
     .header-inner { display: flex; justify-content: space-between; align-items: center; }
     .logo { font-family: var(--font-head); font-weight: 800; font-size: 26px; color: var(--primary); }
     .nav-links { display: flex; gap: 36px; font-weight: 600; align-items: center; }
-    .nav-links a { color: var(--text-head); font-size: 15px; }
+    .nav-links a { color: var(--text-head); font-size: 15px; position: relative; }
     .nav-links a:hover, .nav-links a.active { color: var(--primary); }
     
     /* DROPDOWN */
     .dropdown { position: relative; display: inline-block; }
     .dropbtn { cursor: pointer; display: flex; align-items: center; gap: 6px; }
-    .dropdown-content { display: none; position: absolute; background-color: white; min-width: 220px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border-radius: 16px; padding: 8px; z-index: 1001; top: 140%; left: -20px; border: 1px solid var(--border); }
+    .dropdown-content { display: none; position: absolute; background-color: white; min-width: 240px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border-radius: 16px; padding: 8px; z-index: 1001; top: 140%; left: -20px; border: 1px solid var(--border); }
     .dropdown-content::before { content: ""; position: absolute; top: -20px; left: 0; width: 100%; height: 20px; background: transparent; }
     .dropdown-content a { color: var(--text-body); padding: 12px 16px; display: block; font-size: 14px; border-radius: 10px; font-weight: 500; margin-bottom: 2px; }
     .dropdown-content a:hover { background-color: #F0F9FF; color: var(--primary); transform: translateX(4px); }
@@ -43,12 +43,12 @@
     .search-wrapper { max-width: 500px; margin: 0 auto; position: relative; }
     .search-input { width: 100%; padding: 14px 20px 14px 46px; border-radius: 50px; border: 1px solid #CBD5E1; outline: none; transition: 0.3s; }
     .search-input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15); }
-    .search-icon { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #94A3B8; }
+    .search-icon { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #94A3B8; font-size: 18px; }
 
-    /* MAIN LAYOUT (CHIA CỘT CHÍNH VÀ SIDEBAR) */
+    /* LAYOUT */
     .main-layout { display: grid; grid-template-columns: 3fr 1fr; gap: 40px; padding: 60px 0 100px; }
     
-    /* CARDS GRID (BÊN TRÁI) */
+    /* CARDS */
     .cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
     .card { background: var(--bg-card); border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); display: flex; flex-direction: column; transition: 0.3s; height: 100%; }
     .card:hover { transform: translateY(-5px); box-shadow: 0 15px 20px -5px rgba(0,0,0,0.1); }
@@ -58,7 +58,7 @@
     .badge { display: inline-block; padding: 4px 10px; border-radius: 100px; font-size: 11px; font-weight: 700; text-transform: uppercase; background: #E0F2FE; color: #0369A1; margin-bottom: 12px; width: fit-content; }
     .excerpt { font-size: 14px; color: var(--text-body); margin-bottom: 16px; flex-grow: 1; }
 
-    /* SIDEBAR (BÊN PHẢI - ĐÃ FIX) */
+    /* SIDEBAR */
     .sidebar-widget { background: white; padding: 24px; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: 0 2px 4px rgba(0,0,0,0.02); position: sticky; top: 100px; }
     .widget-title { font-size: 18px; margin-bottom: 20px; border-bottom: 2px solid #F1F5F9; padding-bottom: 12px; }
     .cat-list li { margin-bottom: 12px; }
@@ -96,9 +96,11 @@
           <a href="#" class="dropbtn">Details ▾</a>
           <div class="dropdown-content">
             <a href="list.html?type=general">General Dentistry</a>
-            <a href="list.html?type=porcelain">Porcelain Teeth</a>
-            <a href="list.html?type=braces">Braces</a>
+            <a href="list.html?type=cosmetic">Cosmetic Dentistry</a>
+            <a href="list.html?type=orthodontics">Orthodontics (Braces)</a>
             <a href="list.html?type=implant">Implants</a>
+            <a href="list.html?type=restorative">Restorative (Crowns)</a>
+            <a href="list.html?type=hygiene">Oral Hygiene</a>
           </div>
         </div>
         <a href="about.html">About</a>
@@ -122,89 +124,89 @@
     <main>
       <div class="cards-grid" id="blog-grid">
         
-        <article class="card">
+        <article class="card type-cosmetic">
           <div style="overflow:hidden;">
             <img src="https://images.pexels.com/photos/3779705/pexels-photo-3779705.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Veneers">
           </div>
           <div class="card-body">
-            <span class="badge" style="background:#F3E8FF; color:#7E22CE">Porcelain Teeth</span>
-            <h3><a href="veneers-missing-teeth.html">Can You Get Veneers With Missing Teeth? The Honest Truth</a></h3>
+            <span class="badge" style="background:#F3E8FF; color:#7E22CE">Cosmetic</span>
+            <h3><a href="veneers-missing-teeth.html">Can You Get Veneers With Missing Teeth?</a></h3>
             <p class="excerpt">Veneers need a foundation. If the tooth is gone, there is nothing for the porcelain to stick to.</p>
           </div>
         </article>
 
-        <article class="card">
+        <article class="card type-implant">
           <div style="overflow:hidden;">
             <img src="https://images.pexels.com/photos/305566/pexels-photo-305566.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Implant">
           </div>
           <div class="card-body">
-            <span class="badge" style="background:#E0F2FE; color:#0284C7">Implants</span>
+            <span class="badge" style="background:#E0F2FE; color:#0284C7">Implant</span>
             <h3><a href="dental-implant-procedure.html">Material Science in Dental Implant Procedure</a></h3>
             <p class="excerpt">We evaluate implants not just as screws, but as sophisticated biomedical devices.</p>
           </div>
         </article>
 
-        <article class="card">
+        <article class="card type-orthodontics">
           <div style="overflow:hidden;">
             <img src="https://images.pexels.com/photos/3779760/pexels-photo-3779760.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Braces">
           </div>
           <div class="card-body">
-            <span class="badge" style="background:#F3E8FF; color:#7E22CE">Braces</span>
+            <span class="badge" style="background:#F3E8FF; color:#7E22CE">Orthodontics</span>
             <h3><a href="living-with-metal-braces.html">Living with Metal Braces: Your Daily Survival Guide</a></h3>
             <p class="excerpt">Tips on wax, eating, and hygiene to survive the first week comfortably.</p>
           </div>
         </article>
 
-        <article class="card">
+        <article class="card type-general">
           <div style="overflow:hidden;">
             <img src="https://images.pexels.com/photos/3845729/pexels-photo-3845729.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Recovery">
           </div>
           <div class="card-body">
-            <span class="badge" style="background:#DCFCE7; color:#15803D">General Dentistry</span>
+            <span class="badge" style="background:#DCFCE7; color:#15803D">General</span>
             <h3><a href="does-getting-a-crown-hurt.html">Managing Your Recovery: Does Getting a Crown Hurt?</a></h3>
             <p class="excerpt">The next 24 to 48 hours are crucial. Avoid thermal shock and high bites.</p>
           </div>
         </article>
 
-        <article class="card">
+        <article class="card type-hygiene">
           <div style="overflow:hidden;">
             <img src="https://images.pexels.com/photos/3845625/pexels-photo-3845625.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Cleaning">
           </div>
           <div class="card-body">
-            <span class="badge" style="background:#DCFCE7; color:#15803D">General Dentistry</span>
-            <h3><a href="how-long-does-a-teeth-cleaning-take.html">The Reality of the Chair: How Long Does a Teeth Cleaning Take?</a></h3>
+            <span class="badge" style="background:#DCFCE7; color:#15803D">Hygiene</span>
+            <h3><a href="how-long-does-a-teeth-cleaning-take.html">The Reality of the Chair: How Long Does Cleaning Take?</a></h3>
             <p class="excerpt">It depends on your gums. Why some take 40 mins and others need two visits.</p>
           </div>
         </article>
 
-        <article class="card">
+        <article class="card type-restorative">
           <div style="overflow:hidden;">
             <img src="https://images.pexels.com/photos/6502324/pexels-photo-6502324.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Crowns">
           </div>
           <div class="card-body">
-            <span class="badge" style="background:#E0F2FE; color:#0284C7">Porcelain Teeth</span>
+            <span class="badge" style="background:#E0F2FE; color:#0284C7">Restorative</span>
             <h3><a href="how-long-do-temporary-crowns-last.html">Real Talk: How Long Do Temporary Crowns Last?</a></h3>
             <p class="excerpt">The balance between strong enough to stay and weak enough to pop off.</p>
           </div>
         </article>
 
-        <article class="card hidden-card">
+        <article class="card hidden-card type-orthodontics">
           <div style="overflow:hidden;">
             <img src="https://images.pexels.com/photos/4269272/pexels-photo-4269272.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Ceramic Braces">
           </div>
           <div class="card-body">
-            <span class="badge" style="background:#F3E8FF; color:#7E22CE">Braces</span>
-            <h3><a href="thinking-about-ceramic-braces.html">Thinking About Ceramic Braces? What I Tell My Patients</a></h3>
+            <span class="badge" style="background:#F3E8FF; color:#7E22CE">Orthodontics</span>
+            <h3><a href="thinking-about-ceramic-braces.html">Thinking About Ceramic Braces?</a></h3>
             <p class="excerpt">Pros and cons of clear braces for aesthetic conscious patients.</p>
           </div>
         </article>
 
-        <article class="card hidden-card">
+        <article class="card hidden-card type-general">
           <div style="overflow:hidden;">
             <img src="https://images.pexels.com/photos/3845758/pexels-photo-3845758.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Pain">
           </div>
           <div class="card-body">
-            <span class="badge" style="background:#DCFCE7; color:#15803D">General Dentistry</span>
+            <span class="badge" style="background:#DCFCE7; color:#15803D">General</span>
             <h3><a href="what-tooth-sensitivity-after-filling-tells-us.html">Diagnosing Symptoms: What Tooth Sensitivity Tells Us</a></h3>
             <p class="excerpt">Pain is a language. The way your tooth hurts tells us exactly what is happening inside.</p>
           </div>
@@ -222,9 +224,11 @@
         <h4 class="widget-title">Popular Categories</h4>
         <ul class="cat-list">
           <li><a href="list.html?type=general">General Dentistry <span>12</span></a></li>
-          <li><a href="list.html?type=porcelain">Porcelain Teeth <span>08</span></a></li>
-          <li><a href="list.html?type=braces">Braces <span>05</span></a></li>
+          <li><a href="list.html?type=cosmetic">Cosmetic Dentistry <span>05</span></a></li>
+          <li><a href="list.html?type=orthodontics">Orthodontics (Braces) <span>06</span></a></li>
           <li><a href="list.html?type=implant">Implants <span>03</span></a></li>
+          <li><a href="list.html?type=restorative">Restorative (Crowns) <span>08</span></a></li>
+          <li><a href="list.html?type=hygiene">Oral Hygiene <span>04</span></a></li>
         </ul>
       </div>
     </aside>
@@ -261,7 +265,7 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      // LOAD MORE
+      // LOAD MORE LOGIC
       const loadMoreBtn = document.getElementById('load-more-btn');
       const hiddenCards = document.querySelectorAll('.hidden-card');
       
@@ -283,7 +287,7 @@
         }
       });
 
-      // SEARCH
+      // SEARCH LOGIC
       const searchInput = document.getElementById('searchInput');
       const allCards = document.querySelectorAll('.card');
 
