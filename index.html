@@ -8,21 +8,34 @@
   <style>
     /* --- CSS SYSTEM --- */
     :root { 
-      --primary: #0284C7; --bg-body: #F8FAFC; --bg-card: #FFFFFF; --text-head: #0F172A; --text-body: #475569; 
+      --primary: #0284C7; --primary-hover: #0369A1; --secondary: #38BDF8; 
+      --bg-body: #F8FAFC; --bg-card: #FFFFFF; --text-head: #0F172A; --text-body: #475569; 
       --border: #E2E8F0; --radius: 20px; 
       --font-head: 'Plus Jakarta Sans', sans-serif; --font-body: 'Inter', sans-serif; 
     }
     * { box-sizing: border-box; }
-    body { margin: 0; background-color: var(--bg-body); font-family: var(--font-body); color: var(--text-body); line-height: 1.6; }
-    h1, h2, h3, h4 { font-family: var(--font-head); color: var(--text-head); margin-top: 0; font-weight: 700; }
+    
+    /* FIX LỖI KHOẢNG TRỐNG DƯỚI FOOTER */
+    body { 
+      margin: 0; 
+      background-color: var(--bg-body); 
+      font-family: var(--font-body); 
+      color: var(--text-body); 
+      line-height: 1.6;
+      display: flex;           /* Flexbox layout */
+      flex-direction: column;  /* Xếp dọc */
+      min-height: 100vh;       /* Chiều cao tối thiểu = 100% màn hình */
+    }
+    
+    h1, h2, h3, h4 { font-family: var(--font-head); color: var(--text-head); margin-top: 0; font-weight: 700; letter-spacing: -0.02em; }
     a { text-decoration: none; transition: 0.3s ease; color: inherit; }
     ul { list-style: none; padding: 0; margin: 0; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; width: 100%; }
     
     /* HEADER */
     header.site-header { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; padding: 18px 0; }
     .header-inner { display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-family: var(--font-head); font-weight: 800; font-size: 26px; color: var(--primary); }
+    .logo { font-family: var(--font-head); font-weight: 800; font-size: 26px; color: var(--primary); letter-spacing: -0.5px; }
     .nav-links { display: flex; gap: 36px; font-weight: 600; align-items: center; }
     .nav-links a { color: var(--text-head); font-size: 15px; position: relative; }
     .nav-links a:hover, .nav-links a.active { color: var(--primary); }
@@ -39,14 +52,13 @@
     /* HERO */
     .hero { text-align: center; padding: 60px 0; background: linear-gradient(180deg, #EFF6FF 0%, var(--bg-body) 100%); }
     .hero h1 { font-size: 42px; margin-bottom: 16px; color: #1E293B; }
-    
     .search-wrapper { max-width: 500px; margin: 0 auto; position: relative; }
     .search-input { width: 100%; padding: 14px 20px 14px 46px; border-radius: 50px; border: 1px solid #CBD5E1; outline: none; transition: 0.3s; }
     .search-input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15); }
     .search-icon { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #94A3B8; font-size: 18px; }
 
-    /* LAYOUT */
-    .main-layout { display: grid; grid-template-columns: 3fr 1fr; gap: 40px; padding: 60px 0 100px; }
+    /* MAIN LAYOUT */
+    .main-layout { display: grid; grid-template-columns: 3fr 1fr; gap: 40px; padding: 60px 0 100px; flex: 1; /* Đẩy footer xuống */ }
     
     /* CARDS */
     .cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
@@ -73,7 +85,7 @@
     .btn-load-more:hover { transform: translateY(-2px); box-shadow: 0 8px 15px rgba(2, 132, 199, 0.3); }
 
     /* FOOTER */
-    footer { background: #0F172A; padding: 60px 0; text-align: center; color: #94A3B8; }
+    footer { background: #0F172A; padding: 60px 0; text-align: center; color: #94A3B8; margin-top: auto; /* Đẩy footer xuống đáy */ }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; text-align: left; }
     .footer-col h4 { color: white; margin-bottom: 20px; font-size: 16px; }
     .footer-col a:hover { color: white; }
@@ -97,9 +109,9 @@
           <div class="dropdown-content">
             <a href="list.html?type=general">General Dentistry</a>
             <a href="list.html?type=cosmetic">Cosmetic Dentistry</a>
-            <a href="list.html?type=orthodontics">Orthodontics (Braces)</a>
-            <a href="list.html?type=implant">Implants</a>
-            <a href="list.html?type=restorative">Restorative (Crowns)</a>
+            <a href="list.html?type=orthodontics">Orthodontics</a>
+            <a href="list.html?type=implant">Dental Implants</a>
+            <a href="list.html?type=restorative">Restorative</a>
             <a href="list.html?type=hygiene">Oral Hygiene</a>
           </div>
         </div>
@@ -124,18 +136,18 @@
     <main>
       <div class="cards-grid" id="blog-grid">
         
-        <article class="card type-cosmetic">
+        <article class="card">
           <div style="overflow:hidden;">
             <img src="https://images.pexels.com/photos/3779705/pexels-photo-3779705.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Veneers">
           </div>
           <div class="card-body">
             <span class="badge" style="background:#F3E8FF; color:#7E22CE">Cosmetic</span>
-            <h3><a href="veneers-missing-teeth.html">Can You Get Veneers With Missing Teeth?</a></h3>
+            <h3><a href="veneers-missing-teeth.html">Can You Get Veneers With Missing Teeth? The Honest Truth</a></h3>
             <p class="excerpt">Veneers need a foundation. If the tooth is gone, there is nothing for the porcelain to stick to.</p>
           </div>
         </article>
 
-        <article class="card type-implant">
+        <article class="card">
           <div style="overflow:hidden;">
             <img src="https://images.pexels.com/photos/305566/pexels-photo-305566.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Implant">
           </div>
@@ -146,7 +158,7 @@
           </div>
         </article>
 
-        <article class="card type-orthodontics">
+        <article class="card">
           <div style="overflow:hidden;">
             <img src="https://images.pexels.com/photos/3779760/pexels-photo-3779760.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Braces">
           </div>
@@ -157,7 +169,7 @@
           </div>
         </article>
 
-        <article class="card type-general">
+        <article class="card">
           <div style="overflow:hidden;">
             <img src="https://images.pexels.com/photos/3845729/pexels-photo-3845729.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Recovery">
           </div>
@@ -168,7 +180,7 @@
           </div>
         </article>
 
-        <article class="card type-hygiene">
+        <article class="card">
           <div style="overflow:hidden;">
             <img src="https://images.pexels.com/photos/3845625/pexels-photo-3845625.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Cleaning">
           </div>
@@ -179,7 +191,7 @@
           </div>
         </article>
 
-        <article class="card type-restorative">
+        <article class="card">
           <div style="overflow:hidden;">
             <img src="https://images.pexels.com/photos/6502324/pexels-photo-6502324.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Crowns">
           </div>
@@ -190,7 +202,7 @@
           </div>
         </article>
 
-        <article class="card hidden-card type-orthodontics">
+        <article class="card hidden-card">
           <div style="overflow:hidden;">
             <img src="https://images.pexels.com/photos/4269272/pexels-photo-4269272.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Ceramic Braces">
           </div>
@@ -201,7 +213,7 @@
           </div>
         </article>
 
-        <article class="card hidden-card type-general">
+        <article class="card hidden-card">
           <div style="overflow:hidden;">
             <img src="https://images.pexels.com/photos/3845758/pexels-photo-3845758.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Pain">
           </div>
@@ -226,7 +238,7 @@
           <li><a href="list.html?type=general">General Dentistry <span>12</span></a></li>
           <li><a href="list.html?type=cosmetic">Cosmetic Dentistry <span>05</span></a></li>
           <li><a href="list.html?type=orthodontics">Orthodontics (Braces) <span>06</span></a></li>
-          <li><a href="list.html?type=implant">Implants <span>03</span></a></li>
+          <li><a href="list.html?type=implant">Dental Implants <span>03</span></a></li>
           <li><a href="list.html?type=restorative">Restorative (Crowns) <span>08</span></a></li>
           <li><a href="list.html?type=hygiene">Oral Hygiene <span>04</span></a></li>
         </ul>
