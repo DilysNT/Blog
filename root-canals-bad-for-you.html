@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Post-Treatment Wellness: Are Root Canals Bad for You? — SmileNote</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* --- CSS SYSTEM (ĐỒNG BỘ) --- */
+    :root { 
+      --primary: #0284C7; --bg-body: #F8FAFC; --bg-card: #FFFFFF; --text-head: #0F172A; --text-body: #475569; 
+      --border: #E2E8F0; --radius: 20px; 
+      --font-head: 'Plus Jakarta Sans', sans-serif; --font-body: 'Inter', sans-serif; 
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background-color: var(--bg-body); font-family: var(--font-body); color: var(--text-body); line-height: 1.8; display: flex; flex-direction: column; min-height: 100vh; }
+    h1, h2, h3 { font-family: var(--font-head); color: #1e293b; margin-top: 40px; margin-bottom: 20px; }
+    p { margin-bottom: 24px; text-align: justify; }
+    strong { color: var(--primary); }
+    a { text-decoration: none; transition: 0.2s; color: inherit; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; width: 100%; }
+
+    /* HEADER */
+    header.site-header { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; padding: 18px 0; }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: var(--font-head); font-weight: 700; font-size: 24px; color: var(--primary); }
+    .nav-links { display: flex; gap: 32px; font-weight: 600; align-items: center; }
+    .nav-links a:hover { color: var(--primary); }
+
+    /* DROPDOWN */
+    .dropdown { position: relative; display: inline-block; }
+    .dropbtn { cursor: pointer; display: flex; align-items: center; gap: 6px; }
+    .dropdown-content { display: none; position: absolute; background-color: white; min-width: 220px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border-radius: 16px; padding: 8px; z-index: 1001; top: 140%; left: -20px; border: 1px solid var(--border); }
+    .dropdown-content a { color: var(--text-body); padding: 12px 16px; display: block; font-size: 14px; border-radius: 10px; font-weight: 500; margin-bottom: 2px; }
+    .dropdown-content a:hover { background-color: #F0F9FF; color: var(--primary); }
+    .dropdown:hover .dropdown-content { display: block; }
+
+    /* ARTICLE LAYOUT */
+    .main-layout { display: grid; grid-template-columns: 3fr 1fr; gap: 60px; padding: 60px 0 100px; flex: 1; }
+    .article-header { text-align: center; margin-bottom: 40px; }
+    .article-header h1 { font-size: 42px; line-height: 1.2; margin-top: 0; }
+    .meta { font-size: 14px; color: #64748B; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+    
+    .featured-image { width: 100%; height: 500px; object-fit: cover; border-radius: var(--radius); margin-bottom: 60px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+    .content-image { width: 100%; height: auto; border-radius: 12px; margin: 40px 0; border: 1px solid var(--border); }
+    .article-content { font-size: 19px; color: #334155; }
+
+    /* BOXES */
+    .clinical-box { background: #E0F2FE; border-left: 5px solid var(--primary); padding: 30px; border-radius: 8px; margin: 40px 0; }
+    .warning-box { background: #FEF2F2; border-left: 5px solid #EF4444; padding: 30px; border-radius: 8px; margin: 40px 0; color: #991B1B; }
+
+    /* SIDEBAR */
+    .sidebar-widget { background: white; padding: 24px; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: 0 2px 4px rgba(0,0,0,0.02); position: sticky; top: 100px; }
+    .widget-title { font-size: 18px; margin-bottom: 20px; border-bottom: 2px solid #F1F5F9; padding-bottom: 12px; font-weight: 700; }
+    .cat-list li { margin-bottom: 12px; }
+    .cat-list a { display: flex; justify-content: space-between; font-weight: 500; font-size: 14px; color: var(--text-body); }
+    .cat-list a:hover { color: var(--primary); transform: translateX(5px); }
+    .cat-list span { background: #F1F5F9; padding: 2px 8px; border-radius: 20px; font-size: 11px; color: #64748B; font-weight: 700; }
+
+    /* FOOTER */
+    footer { background: #0F172A; padding: 60px 0; text-align: center; color: #94A3B8; margin-top: auto; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; text-align: left; }
+    .footer-col h4 { color: white; margin-bottom: 20px; font-size: 16px; }
+    .footer-col a:hover { color: white; }
+
+    @media (max-width: 900px) { .main-layout { grid-template-columns: 1fr; } .featured-image { height: 300px; } .article-header h1 { font-size: 32px; } }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">SmileNote.</a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+          <a href="#" class="dropbtn">Details ▾</a>
+          <div class="dropdown-content">
+            <a href="list.html?type=general">General Dentistry</a>
+            <a href="list.html?type=cosmetic">Cosmetic Dentistry</a>
+            <a href="list.html?type=orthodontics">Orthodontics</a>
+            <a href="list.html?type=implant">Dental Implants</a>
+            <a href="list.html?type=restorative">Restorative</a>
+            <a href="list.html?type=hygiene">Oral Hygiene</a>
+          </div>
+        </div>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container main-layout">
+    
+    <article class="article-content-wrapper">
+      <div class="article-header">
+        <div class="meta">General Dentistry • Dr. Steven Nguyen</div>
+        <h1>Post-Treatment Wellness: Are Root Canals Bad for You During Recovery?</h1>
+      </div>
+
+      <img src="https://images.pexels.com/photos/4269271/pexels-photo-4269271.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="featured-image" alt="Dental Patient Recovery">
+
+      <div class="article-content">
+        <h2>Introduction to Healing Expectations</h2>
+        <p>You have just finished your root canal appointment. The numbness is wearing off, and your jaw feels a little stiff. In this vulnerable moment, it is easy to let anxiety creep in. You might start Googling symptoms and stumbling upon forums asking <strong>"are root canals bad for you?"</strong> It is vital to separate normal recovery symptoms from signs of failure. Understanding what is happening to your body in the days following treatment will help you realize that the discomfort you feel is part of healing, not a sign that the procedure was harmful to your health.</p>
+
+        <h2>Managing Post-Op Inflammation</h2>
+        <p>It is completely normal to feel tenderness for a few days. The ligament around the tooth is bruised.</p>
+
+        <h3>Distinguishing Soreness from "Bad" Outcomes</h3>
+        <p>Patients often think that because a tooth hurts after treatment, the answer to <strong>"are root canals bad for you"</strong> must be yes. This is a misconception. The source of the infection has been removed, but the bone around the root needs time to heal.</p>
+
+        <div class="clinical-box">
+          <p><strong>✅ What to Do:</strong> Take Ibuprofen or Tylenol on a schedule for the first 48 hours. This reduces inflammation.</p>
+          <p style="margin-bottom:0"><strong>❌ What to Avoid:</strong> Do not chew hard foods on that side until the permanent crown is placed. Chewing on a temporary filling can crack the tooth, which <em>is</em> bad for you.</p>
+        </div>
+        <p>By managing the inflammation, you allow the immune system to clean up the area without overwhelming your system.</p>
+
+        <img src="https://images.pexels.com/photos/5355899/pexels-photo-5355899.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="content-image" alt="Oral Hygiene">
+
+        <h2>Hygiene Myths and Facts</h2>
+        <p>Some patients are afraid to brush the treated tooth, thinking they might release toxins or bacteria.</p>
+
+        <h3>Keeping the Area Clean</h3>
+        <p>Neglecting hygiene because you are worried <strong>"are root canals bad for you"</strong> is counterproductive. You must keep the gum line clean. Plaque accumulation will cause gum inflammation (gingivitis), which can mimic tooth pain.</p>
+
+        <ul>
+          <li><strong>Gentle Brushing:</strong> Use a soft-bristled brush and clean the tooth gently.</li>
+          <li><strong>Flossing:</strong> You can floss, but pull the floss <em>out</em> to the side rather than popping it up, just to be safe with the temporary filling.</li>
+        </ul>
+        <p>Keeping the mouth clean prevents secondary infections and supports the body's ability to heal the bone around the root.</p>
+
+        <h2>The Importance of the Final Restoration</h2>
+        <p>A root canal is not finished until the permanent crown or filling is placed.</p>
+
+        <div class="warning-box">
+          <h3>⚠️ Preventing Re-Infection</h3>
+          <p>If you leave the temporary filling in for months because you are skeptical and wondering <strong>"are root canals bad for you,"</strong> you are actually creating the problem you fear. Temporary fillings leak. If saliva gets back into the canal, the bacteria will re-infect the system.</p>
+        </div>
+
+        <p>The procedure isn't bad for you, but <strong>delaying the final seal</strong> is. Ensure you return to your dentist promptly to seal the tooth permanently. This hermetic seal is what protects your body from bacteria long-term.</p>
+
+        <h2>Conclusion</h2>
+        <p>Recovery can be uncomfortable, but don't let temporary soreness convince you that <strong>"are root canals bad for you."</strong> By following simple home care routines—managing inflammation, maintaining hygiene, and finalizing the restoration—you ensure that the treated tooth becomes a healthy, functional part of your smile again.</p>
+      </div>
+    </article>
+
+    <aside>
+      <div class="sidebar-widget">
+        <h4 class="widget-title">Popular Categories</h4>
+        <ul class="cat-list">
+          <li><a href="list.html?type=general">General Dentistry <span>12</span></a></li>
+          <li><a href="list.html?type=cosmetic">Cosmetic Dentistry <span>05</span></a></li>
+          <li><a href="list.html?type=orthodontics">Orthodontics (Braces) <span>06</span></a></li>
+          <li><a href="list.html?type=implant">Dental Implants <span>03</span></a></li>
+          <li><a href="list.html?type=restorative">Restorative (Crowns) <span>08</span></a></li>
+          <li><a href="list.html?type=hygiene">Oral Hygiene <span>04</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="#" class="footer-logo">SmileNote.</a>
+          <p>Providing professional, trusted dental knowledge to help you maintain a healthy, confident smile.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="list.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>📍 123 Dental Street, NY</p>
+          <p>✉️ hello@smilenote.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 SmileNote. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
