@@ -18,6 +18,7 @@
     p { margin-bottom: 24px; text-align: justify; }
     strong { color: var(--primary); }
     a { text-decoration: none; transition: 0.2s; color: inherit; }
+    a:hover { color: var(--primary); text-decoration: underline; } /* Hiệu ứng hover cho link trong bài */
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; width: 100%; }
 
     /* HEADER */
@@ -25,13 +26,14 @@
     .header-inner { display: flex; justify-content: space-between; align-items: center; }
     .logo { font-family: var(--font-head); font-weight: 700; font-size: 24px; color: var(--primary); }
     .nav-links { display: flex; gap: 32px; font-weight: 600; align-items: center; }
-    .nav-links a:hover { color: var(--primary); }
+    .nav-links a { color: var(--text-head); font-size: 15px; text-decoration: none; }
+    .nav-links a:hover { color: var(--primary); text-decoration: none; }
 
     /* DROPDOWN */
     .dropdown { position: relative; display: inline-block; }
     .dropbtn { cursor: pointer; display: flex; align-items: center; gap: 6px; }
     .dropdown-content { display: none; position: absolute; background-color: white; min-width: 220px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border-radius: 16px; padding: 8px; z-index: 1001; top: 140%; left: -20px; border: 1px solid var(--border); }
-    .dropdown-content a { color: var(--text-body); padding: 12px 16px; display: block; font-size: 14px; border-radius: 10px; font-weight: 500; margin-bottom: 2px; }
+    .dropdown-content a { color: var(--text-body); padding: 12px 16px; display: block; font-size: 14px; border-radius: 10px; font-weight: 500; margin-bottom: 2px; text-decoration: none; }
     .dropdown-content a:hover { background-color: #F0F9FF; color: var(--primary); }
     .dropdown:hover .dropdown-content { display: block; }
 
@@ -53,7 +55,7 @@
     .sidebar-widget { background: white; padding: 24px; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: 0 2px 4px rgba(0,0,0,0.02); position: sticky; top: 100px; }
     .widget-title { font-size: 18px; margin-bottom: 20px; border-bottom: 2px solid #F1F5F9; padding-bottom: 12px; font-weight: 700; }
     .cat-list li { margin-bottom: 12px; }
-    .cat-list a { display: flex; justify-content: space-between; font-weight: 500; font-size: 14px; color: var(--text-body); }
+    .cat-list a { display: flex; justify-content: space-between; font-weight: 500; font-size: 14px; color: var(--text-body); text-decoration: none; }
     .cat-list a:hover { color: var(--primary); transform: translateX(5px); }
     .cat-list span { background: #F1F5F9; padding: 2px 8px; border-radius: 20px; font-size: 11px; color: #64748B; font-weight: 700; }
 
@@ -141,7 +143,7 @@
         <p>The procedure isn't bad for you, but <strong>delaying the final seal</strong> is. Ensure you return to your dentist promptly to seal the tooth permanently. This hermetic seal is what protects your body from bacteria long-term.</p>
 
         <h2>Conclusion</h2>
-        <p>Recovery can be uncomfortable, but don't let temporary soreness convince you that <strong>"are root canals bad for you."</strong> By following simple home care routines—managing inflammation, maintaining hygiene, and finalizing the restoration—you ensure that the treated tooth becomes a healthy, functional part of your smile again.</p>
+        <p>Recovery can be uncomfortable, but don't let temporary soreness convince you that <strong>"<a href="https://dilysnt.github.io/Blog/root-canal-recovery.html" style="color: var(--primary);">are root canals bad for you</a>."</strong> By following simple home care routines—managing inflammation, maintaining hygiene, and finalizing the restoration—you ensure that the treated tooth becomes a healthy, functional part of your smile again.</p>
       </div>
     </article>
 
