@@ -15,16 +15,16 @@
     }
     * { box-sizing: border-box; }
     
-    /* FIX LỖI KHOẢNG TRỐNG DƯỚI FOOTER */
+    /* FIX FOOTER */
     body { 
       margin: 0; 
       background-color: var(--bg-body); 
       font-family: var(--font-body); 
       color: var(--text-body); 
       line-height: 1.6;
-      display: flex;           /* Flexbox layout */
-      flex-direction: column;  /* Xếp dọc */
-      min-height: 100vh;       /* Chiều cao tối thiểu = 100% màn hình */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
     
     h1, h2, h3, h4 { font-family: var(--font-head); color: var(--text-head); margin-top: 0; font-weight: 700; letter-spacing: -0.02em; }
@@ -43,7 +43,7 @@
     /* DROPDOWN */
     .dropdown { position: relative; display: inline-block; }
     .dropbtn { cursor: pointer; display: flex; align-items: center; gap: 6px; }
-    .dropdown-content { display: none; position: absolute; background-color: white; min-width: 240px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border-radius: 16px; padding: 8px; z-index: 1001; top: 140%; left: -20px; border: 1px solid var(--border); }
+    .dropdown-content { display: none; position: absolute; background-color: white; min-width: 220px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border-radius: 16px; padding: 8px; z-index: 1001; top: 140%; left: -20px; border: 1px solid var(--border); }
     .dropdown-content::before { content: ""; position: absolute; top: -20px; left: 0; width: 100%; height: 20px; background: transparent; }
     .dropdown-content a { color: var(--text-body); padding: 12px 16px; display: block; font-size: 14px; border-radius: 10px; font-weight: 500; margin-bottom: 2px; }
     .dropdown-content a:hover { background-color: #F0F9FF; color: var(--primary); transform: translateX(4px); }
@@ -58,7 +58,7 @@
     .search-icon { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #94A3B8; font-size: 18px; }
 
     /* MAIN LAYOUT */
-    .main-layout { display: grid; grid-template-columns: 3fr 1fr; gap: 40px; padding: 60px 0 100px; flex: 1; /* Đẩy footer xuống */ }
+    .main-layout { display: grid; grid-template-columns: 3fr 1fr; gap: 40px; padding: 60px 0 100px; flex: 1; }
     
     /* CARDS */
     .cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
@@ -85,7 +85,7 @@
     .btn-load-more:hover { transform: translateY(-2px); box-shadow: 0 8px 15px rgba(2, 132, 199, 0.3); }
 
     /* FOOTER */
-    footer { background: #0F172A; padding: 60px 0; text-align: center; color: #94A3B8; margin-top: auto; /* Đẩy footer xuống đáy */ }
+    footer { background: #0F172A; padding: 60px 0; text-align: center; color: #94A3B8; margin-top: auto; }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; text-align: left; }
     .footer-col h4 { color: white; margin-bottom: 20px; font-size: 16px; }
     .footer-col a:hover { color: white; }
@@ -138,7 +138,7 @@
         
         <article class="card type-restorative">
           <div style="overflow:hidden;">
-            <img src="https://images.pexels.com/photos/52527/dentistry-dentures-prosthetics-teeth-52527.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Removable Dentures">
+            <img src="https://images.pexels.com/photos/3779708/pexels-photo-3779708.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Removable Dentures">
           </div>
           <div class="card-body">
             <span class="badge" style="background:#E0F2FE; color:#0284C7">Restorative</span>
