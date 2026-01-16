@@ -15,16 +15,9 @@
     }
     * { box-sizing: border-box; }
     
-    /* FIX FOOTER */
     body { 
-      margin: 0; 
-      background-color: var(--bg-body); 
-      font-family: var(--font-body); 
-      color: var(--text-body); 
-      line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      margin: 0; background-color: var(--bg-body); font-family: var(--font-body); color: var(--text-body); line-height: 1.6;
+      display: flex; flex-direction: column; min-height: 100vh;
     }
     
     h1, h2, h3, h4 { font-family: var(--font-head); color: var(--text-head); margin-top: 0; font-weight: 700; letter-spacing: -0.02em; }
@@ -107,12 +100,13 @@
         <div class="dropdown">
           <a href="#" class="dropbtn">Details ▾</a>
           <div class="dropdown-content">
-            <a href="list.html?type=general">General Dentistry</a>
-            <a href="list.html?type=cosmetic">Cosmetic Dentistry</a>
+            <a href="list.html?type=implant">Dental implant</a>
+            <a href="list.html?type=treatment">Dental treatment</a>
+            <a href="list.html?type=veneers">Dental veneers</a>
+            <a href="list.html?type=general">General dentistry</a>
             <a href="list.html?type=orthodontics">Orthodontics</a>
-            <a href="list.html?type=implant">Dental Implants</a>
-            <a href="list.html?type=restorative">Restorative</a>
-            <a href="list.html?type=hygiene">Oral Hygiene</a>
+            <a href="list.html?type=pediatric">Pediatric dentistry</a>
+            <a href="list.html?type=crown">Porcelain crown</a>
           </div>
         </div>
         <a href="about.html">About</a>
@@ -132,126 +126,103 @@
   </section>
 
   <div class="container main-layout">
-    
     <main>
       <div class="cards-grid" id="blog-grid">
         
         <article class="card type-general">
-          <div style="overflow:hidden;">
-            <img src="https://images.pexels.com/photos/305565/pexels-photo-305565.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Dental X-ray Safety">
-          </div>
+          <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/305565/pexels-photo-305565.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Dental X-ray"></div>
           <div class="card-body">
-            <span class="badge" style="background:#DCFCE7; color:#15803D">General</span>
+            <span class="badge" style="background:#E0F2FE; color:#0284C7">General dentistry</span>
             <h3><a href="dental-xray-safety.html">Your Complete Guide to Safety and Comfort During a Dental X-ray</a></h3>
             <p class="excerpt">Understanding radiation dosage and safety protocols to ensure your appointment is worry-free.</p>
           </div>
         </article>
 
-        <article class="card type-restorative">
-          <div style="overflow:hidden;">
-            <img src="https://images.pexels.com/photos/3779708/pexels-photo-3779708.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Removable Dentures">
-          </div>
+        <article class="card type-implant">
+          <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/3779708/pexels-photo-3779708.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Dentures"></div>
           <div class="card-body">
-            <span class="badge" style="background:#E0F2FE; color:#0284C7">Restorative</span>
+            <span class="badge" style="background:#E0F2FE; color:#0284C7">Dental implant</span>
             <h3><a href="removable-dentures-bone-loss.html">Long-Term Prognosis and Bone Atrophy Risks of Removable Dentures</a></h3>
             <p class="excerpt">Evaluation of the long-term risk profile of dentures, specifically regarding bone loss.</p>
           </div>
         </article>
 
-        <article class="card type-general">
-          <div style="overflow:hidden;">
-            <img src="https://images.pexels.com/photos/4269271/pexels-photo-4269271.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Root Canal Recovery">
-          </div>
+        <article class="card type-treatment">
+          <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/4269271/pexels-photo-4269271.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Root Canal"></div>
           <div class="card-body">
-            <span class="badge" style="background:#DCFCE7; color:#15803D">General</span>
+            <span class="badge" style="background:#E0F2FE; color:#0284C7">Dental treatment</span>
             <h3><a href="root-canal-recovery.html">Post-Treatment Wellness: Are Root Canals Bad for You?</a></h3>
             <p class="excerpt">It implies normal recovery symptoms vs signs of failure. Understanding what is happening to your body.</p>
           </div>
         </article>
 
-        <article class="card type-cosmetic">
-          <div style="overflow:hidden;">
-            <img src="https://images.pexels.com/photos/3779705/pexels-photo-3779705.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Veneers">
-          </div>
+        <article class="card type-veneers">
+          <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/3779705/pexels-photo-3779705.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Veneers"></div>
           <div class="card-body">
-            <span class="badge" style="background:#F3E8FF; color:#7E22CE">Cosmetic</span>
+            <span class="badge" style="background:#E0F2FE; color:#0284C7">Dental veneers</span>
             <h3><a href="veneers-missing-teeth.html">Can You Get Veneers With Missing Teeth? The Honest Truth</a></h3>
             <p class="excerpt">Veneers need a foundation. If the tooth is gone, there is nothing for the porcelain to stick to.</p>
           </div>
         </article>
 
         <article class="card type-implant">
-          <div style="overflow:hidden;">
-            <img src="https://images.pexels.com/photos/305566/pexels-photo-305566.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Implant">
-          </div>
+          <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/305566/pexels-photo-305566.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Implant"></div>
           <div class="card-body">
-            <span class="badge" style="background:#E0F2FE; color:#0284C7">Implant</span>
+            <span class="badge" style="background:#E0F2FE; color:#0284C7">Dental implant</span>
             <h3><a href="dental-implant-procedure.html">Material Science in Dental Implant Procedure</a></h3>
             <p class="excerpt">We evaluate implants not just as screws, but as sophisticated biomedical devices.</p>
           </div>
         </article>
 
         <article class="card type-orthodontics">
-          <div style="overflow:hidden;">
-            <img src="https://images.pexels.com/photos/3779760/pexels-photo-3779760.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Braces">
-          </div>
+          <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/3779760/pexels-photo-3779760.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Braces"></div>
           <div class="card-body">
-            <span class="badge" style="background:#F3E8FF; color:#7E22CE">Orthodontics</span>
+            <span class="badge" style="background:#E0F2FE; color:#0284C7">Orthodontics</span>
             <h3><a href="living-with-metal-braces.html">Living with Metal Braces: Your Daily Survival Guide</a></h3>
             <p class="excerpt">Tips on wax, eating, and hygiene to survive the first week comfortably.</p>
           </div>
         </article>
 
-        <article class="card hidden-card type-general">
-          <div style="overflow:hidden;">
-            <img src="https://images.pexels.com/photos/3845729/pexels-photo-3845729.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Recovery">
-          </div>
+        <article class="card hidden-card type-crown">
+          <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/3845729/pexels-photo-3845729.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Recovery"></div>
           <div class="card-body">
-            <span class="badge" style="background:#DCFCE7; color:#15803D">General</span>
+            <span class="badge" style="background:#E0F2FE; color:#0284C7">Porcelain crown</span>
             <h3><a href="does-getting-a-crown-hurt.html">Managing Your Recovery: Does Getting a Crown Hurt?</a></h3>
             <p class="excerpt">The next 24 to 48 hours are crucial. Avoid thermal shock and high bites.</p>
           </div>
         </article>
 
-        <article class="card hidden-card type-hygiene">
-          <div style="overflow:hidden;">
-            <img src="https://images.pexels.com/photos/3845625/pexels-photo-3845625.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Cleaning">
-          </div>
+        <article class="card hidden-card type-pediatric">
+          <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/3845625/pexels-photo-3845625.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Cleaning"></div>
           <div class="card-body">
-            <span class="badge" style="background:#DCFCE7; color:#15803D">Hygiene</span>
+            <span class="badge" style="background:#E0F2FE; color:#0284C7">Pediatric dentistry</span>
             <h3><a href="how-long-does-a-teeth-cleaning-take.html">The Reality of the Chair: How Long Does Cleaning Take?</a></h3>
             <p class="excerpt">It depends on your gums. Why some take 40 mins and others need two visits.</p>
           </div>
         </article>
 
-        <article class="card hidden-card type-restorative">
-          <div style="overflow:hidden;">
-            <img src="https://images.pexels.com/photos/6502324/pexels-photo-6502324.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Crowns">
-          </div>
+        <article class="card hidden-card type-crown">
+          <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/6502324/pexels-photo-6502324.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Crowns"></div>
           <div class="card-body">
-            <span class="badge" style="background:#E0F2FE; color:#0284C7">Restorative</span>
+            <span class="badge" style="background:#E0F2FE; color:#0284C7">Porcelain crown</span>
             <h3><a href="how-long-do-temporary-crowns-last.html">Real Talk: How Long Do Temporary Crowns Last?</a></h3>
             <p class="excerpt">The balance between strong enough to stay and weak enough to pop off.</p>
           </div>
         </article>
 
         <article class="card hidden-card type-orthodontics">
-          <div style="overflow:hidden;">
-            <img src="https://images.pexels.com/photos/4269272/pexels-photo-4269272.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Ceramic Braces">
-          </div>
+          <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/4269272/pexels-photo-4269272.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Ceramic Braces"></div>
           <div class="card-body">
-            <span class="badge" style="background:#F3E8FF; color:#7E22CE">Orthodontics</span>
+            <span class="badge" style="background:#E0F2FE; color:#0284C7">Orthodontics</span>
             <h3><a href="thinking-about-ceramic-braces.html">Thinking About Ceramic Braces?</a></h3>
             <p class="excerpt">Pros and cons of clear braces for aesthetic conscious patients.</p>
           </div>
         </article>
 
-        <article class="card hidden-card type-general">
-          <div style="overflow:hidden;">
-            <img src="https://images.pexels.com/photos/3845758/pexels-photo-3845758.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Pain">
-          </div>
+        <article class="card hidden-card type-treatment">
+          <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/3845758/pexels-photo-3845758.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Pain"></div>
           <div class="card-body">
-            <span class="badge" style="background:#DCFCE7; color:#15803D">General</span>
+            <span class="badge" style="background:#E0F2FE; color:#0284C7">Dental treatment</span>
             <h3><a href="what-tooth-sensitivity-after-filling-tells-us.html">Diagnosing Symptoms: What Tooth Sensitivity Tells Us</a></h3>
             <p class="excerpt">Pain is a language. The way your tooth hurts tells us exactly what is happening inside.</p>
           </div>
@@ -268,12 +239,13 @@
       <div class="sidebar-widget">
         <h4 class="widget-title">Popular Categories</h4>
         <ul class="cat-list">
-          <li><a href="list.html?type=general">General Dentistry <span>12</span></a></li>
-          <li><a href="list.html?type=cosmetic">Cosmetic Dentistry <span>05</span></a></li>
-          <li><a href="list.html?type=orthodontics">Orthodontics (Braces) <span>06</span></a></li>
-          <li><a href="list.html?type=implant">Dental Implants <span>03</span></a></li>
-          <li><a href="list.html?type=restorative">Restorative (Crowns) <span>09</span></a></li>
-          <li><a href="list.html?type=hygiene">Oral Hygiene <span>04</span></a></li>
+          <li><a href="list.html?type=implant">Dental implant <span>02</span></a></li>
+          <li><a href="list.html?type=treatment">Dental treatment <span>02</span></a></li>
+          <li><a href="list.html?type=veneers">Dental veneers <span>01</span></a></li>
+          <li><a href="list.html?type=general">General dentistry <span>01</span></a></li>
+          <li><a href="list.html?type=orthodontics">Orthodontics <span>02</span></a></li>
+          <li><a href="list.html?type=pediatric">Pediatric dentistry <span>01</span></a></li>
+          <li><a href="list.html?type=crown">Porcelain crown <span>02</span></a></li>
         </ul>
       </div>
     </aside>
@@ -285,7 +257,7 @@
       <div class="footer-grid">
         <div class="footer-col">
           <a href="#" class="footer-logo">SmileNote.</a>
-          <p>Providing professional, trusted dental knowledge to help you maintain a healthy, confident smile.</p>
+          <p>Providing professional, trusted dental knowledge.</p>
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
@@ -322,8 +294,8 @@
         let count = 0;
         document.querySelectorAll('.hidden-card').forEach(card => {
           if (count < 3) {
-            card.style.display = 'flex'; 
-            card.classList.remove('hidden-card'); 
+            card.style.display = 'flex';
+            card.classList.remove('hidden-card');
             count++;
           }
         });
