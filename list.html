@@ -17,16 +17,9 @@
     }
     * { box-sizing: border-box; }
     
-    /* FIX FOOTER */
     body { 
-      margin: 0; 
-      background-color: var(--bg-body); 
-      font-family: var(--font-body); 
-      color: var(--text-body); 
-      line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      margin: 0; background-color: var(--bg-body); font-family: var(--font-body); color: var(--text-body); line-height: 1.6;
+      display: flex; flex-direction: column; min-height: 100vh;
     }
     
     h1, h2, h3, h4 { font-family: var(--font-head); color: var(--text-head); margin-top: 0; font-weight: 700; letter-spacing: -0.02em; }
@@ -48,8 +41,6 @@
     .dropdown-content a:hover { background-color: #F0F9FF; color: var(--primary); transform: translateX(4px); }
     .dropdown:hover .dropdown-content { display: block; }
     
-    /* CONTENT FLEX GROW */
-    .content-area-grow { flex: 1; display: block; }
     .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; margin-bottom: 80px; }
     .card { background: var(--bg-card); border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(0,0,0,0.03); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; transition: 0.4s; height: 100%; }
     .card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
@@ -70,6 +61,9 @@
     .footer-col a:hover { color: white; padding-left: 5px; }
     .footer-logo { font-family: var(--font-head); font-weight: 800; font-size: 28px; color: white; display: block; margin-bottom: 16px; }
     .footer-bottom { border-top: 1px solid #1E293B; padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 14px; }
+    
+    /* CONTENT FLEX GROW */
+    .content-area-grow { flex: 1; display: block; }
   </style>
 </head>
 <body>
@@ -102,9 +96,7 @@
     <div class="cards-grid" id="posts-container">
       
       <article class="card type-general">
-        <div style="overflow:hidden;">
-          <img src="https://images.pexels.com/photos/305565/pexels-photo-305565.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Dental X-ray Safety">
-        </div>
+        <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/305565/pexels-photo-305565.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Dental X-ray"></div>
         <div class="card-body">
           <div style="margin-bottom:10px;"><span class="badge">General dentistry</span></div>
           <h3><a href="dental-xray-safety.html">Your Complete Guide to Safety and Comfort During a Dental X-ray</a></h3>
@@ -113,9 +105,7 @@
       </article>
 
       <article class="card type-treatment">
-        <div style="overflow:hidden;">
-          <img src="https://images.pexels.com/photos/3779708/pexels-photo-3779708.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Removable Dentures">
-        </div>
+        <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/3779708/pexels-photo-3779708.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Removable Dentures"></div>
         <div class="card-body">
           <div style="margin-bottom:10px;"><span class="badge">Dental treatment</span></div>
           <h3><a href="removable-dentures-bone-loss.html">Long-Term Prognosis and Bone Atrophy Risks of Removable Dentures</a></h3>
@@ -124,9 +114,7 @@
       </article>
 
       <article class="card type-treatment">
-        <div style="overflow:hidden;">
-          <img src="https://images.pexels.com/photos/4269271/pexels-photo-4269271.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Root Canal Recovery">
-        </div>
+        <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/4269271/pexels-photo-4269271.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Root Canal"></div>
         <div class="card-body">
           <div style="margin-bottom:10px;"><span class="badge">Dental treatment</span></div>
           <h3><a href="root-canal-recovery.html">Post-Treatment Wellness: Are Root Canals Bad for You?</a></h3>
@@ -135,9 +123,7 @@
       </article>
 
       <article class="card type-veneers">
-        <div style="overflow:hidden;">
-          <img src="https://images.pexels.com/photos/3779705/pexels-photo-3779705.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Veneers">
-        </div>
+        <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/3779705/pexels-photo-3779705.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Veneers"></div>
         <div class="card-body">
           <div style="margin-bottom:10px;"><span class="badge">Dental veneers</span></div>
           <h3><a href="veneers-missing-teeth.html">Can You Get Veneers With Missing Teeth? The Honest Truth</a></h3>
@@ -146,9 +132,7 @@
       </article>
 
       <article class="card type-implant">
-        <div style="overflow:hidden;">
-          <img src="https://images.pexels.com/photos/305566/pexels-photo-305566.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Implant">
-        </div>
+        <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/305566/pexels-photo-305566.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Implant"></div>
         <div class="card-body">
           <div style="margin-bottom:10px;"><span class="badge">Dental implant</span></div>
           <h3><a href="dental-implant-procedure.html">Material Science in Dental Implant Procedure</a></h3>
@@ -157,9 +141,7 @@
       </article>
 
       <article class="card type-orthodontics">
-        <div style="overflow:hidden;">
-          <img src="https://images.pexels.com/photos/3779760/pexels-photo-3779760.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Braces">
-        </div>
+        <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/3779760/pexels-photo-3779760.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Braces"></div>
         <div class="card-body">
           <div style="margin-bottom:10px;"><span class="badge">Orthodontics</span></div>
           <h3><a href="living-with-metal-braces.html">Living with Metal Braces: Your Daily Survival Guide</a></h3>
@@ -167,10 +149,8 @@
         </div>
       </article>
 
-      <article class="card hidden-card type-crown">
-        <div style="overflow:hidden;">
-          <img src="https://images.pexels.com/photos/3845729/pexels-photo-3845729.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Recovery">
-        </div>
+      <article class="card type-crown">
+        <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/3845729/pexels-photo-3845729.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Recovery"></div>
         <div class="card-body">
           <div style="margin-bottom:10px;"><span class="badge">Porcelain crown</span></div>
           <h3><a href="does-getting-a-crown-hurt.html">Managing Your Recovery: Does Getting a Crown Hurt?</a></h3>
@@ -178,21 +158,17 @@
         </div>
       </article>
 
-      <article class="card hidden-card type-general">
-        <div style="overflow:hidden;">
-          <img src="https://images.pexels.com/photos/3845625/pexels-photo-3845625.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Cleaning">
-        </div>
+      <article class="card type-pediatric">
+        <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/3845625/pexels-photo-3845625.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Cleaning"></div>
         <div class="card-body">
-          <div style="margin-bottom:10px;"><span class="badge">General dentistry</span></div>
+          <div style="margin-bottom:10px;"><span class="badge">Pediatric dentistry</span></div>
           <h3><a href="how-long-does-a-teeth-cleaning-take.html">The Reality of the Chair: How Long Does Cleaning Take?</a></h3>
           <p class="excerpt">It depends on your gums. Why some take 40 mins and others need two visits.</p>
         </div>
       </article>
 
-      <article class="card hidden-card type-crown">
-        <div style="overflow:hidden;">
-          <img src="https://images.pexels.com/photos/6502324/pexels-photo-6502324.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Crowns">
-        </div>
+      <article class="card type-crown">
+        <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/6502324/pexels-photo-6502324.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Crowns"></div>
         <div class="card-body">
           <div style="margin-bottom:10px;"><span class="badge">Porcelain crown</span></div>
           <h3><a href="how-long-do-temporary-crowns-last.html">Real Talk: How Long Do Temporary Crowns Last?</a></h3>
@@ -200,10 +176,8 @@
         </div>
       </article>
 
-      <article class="card hidden-card type-orthodontics">
-        <div style="overflow:hidden;">
-          <img src="https://images.pexels.com/photos/4269272/pexels-photo-4269272.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Ceramic Braces">
-        </div>
+      <article class="card type-orthodontics">
+        <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/4269272/pexels-photo-4269272.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Ceramic"></div>
         <div class="card-body">
           <div style="margin-bottom:10px;"><span class="badge">Orthodontics</span></div>
           <h3><a href="thinking-about-ceramic-braces.html">Thinking About Ceramic Braces?</a></h3>
@@ -211,12 +185,10 @@
         </div>
       </article>
 
-      <article class="card hidden-card type-general">
-        <div style="overflow:hidden;">
-          <img src="https://images.pexels.com/photos/3845758/pexels-photo-3845758.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Pain">
-        </div>
+      <article class="card type-treatment">
+        <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/3845758/pexels-photo-3845758.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Pain"></div>
         <div class="card-body">
-          <div style="margin-bottom:10px;"><span class="badge">General dentistry</span></div>
+          <div style="margin-bottom:10px;"><span class="badge">Dental treatment</span></div>
           <h3><a href="what-tooth-sensitivity-after-filling-tells-us.html">Diagnosing Symptoms: What Tooth Sensitivity Tells Us</a></h3>
           <p class="excerpt">Pain is a language. The way your tooth hurts tells us exactly what is happening inside.</p>
         </div>
@@ -234,7 +206,7 @@
       <div class="footer-grid">
         <div class="footer-col">
           <a href="#" class="footer-logo">SmileNote.</a>
-          <p>Providing professional, trusted dental knowledge.</p>
+          <p>Providing professional, trusted dental knowledge to help you maintain a healthy, confident smile.</p>
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
@@ -259,57 +231,43 @@
 
   <script>
     // BỘ LỌC CHUẨN 7 MỤC
-    const params = new URLSearchParams(window.location.search);
-    const type = params.get('type');
-    
-    // Ánh xạ Type sang Tiêu đề trang
-    const titles = { 
-      'implant': 'Dental Implant',
-      'treatment': 'Dental Treatment',
-      'veneers': 'Dental Veneers',
-      'general': 'General Dentistry',
-      'orthodontics': 'Orthodontics',
-      'pediatric': 'Pediatric Dentistry',
-      'crown': 'Porcelain Crown'
-    };
-
-    if (type) {
-      document.getElementById('page-title').innerText = titles[type] || 'Category: ' + type;
-      // Ẩn nút Load More khi đang lọc
-      document.getElementById('load-more-btn').style.display = 'none';
-      
-      document.querySelectorAll('.card').forEach(card => {
-        if (card.classList.contains('type-' + type)) {
-            card.style.display = 'flex';
-        } else {
-            card.style.display = 'none';
-        }
-      });
-    } else {
-      // Logic mặc định cho trang List (Load More)
-      // Lưu ý: Trang list.html thường hiện hết hoặc cũng có load more. 
-      // Code dưới đây áp dụng logic Load More tương tự index.html cho list.html
+    document.addEventListener("DOMContentLoaded", function() {
+      // 1. Logic Load More (Trang List mặc định Load More giống Index)
       const loadMoreBtn = document.getElementById('load-more-btn');
-      const hiddenCards = document.querySelectorAll('.hidden-card');
+      const hiddenCards = document.querySelectorAll('.hidden-card'); // Note: Ở list.html code trên không để hidden-card nhưng logic này để phòng hờ nếu bạn muốn ẩn bớt.
       
+      // Ở file này tôi đã để hiện hết (không có class hidden-card) nên nút sẽ ẩn
       if (hiddenCards.length === 0) {
         loadMoreBtn.style.display = 'none';
       }
 
-      loadMoreBtn.addEventListener('click', function() {
-        let count = 0;
-        document.querySelectorAll('.hidden-card').forEach(card => {
-          if (count < 3) {
-            card.style.display = 'flex';
-            card.classList.remove('hidden-card');
-            count++;
+      // 2. Logic Filter (URL param)
+      const params = new URLSearchParams(window.location.search);
+      const type = params.get('type');
+      
+      const titles = { 
+        'implant': 'Dental Implant',
+        'treatment': 'Dental Treatment',
+        'veneers': 'Dental Veneers',
+        'general': 'General Dentistry',
+        'orthodontics': 'Orthodontics',
+        'pediatric': 'Pediatric Dentistry',
+        'crown': 'Porcelain Crown'
+      };
+
+      if (type) {
+        document.getElementById('page-title').innerText = titles[type] || 'Category: ' + type;
+        document.querySelectorAll('.card').forEach(card => {
+          if (card.classList.contains('type-' + type)) {
+              card.style.display = 'flex';
+          } else {
+              card.style.display = 'none';
           }
         });
-        if (document.querySelectorAll('.hidden-card').length === 0) {
-          loadMoreBtn.style.display = 'none';
-        }
-      });
-    }
+      } else {
+        document.querySelectorAll('.card').forEach(card => card.style.display = 'flex');
+      }
+    });
   </script>
 
 </body>
