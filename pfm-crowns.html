@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Diagnosing the Need: Why We Still Choose Porcelain Fused to Metal Crowns — SmileNote</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* CSS SYSTEM */
+    :root { 
+      --primary: #0284C7; --bg-body: #F8FAFC; --bg-card: #FFFFFF; --text-head: #0F172A; --text-body: #475569; 
+      --border: #E2E8F0; --radius: 20px; 
+      --font-head: 'Plus Jakarta Sans', sans-serif; --font-body: 'Inter', sans-serif; 
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background-color: var(--bg-body); font-family: var(--font-body); color: var(--text-body); line-height: 1.8; display: flex; flex-direction: column; min-height: 100vh; }
+    h1, h2, h3 { font-family: var(--font-head); color: #1e293b; margin-top: 40px; margin-bottom: 20px; }
+    p { margin-bottom: 24px; text-align: justify; }
+    strong { color: var(--primary); }
+    a { text-decoration: none; transition: 0.2s; color: inherit; }
+    a:hover { color: var(--primary); text-decoration: underline; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; width: 100%; }
+
+    /* HEADER */
+    header.site-header { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; padding: 18px 0; }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: var(--font-head); font-weight: 700; font-size: 24px; color: var(--primary); }
+    .nav-links { display: flex; gap: 32px; font-weight: 600; align-items: center; }
+    .nav-links a { color: var(--text-head); font-size: 15px; text-decoration: none; }
+    .nav-links a:hover { color: var(--primary); }
+
+    /* DROPDOWN */
+    .dropdown { position: relative; display: inline-block; }
+    .dropbtn { cursor: pointer; display: flex; align-items: center; gap: 6px; }
+    .dropdown-content { display: none; position: absolute; background-color: white; min-width: 220px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border-radius: 16px; padding: 8px; z-index: 1001; top: 140%; left: -20px; border: 1px solid var(--border); }
+    .dropdown-content a { color: var(--text-body); padding: 12px 16px; display: block; font-size: 14px; border-radius: 10px; font-weight: 500; margin-bottom: 2px; text-decoration: none; }
+    .dropdown-content a:hover { background-color: #F0F9FF; color: var(--primary); }
+    .dropdown:hover .dropdown-content { display: block; }
+
+    /* ARTICLE */
+    .main-layout { display: grid; grid-template-columns: 3fr 1fr; gap: 60px; padding: 60px 0 100px; flex: 1; }
+    .article-header { text-align: center; margin-bottom: 40px; }
+    .article-header h1 { font-size: 42px; line-height: 1.2; margin-top: 0; }
+    .meta { font-size: 14px; color: #64748B; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+    
+    .featured-image { width: 100%; height: 500px; object-fit: cover; border-radius: var(--radius); margin-bottom: 60px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+    .content-image { width: 100%; height: auto; border-radius: 12px; margin: 40px 0; border: 1px solid var(--border); }
+    .article-content { font-size: 19px; color: #334155; }
+
+    /* BOXES */
+    .clinical-box { background: #E0F2FE; border-left: 5px solid var(--primary); padding: 30px; border-radius: 8px; margin: 40px 0; }
+    .warning-box { background: #FEF2F2; border-left: 5px solid #EF4444; padding: 30px; border-radius: 8px; margin: 40px 0; color: #991B1B; }
+
+    /* SIDEBAR */
+    .sidebar-widget { background: white; padding: 24px; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: 0 2px 4px rgba(0,0,0,0.02); position: sticky; top: 100px; }
+    .widget-title { font-size: 18px; margin-bottom: 20px; border-bottom: 2px solid #F1F5F9; padding-bottom: 12px; font-weight: 700; }
+    .cat-list li { margin-bottom: 12px; }
+    .cat-list a { display: flex; justify-content: space-between; font-weight: 500; font-size: 14px; color: var(--text-body); text-decoration: none; }
+    .cat-list a:hover { color: var(--primary); transform: translateX(5px); }
+    .cat-list span { background: #F1F5F9; padding: 2px 8px; border-radius: 20px; font-size: 11px; color: #64748B; font-weight: 700; }
+
+    /* FOOTER */
+    footer { background: #0F172A; padding: 60px 0; text-align: center; color: #94A3B8; margin-top: auto; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; text-align: left; }
+    .footer-col h4 { color: white; margin-bottom: 20px; font-size: 16px; }
+    .footer-col a:hover { color: white; }
+
+    @media (max-width: 900px) { .main-layout { grid-template-columns: 1fr; } .featured-image { height: 300px; } .article-header h1 { font-size: 32px; } }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">SmileNote.</a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+          <a href="#" class="dropbtn">Details ▾</a>
+          <div class="dropdown-content">
+            <a href="list.html?type=implant">Dental implant</a>
+            <a href="list.html?type=treatment">Dental treatment</a>
+            <a href="list.html?type=veneers">Dental veneers</a>
+            <a href="list.html?type=general">General dentistry</a>
+            <a href="list.html?type=orthodontics">Orthodontics</a>
+            <a href="list.html?type=pediatric">Pediatric dentistry</a>
+            <a href="list.html?type=crown">Porcelain crown</a>
+          </div>
+        </div>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container main-layout">
+    
+    <article class="article-content-wrapper">
+      <div class="article-header">
+        <div class="meta">Porcelain Crown • Dr. Steven Nguyen</div>
+        <h1>Diagnosing the Need: Why We Still Choose Porcelain Fused to Metal Crowns</h1>
+      </div>
+
+      <img src="https://images.pexels.com/photos/3845806/pexels-photo-3845806.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="featured-image" alt="Porcelain Fused to Metal Crown">
+
+      <div class="article-content">
+        <h2>Introduction to Clinical Decision Making</h2>
+        <p>In the modern dental landscape filled with Zirconia and E.max, patients often ask why I would ever suggest <strong>porcelain fused to metal crowns</strong>. It seems like older technology, right? While it is true that all-ceramic options are popular, the "PFM" (Porcelain Fused to Metal) crown remains a workhorse in restorative dentistry for very specific reasons. When you sit in my chair, my goal isn't just to make the tooth look white; it's to make sure the restoration survives the massive forces of your bite. There are distinct clinical scenarios where the track record and mechanical properties of <strong>porcelain fused to metal crowns</strong> make them the superior diagnostic choice.</p>
+
+        <h2>Durability Meets Aesthetics</h2>
+        <p>The primary conversation I have with patients regarding <strong>Porcelain fused to metal crowns</strong> revolves around the trade-off between strength and beauty.</p>
+
+        <h3>The Strength of the Substructure</h3>
+        <p>Imagine a bridge. You need a steel skeleton to hold up the concrete. That is essentially what a PFM crown is. The underlying metal coping (the thimble that fits over your tooth) provides immense strength and precision fit. For patients who grind their teeth or have a very heavy bite, all-ceramic crowns can sometimes fracture catastrophically. The metal core of a PFM rarely breaks. Even if the porcelain chips, the seal of the crown usually remains intact because the metal is doing the heavy lifting.</p>
+
+        <h3>The Aesthetic Compromise</h3>
+        <p>However, I always show my patients a mirror and explain the visual difference. Because there is metal underneath, light cannot pass through the tooth like it does with a natural tooth or a pure ceramic crown. This makes <strong>Porcelain fused to metal crowns</strong> look slightly more "opaque" or flat. For a back molar, this doesn't matter. For a front tooth, it might be a dealbreaker unless we have no other choice due to bite issues.</p>
+
+        <h2>Diagnosing the "Black Line"</h2>
+        <p>One of the most common things patients point out in my chair is an old crown with a dark line at the gum.</p>
+
+        <div class="clinical-box">
+          <h3>🔍 It's Not Decay, It's Metal</h3>
+          <p>Patients often panic, thinking the tooth is rotting. I have to explain that with traditional <strong>porcelain fused to metal crowns</strong>, the metal edge must end somewhere. Usually, we hide this under the gum line. But over time, as we age, gums naturally recede. When the gum pulls back, it reveals that metal margin. It looks like a pencil line drawn on the tooth. This is a classic diagnostic sign of a PFM crown. It doesn't mean the crown has failed or has cavities; it just means the aesthetics have been compromised by time and biology.</p>
+        </div>
+
+        <h2>Precision Fit and Retention</h2>
+        <p>Another reason I might steer a clinical case toward <strong>porcelain fused to metal crowns</strong> involves the fit.</p>
+
+        <img src="https://images.pexels.com/photos/2861803/pexels-photo-2861803.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="content-image" alt="Dental Model and Crown">
+
+        <h3>The Long-Span Bridge</h3>
+        <p>If we are replacing a missing tooth with a bridge (three or more connected crowns), the span of the bridge needs to be rigid. Metal is incredibly rigid even in thin sections. Some ceramic materials can flex slightly or require very thick connectors to prevent breaking. If you have short teeth or a tight bite, I might not have room for thick ceramic. Metal allows me to make a strong connector that fits into a tight space. Furthermore, the fit of cast metal on the tooth margin is historically the "gold standard" for sealing the tooth against bacteria.</p>
+
+        <h2>Decision Logic for Posterior Teeth</h2>
+        <p>When we look at second molars—the teeth way in the back—the chewing forces are highest.</p>
+
+        <div class="warning-box">
+          <h3>⚠️ Clearance Issues</h3>
+          <p>Sometimes, a patient has a "collapsed bite," meaning there is very little room between the top and bottom teeth. To place a crown, I have to shave down the tooth. If I use ceramic, I need to remove a lot of tooth structure (1.5 to 2mm) to prevent the ceramic from cracking. With <strong>porcelain fused to metal crowns</strong>, specifically those with a metal occlusal (biting) surface, I can be much more conservative. I can leave the metal exposed on the chewing surface, which requires removing less than 1mm of tooth. This saves tooth structure and creates a crown that is virtually indestructible against grinding.</p>
+        </div>
+
+        <h2>Conclusion</h2>
+        <p>So, are <strong><a href="https://dilysnt.github.io/Blog/pfm-crowns.html" style="color: var(--primary);">porcelain fused to metal crowns</a></strong> obsolete? Absolutely not. They are a reliable, proven solution that balances the strength of metal with the look of porcelain. While they may not be the first choice for a front tooth in a supermodel, they are often the <em>best</em> choice for a molar in a patient with a heavy bite. It is about choosing the right tool for the job.</p>
+      </div>
+    </article>
+
+    <aside>
+      <div class="sidebar-widget">
+        <h4 class="widget-title">Popular Categories</h4>
+        <ul class="cat-list">
+          <li><a href="list.html?type=implant">Dental implant <span>02</span></a></li>
+          <li><a href="list.html?type=treatment">Dental treatment <span>02</span></a></li>
+          <li><a href="list.html?type=veneers">Dental veneers <span>01</span></a></li>
+          <li><a href="list.html?type=general">General dentistry <span>01</span></a></li>
+          <li><a href="list.html?type=orthodontics">Orthodontics <span>02</span></a></li>
+          <li><a href="list.html?type=pediatric">Pediatric dentistry <span>01</span></a></li>
+          <li><a href="list.html?type=crown">Porcelain crown <span>03</span></a></li> </ul>
+      </div>
+    </aside>
+
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="#" class="footer-logo">SmileNote.</a>
+          <p>Providing professional, trusted dental knowledge to help you maintain a healthy, confident smile.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="list.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>📍 123 Dental Street, NY</p>
+          <p>✉️ hello@smilenote.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 SmileNote. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
