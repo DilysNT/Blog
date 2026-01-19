@@ -48,8 +48,6 @@
     .dropdown-content a:hover { background-color: #F0F9FF; color: var(--primary); transform: translateX(4px); }
     .dropdown:hover .dropdown-content { display: block; }
     
-    /* CONTENT FLEX GROW */
-    .content-area-grow { flex: 1; display: block; }
     .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; margin-bottom: 80px; }
     .card { background: var(--bg-card); border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(0,0,0,0.03); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; transition: 0.4s; height: 100%; }
     .card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
@@ -70,6 +68,8 @@
     .footer-col a:hover { color: white; padding-left: 5px; }
     .footer-logo { font-family: var(--font-head); font-weight: 800; font-size: 28px; color: white; display: block; margin-bottom: 16px; }
     .footer-bottom { border-top: 1px solid #1E293B; padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 14px; }
+    
+    .content-area-grow { flex: 1; display: block; }
   </style>
 </head>
 <body>
@@ -101,10 +101,19 @@
     <h1 id="page-title" style="margin-top: 80px; text-align: center; font-size: 40px; color: var(--text-head);">All Articles</h1>
     <div class="cards-grid" id="posts-container">
       
+      <article class="card type-crown">
+        <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/3845806/pexels-photo-3845806.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="PFM Crowns"></div>
+        <div class="card-body">
+          <span class="badge" style="background:#E0F2FE; color:#0284C7">Porcelain crown</span>
+          <h3><a href="pfm-crowns.html">Diagnosing the Need: Why We Still Choose Porcelain Fused to Metal Crowns</a></h3>
+          <p class="excerpt">Why PFM crowns remain a superior diagnostic choice for specific clinical scenarios.</p>
+        </div>
+      </article>
+
       <article class="card type-general">
         <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/305565/pexels-photo-305565.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Dental X-ray Safety"></div>
         <div class="card-body">
-          <div style="margin-bottom:10px;"><span class="badge">General dentistry</span></div>
+          <span class="badge" style="background:#DCFCE7; color:#15803D">General dentistry</span>
           <h3><a href="dental-xray-safety.html">Your Complete Guide to Safety and Comfort During a Dental X-ray</a></h3>
           <p class="excerpt">Understanding radiation dosage and safety protocols to ensure your appointment is worry-free.</p>
         </div>
@@ -113,7 +122,7 @@
       <article class="card type-implant">
         <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/3779708/pexels-photo-3779708.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Removable Dentures"></div>
         <div class="card-body">
-          <div style="margin-bottom:10px;"><span class="badge">Dental implant</span></div>
+          <span class="badge" style="background:#E0F2FE; color:#0284C7">Dental implant</span>
           <h3><a href="removable-dentures-bone-loss.html">Long-Term Prognosis and Bone Atrophy Risks of Removable Dentures</a></h3>
           <p class="excerpt">Evaluation of the long-term risk profile of dentures, specifically regarding bone loss.</p>
         </div>
@@ -122,7 +131,7 @@
       <article class="card type-treatment">
         <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/4269271/pexels-photo-4269271.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Root Canal Recovery"></div>
         <div class="card-body">
-          <div style="margin-bottom:10px;"><span class="badge">Dental treatment</span></div>
+          <span class="badge" style="background:#E0F2FE; color:#0284C7">Dental treatment</span>
           <h3><a href="root-canal-recovery.html">Post-Treatment Wellness: Are Root Canals Bad for You?</a></h3>
           <p class="excerpt">It implies normal recovery symptoms vs signs of failure. Understanding what is happening to your body.</p>
         </div>
@@ -131,7 +140,7 @@
       <article class="card type-veneers">
         <div style="overflow:hidden;"><img src="https://images.pexels.com/photos/3779705/pexels-photo-3779705.jpeg?auto=compress&cs=tinysrgb&w=800" class="card-thumb" alt="Veneers"></div>
         <div class="card-body">
-          <div style="margin-bottom:10px;"><span class="badge">Dental veneers</span></div>
+          <span class="badge" style="background:#E0F2FE; color:#0284C7">Dental veneers</span>
           <h3><a href="veneers-missing-teeth.html">Can You Get Veneers With Missing Teeth? The Honest Truth</a></h3>
           <p class="excerpt">Veneers need a foundation. If the tooth is gone, there is nothing for the porcelain to stick to.</p>
         </div>
@@ -212,7 +221,7 @@
       <div class="footer-grid">
         <div class="footer-col">
           <a href="#" class="footer-logo">SmileNote.</a>
-          <p>Providing professional, trusted dental knowledge.</p>
+          <p>Providing professional, trusted dental knowledge to help you maintain a healthy, confident smile.</p>
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
@@ -253,6 +262,8 @@
 
     if (type) {
       document.getElementById('page-title').innerText = titles[type] || 'Category: ' + type;
+      // Ẩn nút Load More khi đang lọc
+      document.getElementById('load-more-btn').style.display = 'none';
       
       document.querySelectorAll('.card').forEach(card => {
         if (card.classList.contains('type-' + type)) {
@@ -262,10 +273,25 @@
         }
       });
     } else {
-      // Nếu không có type, hiện tất cả
+      // Logic mặc định cho trang List: Hiện tất cả
       document.querySelectorAll('.card').forEach(card => card.style.display = 'flex');
+      document.getElementById('load-more-btn').style.display = 'none';
     }
   </script>
+
+  <aside>
+    <div class="sidebar-widget">
+      <h4 class="widget-title">Popular Categories</h4>
+      <ul class="cat-list">
+        <li><a href="list.html?type=implant">Dental implant <span>02</span></a></li>
+        <li><a href="list.html?type=treatment">Dental treatment <span>02</span></a></li>
+        <li><a href="list.html?type=veneers">Dental veneers <span>01</span></a></li>
+        <li><a href="list.html?type=general">General dentistry <span>01</span></a></li>
+        <li><a href="list.html?type=orthodontics">Orthodontics <span>02</span></a></li>
+        <li><a href="list.html?type=pediatric">Pediatric dentistry <span>01</span></a></li>
+        <li><a href="list.html?type=crown">Porcelain crown <span>03</span></a></li> </ul>
+    </div>
+  </aside>
 
 </body>
 </html>
