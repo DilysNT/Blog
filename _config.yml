@@ -1,0 +1,6 @@
+title: SmileNote Dental Blog
+description: Your Smile. Your Health. Your Story.
+url: "https://dilysnt.github.io" # Thay bằng username của bạn nếu khác
+baseurl: "/Blog" # Tên kho lưu trữ (Repo) của bạn
+theme: jekyll-theme-primer
+permalink: /:year-:month-:day-:title.html
