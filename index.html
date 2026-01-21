@@ -1,16 +1,38 @@
-<div class="cards-grid" id="posts-container">
-    
-    {% for post in site.posts %}
-      <article class="card type-{{ post.category | slugify }}">
-        <div style="overflow:hidden;">
-          <img src="{{ post.image }}" class="card-thumb" alt="{{ post.title }}">
-        </div>
-        <div class="card-body">
-          <span class="badge" style="background:#E0F2FE; color:#0284C7">{{ post.category }}</span>
-          <h3 class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-          <p class="excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
-        </div>
-      </article>
-    {% endfor %}
+---
+layout: default
+title: Home — SmileNote Dental Blog
+---
 
+<section class="hero">
+  <div class="container">
+    <h1>Your Smile. Your Health. Your Story.</h1>
+    <div class="search-wrapper">
+      <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input type="text" id="searchInput" class="search-input" placeholder="Search articles...">
     </div>
+  </div>
+</section>
+
+<div class="main-layout">
+  <main>
+    <div class="cards-grid" id="posts-container">
+      
+      {% for post in site.posts %}
+        <article class="card type-{{ post.category | slugify }}">
+          <div style="overflow:hidden;">
+            <img src="{{ post.image | default: 'https://via.placeholder.com/800x400' }}" class="card-thumb" alt="{{ post.title }}">
+          </div>
+          <div class="card-body">
+            <span class="badge" style="background:#E0F2FE; color:#0284C7">{{ post.category }}</span>
+            <h3 class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+            <p class="excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+          </div>
+        </article>
+      {% endfor %}
+      </div>
+  </main>
+  
+  <aside>
+    {% include sidebar.html %}
+  </aside>
+</div>
