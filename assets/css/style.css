@@ -99,3 +99,30 @@ footer { background: #0F172A; padding: 60px 0; text-align: center; color: #94A3B
   .featured-image { height: 250px; }
   .article-header h1 { font-size: 28px; }
 }
+/* --- STYLE CHO TRANG POST (MỚI) --- */
+
+/* Breadcrumbs */
+.breadcrumbs { font-size: 13px; color: #64748B; margin-bottom: 15px; font-weight: 500; }
+.breadcrumbs a { color: #64748B; text-decoration: none; }
+.breadcrumbs a:hover { color: var(--primary); }
+
+/* Hàng thông tin tác giả */
+.post-meta-row { display: flex; align-items: center; gap: 12px; margin-bottom: 30px; }
+.author-avatar { width: 40px; height: 40px; border-radius: 50%; background-color: #eee; } /* Bạn có thể thay bằng thẻ img thật */
+.meta-info { font-size: 14px; color: #475569; font-weight: 500; display: flex; align-items: center; gap: 8px; }
+.author-name { color: #0F172A; font-weight: 700; }
+.meta-divider { color: #CBD5E1; }
+
+/* Chỉnh lại ảnh bìa cho đẹp hơn */
+.featured-image { 
+  width: 100%; 
+  height: auto; /* Để ảnh hiển thị tự nhiên */
+  max-height: 500px; 
+  object-fit: cover; 
+  border-radius: 24px; /* Bo tròn mạnh như ảnh mẫu */
+  margin-bottom: 40px;
+}
+
+/* Chỉnh lại nội dung bài viết */
+.article-content { font-size: 18px; line-height: 1.8; color: #334155; }
+.article-content h2 { margin-top: 40px; font-size: 26px; color: #0F172A; }
