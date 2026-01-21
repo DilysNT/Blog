@@ -1,3 +1,6 @@
+---
+layout: null
+---
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,7 +9,7 @@
   <title>All Articles — SmileNote</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    /* CSS GIỮ NGUYÊN NHƯ CŨ */
+    /* CSS SYSTEM GIỮ NGUYÊN */
     :root { --primary: #0284C7; --primary-hover: #0369A1; --secondary: #38BDF8; --bg-body: #F8FAFC; --bg-card: #FFFFFF; --text-head: #0F172A; --text-body: #475569; --border: #E2E8F0; --radius: 20px; --font-head: 'Plus Jakarta Sans', sans-serif; --font-body: 'Inter', sans-serif; }
     * { box-sizing: border-box; }
     body { margin: 0; background-color: var(--bg-body); font-family: var(--font-body); color: var(--text-body); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
@@ -20,7 +23,7 @@
     .nav-links { display: flex; gap: 36px; font-weight: 600; align-items: center; }
     .nav-links a { color: var(--text-head); font-size: 15px; position: relative; }
     .nav-links a:hover, .nav-links a.active { color: var(--primary); }
-
+    
     .dropdown { position: relative; display: inline-block; }
     .dropbtn { cursor: pointer; display: flex; align-items: center; gap: 6px; }
     .dropdown-content { display: none; position: absolute; background-color: white; min-width: 240px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border-radius: 16px; padding: 8px; z-index: 1001; top: 140%; left: -20px; border: 1px solid var(--border); }
@@ -29,7 +32,9 @@
     .dropdown-content a:hover { background-color: #F0F9FF; color: var(--primary); transform: translateX(4px); }
     .dropdown:hover .dropdown-content { display: block; }
     
+    /* LAYOUT: GRID 2 CỘT */
     .page-layout { display: grid; grid-template-columns: 3fr 1fr; gap: 40px; margin-top: 40px; margin-bottom: 80px; }
+    
     .cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
     .card { background: var(--bg-card); border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(0,0,0,0.03); box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: 0.4s; height: 100%; }
     .card:hover { transform: translateY(-8px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
@@ -38,9 +43,10 @@
     .card h3 { font-size: 18px; margin-bottom: 12px; line-height: 1.45; }
     .card h3 a { color: var(--text-head); }
     .card:hover h3 a { color: var(--primary); }
-    .badge { display: inline-block; padding: 4px 12px; border-radius: 100px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; background: #E0F2FE; color: #0369A1; margin-bottom: 12px; width: fit-content; }
+    .badge { display: inline-block; padding: 4px 12px; border-radius: 100px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; background: #E0F2FE; color: #0369A1; margin-bottom: 12px; width: fit-content;}
     .excerpt { font-size: 14px; color: var(--text-body); margin-bottom: 20px; flex-grow: 1; line-height: 1.7; }
     
+    /* SIDEBAR */
     .sidebar-widget { background: white; padding: 24px; border-radius: var(--radius); border: 1px solid var(--border); position: sticky; top: 100px; }
     .widget-title { font-size: 18px; margin-bottom: 20px; border-bottom: 2px solid #F1F5F9; padding-bottom: 12px; font-weight: 700; }
     .cat-list { list-style: none; padding: 0; margin: 0; }
@@ -115,14 +121,15 @@
             </div>
           </article>
         {% endfor %}
-        </div>
+
+      </div>
     </main>
 
     <aside>
       <div class="sidebar-widget">
         <h4 class="widget-title">Popular Categories</h4>
         <ul class="cat-list">
-          <li><a href="list.html?type=implant">Dental implant</a></li>
+          <li><a href="list.html?type=dental-implant">Dental implant</a></li>
           <li><a href="list.html?type=dental-treatment">Dental treatment</a></li>
           <li><a href="list.html?type=dental-veneers">Dental veneers</a></li>
           <li><a href="list.html?type=general-dentistry">General dentistry</a></li>
@@ -165,18 +172,21 @@
 
   <script>
     const params = new URLSearchParams(window.location.search);
-    const type = params.get('type');
+    let type = params.get('type');
     
-    // Tự động viết hoa chữ cái đầu cho tiêu đề
+    // Hàm chuyển đổi slug thành chữ đẹp (Ví dụ: dental-implant -> Dental Implant)
     function toTitleCase(str) {
         return str.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     }
 
     if (type) {
+      // Chuẩn hóa type về dạng slug (chữ thường, gạch ngang) để so sánh
+      type = type.toLowerCase().replace(/ /g, '-');
+
       document.getElementById('page-title').innerText = toTitleCase(type);
       
       document.querySelectorAll('.card').forEach(card => {
-        // Kiểm tra xem class của thẻ card có chứa 'type-' + từ khóa tìm kiếm không
+        // So sánh class của card với type trên URL
         if (card.classList.contains('type-' + type)) {
             card.style.display = 'flex';
         } else {
