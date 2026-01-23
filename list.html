@@ -79,13 +79,13 @@ layout: null
         <div class="dropdown">
           <a href="#" class="dropbtn">Details ▾</a>
           <div class="dropdown-content">
-            <a href="list.html?type=implant">Dental implant</a>
-            <a href="list.html?type=treatment">Dental treatment</a>
-            <a href="list.html?type=veneers">Dental veneers</a>
-            <a href="list.html?type=general">General dentistry</a>
+            <a href="list.html?type=dental-implant">Dental implant</a>
+            <a href="list.html?type=dental-treatment">Dental treatment</a>
+            <a href="list.html?type=dental-veneers">Dental veneers</a>
+            <a href="list.html?type=general-dentistry">General dentistry</a>
             <a href="list.html?type=orthodontics">Orthodontics</a>
-            <a href="list.html?type=pediatric">Pediatric dentistry</a>
-            <a href="list.html?type=crown">Porcelain crown</a>
+            <a href="list.html?type=pediatric-dentistry">Pediatric dentistry</a>
+            <a href="list.html?type=porcelain-crown">Porcelain crown</a>
           </div>
         </div>
         <a href="about.html">About</a>
@@ -176,23 +176,33 @@ layout: null
     
     // Hàm chuyển đổi slug thành chữ đẹp (Ví dụ: dental-implant -> Dental Implant)
     function toTitleCase(str) {
+        if (!str) return '';
         return str.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     }
 
     if (type) {
       // Chuẩn hóa type về dạng slug (chữ thường, gạch ngang) để so sánh
+      // Bước này đảm bảo dù URL có là "General Dentistry" hay "general-dentistry" đều chạy đúng
       type = type.toLowerCase().replace(/ /g, '-');
 
       document.getElementById('page-title').innerText = toTitleCase(type);
       
+      let found = false;
       document.querySelectorAll('.card').forEach(card => {
         // So sánh class của card với type trên URL
         if (card.classList.contains('type-' + type)) {
             card.style.display = 'flex';
+            found = true;
         } else {
             card.style.display = 'none';
         }
       });
+      
+      // Nếu không tìm thấy bài nào, hiện thông báo (Optional)
+      if (!found) {
+        document.getElementById('posts-container').innerHTML = '<p style="grid-column: 1/-1; text-align: center;">No articles found in this category yet.</p>';
+      }
+
     } else {
       document.querySelectorAll('.card').forEach(card => card.style.display = 'flex');
     }
