@@ -174,22 +174,37 @@ layout: null
     const params = new URLSearchParams(window.location.search);
     let type = params.get('type');
     
-    // Hàm chuyển đổi slug thành chữ đẹp (Ví dụ: dental-implant -> Dental Implant)
+    // DANH SÁCH "BÍ DANH": Tự động chuyển link cũ (ngắn) thành link mới (chuẩn)
+    // Nếu bạn lỡ click vào link cũ, code này sẽ tự sửa cho bạn.
+    const aliases = {
+        'implant': 'dental-implant',
+        'treatment': 'dental-treatment',
+        'veneers': 'dental-veneers',
+        'general': 'general-dentistry',
+        'crown': 'porcelain-crown',
+        'pediatric': 'pediatric-dentistry'
+    };
+
     function toTitleCase(str) {
         if (!str) return '';
         return str.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     }
 
     if (type) {
-      // Chuẩn hóa type về dạng slug (chữ thường, gạch ngang) để so sánh
-      // Bước này đảm bảo dù URL có là "General Dentistry" hay "general-dentistry" đều chạy đúng
+      // 1. Chuẩn hóa về chữ thường
       type = type.toLowerCase().replace(/ /g, '-');
 
+      // 2. KIỂM TRA BÍ DANH: Nếu là tên cũ (implant), đổi ngay sang tên mới (dental-implant)
+      if (aliases[type]) {
+          type = aliases[type];
+      }
+
+      // 3. Hiển thị tiêu đề và lọc bài
       document.getElementById('page-title').innerText = toTitleCase(type);
       
       let found = false;
       document.querySelectorAll('.card').forEach(card => {
-        // So sánh class của card với type trên URL
+        // So sánh class của card với type chuẩn
         if (card.classList.contains('type-' + type)) {
             card.style.display = 'flex';
             found = true;
@@ -198,9 +213,9 @@ layout: null
         }
       });
       
-      // Nếu không tìm thấy bài nào, hiện thông báo (Optional)
+      // 4. Thông báo nếu không có bài
       if (!found) {
-        document.getElementById('posts-container').innerHTML = '<p style="grid-column: 1/-1; text-align: center;">No articles found in this category yet.</p>';
+        document.getElementById('posts-container').innerHTML = '<p style="grid-column: 1/-1; text-align: center; font-size: 18px; color: #64748B;">Coming soon! Articles for <b>' + toTitleCase(type) + '</b> are on the way.</p>';
       }
 
     } else {
