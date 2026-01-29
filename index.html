@@ -19,12 +19,21 @@ title: Home — SmileNote Dental Blog
     <div class="cards-grid" id="posts-container">
       
       {% for post in site.posts %}
-        <article class="card type-{{ post.category | slugify }}">
+        {% assign cat_slug = post.category | downcase | replace: ' ', '-' %}
+        
+        <article class="card type-{{ cat_slug }}">
           <div style="overflow:hidden;">
-            <img src="{{ post.image | default: 'https://via.placeholder.com/800x400' }}" class="card-thumb" alt="{{ post.title }}">
+            <a href="{{ post.url | relative_url }}">
+               <img src="{{ post.image | default: 'https://via.placeholder.com/800x400' }}" class="card-thumb" alt="{{ post.title }}">
+            </a>
           </div>
           <div class="card-body">
-            <span class="badge">{{ post.category }}</span>
+            <span class="badge" 
+                style="{% if cat_slug == 'orthodontics' %}background:#F3E8FF; color:#7E22CE
+                       {% elsif cat_slug == 'general-dentistry' %}background:#DCFCE7; color:#15803D
+                       {% else %}background:#E0F2FE; color:#0284C7{% endif %}">
+                {{ post.category }}
+            </span>
             
             <h3 class="post-title">
               <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
@@ -39,7 +48,24 @@ title: Home — SmileNote Dental Blog
   </main>
   
   <aside>
-    {% include sidebar.html %}
+    <div class="sidebar-widget">
+      <h4 class="widget-title">Popular Categories</h4>
+      <ul class="cat-list">
+        {% assign categories_list = "Dental implant,Dental treatment,Dental veneers,General dentistry,Orthodontics,Pediatric dentistry,Porcelain crown" | split: "," %}
+        
+        {% for category in categories_list %}
+          {% assign slug = category | downcase | replace: " ", "-" %}
+          {% assign count = site.categories[category] | size %}
+          
+          <li>
+            <a href="list.html?type={{ slug }}">
+              {{ category }} 
+              <span>{{ count }}</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
   </aside>
 
 </div>
