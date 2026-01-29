@@ -129,13 +129,19 @@ layout: null
       <div class="sidebar-widget">
         <h4 class="widget-title">Popular Categories</h4>
         <ul class="cat-list">
-          <li><a href="list.html?type=dental-implant">Dental implant</a></li>
-          <li><a href="list.html?type=dental-treatment">Dental treatment</a></li>
-          <li><a href="list.html?type=dental-veneers">Dental veneers</a></li>
-          <li><a href="list.html?type=general-dentistry">General dentistry</a></li>
-          <li><a href="list.html?type=orthodontics">Orthodontics</a></li>
-          <li><a href="list.html?type=pediatric-dentistry">Pediatric dentistry</a></li>
-          <li><a href="list.html?type=porcelain-crown">Porcelain crown</a></li>
+          {% assign categories_list = "Dental implant,Dental treatment,Dental veneers,General dentistry,Orthodontics,Pediatric dentistry,Porcelain crown" | split: "," %}
+          
+          {% for category in categories_list %}
+            {% assign slug = category | downcase | replace: " ", "-" %}
+            {% assign count = site.categories[category] | size %}
+            
+            <li>
+              <a href="list.html?type={{ slug }}">
+                {{ category }} 
+                <span>{{ count }}</span>
+              </a>
+            </li>
+          {% endfor %}
         </ul>
       </div>
     </aside>
@@ -174,8 +180,7 @@ layout: null
     const params = new URLSearchParams(window.location.search);
     let type = params.get('type');
     
-    // DANH SÁCH "BÍ DANH": Tự động chuyển link cũ (ngắn) thành link mới (chuẩn)
-    // Nếu bạn lỡ click vào link cũ, code này sẽ tự sửa cho bạn.
+    // Tự động sửa lỗi link cũ (VD: implant -> dental-implant)
     const aliases = {
         'implant': 'dental-implant',
         'treatment': 'dental-treatment',
@@ -191,20 +196,13 @@ layout: null
     }
 
     if (type) {
-      // 1. Chuẩn hóa về chữ thường
       type = type.toLowerCase().replace(/ /g, '-');
+      if (aliases[type]) { type = aliases[type]; }
 
-      // 2. KIỂM TRA BÍ DANH: Nếu là tên cũ (implant), đổi ngay sang tên mới (dental-implant)
-      if (aliases[type]) {
-          type = aliases[type];
-      }
-
-      // 3. Hiển thị tiêu đề và lọc bài
       document.getElementById('page-title').innerText = toTitleCase(type);
       
       let found = false;
       document.querySelectorAll('.card').forEach(card => {
-        // So sánh class của card với type chuẩn
         if (card.classList.contains('type-' + type)) {
             card.style.display = 'flex';
             found = true;
@@ -213,7 +211,6 @@ layout: null
         }
       });
       
-      // 4. Thông báo nếu không có bài
       if (!found) {
         document.getElementById('posts-container').innerHTML = '<p style="grid-column: 1/-1; text-align: center; font-size: 18px; color: #64748B;">Coming soon! Articles for <b>' + toTitleCase(type) + '</b> are on the way.</p>';
       }
